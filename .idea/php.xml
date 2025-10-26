@@ -12,6 +12,8 @@
   </component>
   <component name="PhpIncludePathManager">
     <include_path>
+      <path value="D:/Sources/wordpress" />
+      <path value="D:/Sources/advanced-custom-fields" />
       <path value="D:/source/wordpress" />
     </include_path>
   </component>

@@ -536,6 +536,11 @@ if ( is_readable( $custom_walker_footer ) ) {
 	require_once $custom_walker_footer;
 }
 
+$ajax_helper = __DIR__ . '/inc/class-ajaxHelper.php';
+if ( is_readable( $ajax_helper ) ) {
+    require_once $ajax_helper;
+    $ajax_helper=new AjaxHelper();
+}
 /**
  * Loading All CSS Stylesheets and Javascript Files.
  *
@@ -556,50 +561,12 @@ function delis_scripts_loader() {
 
 	// 2. Scripts.
 	wp_enqueue_script( 'mainjs', get_theme_file_uri( 'build/main.js' ), array(), $theme_version, true );
-
+    wp_localize_script('mainjs', 'delisAjax', array(
+        'ajaxurl' => admin_url('admin-ajax.php'),
+    ));
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'delis_scripts_loader' );
-add_action('wp_ajax_load_category_products_page', 'load_category_products_page');
-add_action('wp_ajax_nopriv_load_category_products_page', 'load_category_products_page');
-
-function load_category_products_page() {
-    $index = intval($_POST['index']);
-    $post_id = intval($_POST['post_id']);
-    ob_start();
-
-    if (have_rows('product_categories', $post_id)) {
-        $count = 0;
-        while (have_rows('product_categories', $post_id)) {
-            the_row();
-            if ($count == $index && have_rows('category_products')) {
-                echo '<div class="swiper-slide"><div class="swiper-category-products d-flex flex-wrap justify-content-center">';
-                while (have_rows('category_products')) {
-                    the_row();
-                    $p_img = get_sub_field('product_image');
-                    $p_title = get_sub_field('product_title');
-                    $p_link = get_sub_field('product_link'); ?>
-                    <a href="<?php echo esc_url($p_link); ?>" class="product-card text-center text-decoration-none mx-2 mb-3">
-                        <img src="<?php echo esc_url($p_img['url']); ?>"
-                             alt="<?php echo esc_attr($p_title); ?>"
-                             class="img-fluid mb-2" style="max-width:120px;">
-                        <span class="d-block text-dark small"><?php echo esc_html($p_title); ?></span>
-                    </a>
-                <?php }
-                echo '</div></div>';
-            }
-            $count++;
-        }
-    }
-
-    echo ob_get_clean();
-    wp_die();
-}
-function enqueue_swiper_assets() {
-    wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css');
-    wp_enqueue_script('swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', [], null, true);
-}
-add_action('wp_enqueue_scripts', 'enqueue_swiper_assets');
 

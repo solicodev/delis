@@ -37,8 +37,8 @@ $products = get_posts(
                     <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector24.svg" class="dotted-line"
                          alt="">
                     <p class="subtitle">... دِلم می‌خواد</p>
-                    <div class="mt-4 d-none d-sm-block ">
-                        <a href="#" class="delis-btn">دسرهای دلیس</a>
+                    <div class="mt-4 d-flex d-none d-sm-block ">
+                        <a href="#" class="delis-btn secondary">دسرهای دلیس</a>
                         <a href="#" class="delis-btn">قصه‌sی دلیس</a>
                     </div>
                 </div>
@@ -94,6 +94,8 @@ $products = get_posts(
             </div>
             <div class="col-5">
                 <div id="product-slider">
+
+
                     <div id="product-loader" class="d-none">
                         <div class="spinner-border" role="status">
                             <span class="visually-hidden">Loading...</span>
@@ -107,8 +109,10 @@ $products = get_posts(
                                          class="img-fluid mx-auto d-block"
                                          alt="<?php echo get_the_title($product->post_title); ?>">
                                     <div class="taste-shapes">
-                                        <img class="float-shape" src="<?php echo get_template_directory_uri(); ?>/assets/images/shapes/banana/banana-double.png" />
-                                        <img class="float-shape" src="<?php echo get_template_directory_uri(); ?>/assets/images/shapes/banana/banana.png" />
+                                        <img class="float-shape"
+                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/shapes/banana/banana-double.png"/>
+                                        <img class="float-shape"
+                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/shapes/banana/banana.png"/>
                                     </div>
                                 </div>
                             <?php endforeach; ?>
@@ -205,10 +209,53 @@ $products = get_posts(
                                 <img src="<?php echo get_template_directory_uri() ?>/assets/images/Insta-2.png"
                                      class="img-fluid">
                             </div>
-                            <div class="card-footer text-muted">
-                                <div class="insta-icons">
-                                    <span>❤️ 71</span>
-                                    <span>💬 21</span>
+                            <div class="card-footer text-muted d-flex justify-content-between">
+                                <div class="mark">
+                                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector42.svg">
+                                </div>
+                                <div class="insta-icons justify-content-end">
+                                    <span> 21 <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/images/Vector33.svg"
+                                                alt=""></span>
+                                    <span> 71 <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/images/Vector30.svg"
+                                                alt=""></span>
+                                    <span> 21 <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/images/Vector32.svg"
+                                                alt=""></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card  instagram-box p-0">
+                            <div class="card-header border-0 ">
+                        <span>
+                            delis_dessert_
+                        </span>
+
+                                <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group146.svg" alt="">
+                            </div>
+                            <div class="card-body p-0">
+                                <h5 class="card-title"></h5>
+                                <img src="<?php echo get_template_directory_uri() ?>/assets/images/Insta-2.png"
+                                     class="img-fluid">
+                            </div>
+                            <div class="card-footer text-muted d-flex justify-content-between">
+                                <div class="mark">
+                                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector42.svg">
+                                </div>
+                                <div class="insta-icons justify-content-end">
+                                    <span> 21 <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/images/Vector33.svg"
+                                                alt=""></span>
+                                    <span> 71 <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/images/Vector30.svg"
+                                                alt=""></span>
+                                    <span> 21 <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/images/Vector32.svg"
+                                                alt=""></span>
                                 </div>
                             </div>
                         </div>
@@ -227,11 +274,22 @@ $products = get_posts(
                                 <img src="<?php echo get_template_directory_uri() ?>/assets/images/Insta-2.png"
                                      class="img-fluid">
                             </div>
-                            <div class="card-footer text-muted">
-                                <div class="insta-icons">
-                                    <span>❤️ 71</span>
-                                    <span>💬 21</span>
+                            <div class="card-footer justify-content-between d-flex">
+                                <div class="mark">
+                                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector42.svg">
                                 </div>
+                                <div class="insta-icons  align-items-center">
+                                    <span> 21 <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/images/Vector33.svg"
+                                                alt=""></span>
+                                    <span> 71 <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/images/Vector30.svg"
+                                                alt=""></span>
+                                    <span> 21 <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/images/Vector32.svg"
+                                                alt=""></span>
+                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -249,32 +307,22 @@ $products = get_posts(
                                 <img src="<?php echo get_template_directory_uri() ?>/assets/images/Insta-2.png"
                                      class="img-fluid">
                             </div>
-                            <div class="card-footer text-muted">
-                                <div class="insta-icons">
-                                    <span>❤️ 71</span>
-                                    <span>💬 21</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="swiper-slide">
-                        <div class="card  instagram-box p-0">
-                            <div class="card-header border-0 ">
-                        <span>
-                            delis_dessert_
-                        </span>
-                                <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group146.svg" alt="">
-                            </div>
-                            <div class="card-body p-0">
-                                <h5 class="card-title"></h5>
-                                <img src="<?php echo get_template_directory_uri() ?>/assets/images/Insta-2.png"
-                                     class="img-fluid">
-                            </div>
-                            <div class="card-footer text-muted">
-                                <div class="insta-icons">
-                                    <span>❤️ 71</span>
-                                    <span>💬 21</span>
+
+                            <div class="card-footer text-muted d-flex justify-content-between">
+                                <div class="mark">
+                                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector42.svg">
+                                </div>
+                                <div class="insta-icons justify-content-end">
+                                    <span> 21 <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/images/Vector33.svg"
+                                                alt=""></span>
+                                    <span> 71 <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/images/Vector30.svg"
+                                                alt=""></span>
+                                    <span> 21 <img
+                                                src="<?php echo get_template_directory_uri() ?>/assets/images/Vector32.svg"
+                                                alt=""></span>
                                 </div>
                             </div>
                         </div>
@@ -290,9 +338,12 @@ $products = get_posts(
         </div>
 
         <!-- Swiper -->
+        <div class="d-flex justify-content-center">
 
+            <a href="#" class="delis-btn secondary"> اینستاگرام دلیس </a>
+
+        </div>
     </div>
-    <a href="#" class="delis-btn"> اینستاگرام دلیس </a>
 
 </section>
 
@@ -300,7 +351,7 @@ $products = get_posts(
 
 <section id="poo-delis">
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-between">
             <div class="col-12 col-lg-6">
                 <div class="title-group">
                     <span class="sub-title">برای همه</span>
@@ -316,9 +367,7 @@ $products = get_posts(
     تکی برای خودت، مولتی‌پک برای همه
 </span>
 
-                <div class="border-title
-
-">
+                <div class="border-title">
                 </div>
                 <p class="mt-3">پودینگ‌های دلیس با دو بسته‌بندی به بازار اومدن تا هر سبک زندگی و سلیقه‌ای رو پوشش بدن.
                     می‌خوای یه لحظه ناب برای خودت بسازی؟ بسته‌بندی تکی دلیس با توئه. اما اگه دنبال یه انتخاب به‌صرفه و

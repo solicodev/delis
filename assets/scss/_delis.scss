@@ -90,20 +90,28 @@ body {
   margin: 0;
   padding: 0;
   direction: rtl;
-}
 
+}
+.delis-btn.secondary{
+
+}
 .delis-btn {
-  border: 2px solid #10069F;
+  border: 2px solid $primary-color;
   font-size: fluid-font(14px, 24px);
   font-weight: 500;
-  box-shadow: 0 6px 0 0 #10069F;
+  box-shadow: 0 6px 0 0 $primary-color;
   border-radius: 20px;
   color: #000;
+  background-color: #fff;
   padding: 14px 10px;
-  min-width: 300px;
+  width: 300px;
   text-align: center;
   @include media-breakpoint-down('md') {
     width: 204px;
+    text-align: center;
+  }
+  &.secondary{
+    background-color: $secondary-color;
   }
 }
 
@@ -115,25 +123,6 @@ body {
     background-image: url("images/hero-mobile.svg");
   }
 
-  .delis-btn {
-    .story-btn {
-      margin-right: 4%;
-      background: #fff;
-    }
-
-    a {
-      border: 2px solid #10069F;
-      font-size: fluid-font(14px, 24px);
-      font-weight: 500;
-      box-shadow: 0 6px 0 0 #10069F;
-      border-radius: 20px;
-      width: 195px;
-      @include media-breakpoint-down('md') {
-        width: 204px;
-
-      }
-    }
-  }
 
   .dotted-line {
     position: absolute;
@@ -335,7 +324,6 @@ $icon-color: #ff6600;
   background-repeat: repeat-y;
   background-size: 100%;
   background-position: bottom;
-
   .fruit {
     .tout {
       position: absolute;
@@ -356,7 +344,6 @@ $icon-color: #ff6600;
       left: -7%;
     }
   }
-
   .instagram-box {
     text-align: left;
     background-color: #FFFAE6;
@@ -364,13 +351,10 @@ $icon-color: #ff6600;
     border: 1px solid #000;
 
   }
-
   body {
     background-color: #fff9e9;
     font-family: 'IRANSans', sans-serif;
   }
-
-
   .insta-info {
     padding: 10px 15px;
     text-align: left;
@@ -540,7 +524,10 @@ $icon-color: #ff6600;
 #footer {
   border-top: 1px solid #10069F;
   border-bottom: 1px solid #10069F;
-
+  .box-center{
+    border-left: 1px solid #10069F;
+    border-right: 1px solid #10069F;
+  }
   .link-Image {
     position: absolute;
     bottom: 15%;
@@ -565,10 +552,12 @@ $icon-color: #ff6600;
   }
 
   .footer-bar {
+    border-top:1px solid #10069F ;
     p {
-      font-size: fluid-font(14px, 18px);
+      font-size: fluid-font(14px, 16px);
       color: #000;
     }
+
   }
 
   .wrapper {
@@ -587,7 +576,7 @@ $icon-color: #ff6600;
     }
 
     p {
-      font-size: fluid-font(14px, 22px);
+      font-size: fluid-font(14px, 18px);
       color: #000;
       font-weight: 800;
     }

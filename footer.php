@@ -5,16 +5,15 @@
         <div class=" wrapper p-md-5">
             <div class="container last-footer">
                 <div class="row justify-content-between align-items-center">
-                    <div class="col-12 col-md-3 ">
+                    <div class="col-12 col-md-3  text-start">
 
                         <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group152.png" alt="">
                         <p>دسر خوشمزه‌ی تو!</p>
 
                     </div>
                     <div class="col-12 col-md-5 ">
-
-                        <div class="row">
-                            <div class="col-md-6">
+                        <div class="row box-center">
+                            <div class="col-md-6 ">
                                 <div class="link-Container position-relative d-flex flex-column col-6 col-md-12 ">
                                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/request.svg"
                                          class="link-Image"/>
@@ -56,7 +55,7 @@
 
                     </div>
                     <div class="col-12 col-md-3 ">
-                        <div class="icon-box d-flex justify-content-between">
+                        <div class="icon-box d-flex justify-content-between align-items-center">
 
                             <p>از جدیدترین اخبار مطلع شوید.</p>
 
@@ -69,9 +68,9 @@
                                         <label class="form-label">نام</label>
                                         <input type="text" class="form-control" placeholder="">
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-6 ">
                                         <label class="form-label">شماره تماس</label>
-                                        <input type="tel" class="form-control" placeholder=""">
+                                        <input type="tel" class="form-control" placeholder="">
                                     </div>
                                 </div>
 
@@ -90,9 +89,9 @@
         </div>
 
 
-        <div class="footer-bar d-flex justify-content-center ">
+        <div class="footer-bar d-flex justify-content-center align-items-center ">
             <img src="<?php echo get_template_directory_uri() ?>/assets/images/Solicoo.svg" class="m-2" alt="">
-            <p>تمام حقوق محفوظ و متعلق به گروه صنایع غذایی سولیکو کاله است.</p>
+            <p class="m-0">تمام حقوق محفوظ و متعلق به گروه صنایع غذایی سولیکو کاله است.</p>
         </div>
 
     </section>

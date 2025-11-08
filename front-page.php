@@ -37,9 +37,9 @@ $products = get_posts(
                     <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector24.svg" class="dotted-line"
                          alt="">
                     <p class="subtitle">... دِلم می‌خواد</p>
-                    <div class="mt-4 d-flex d-none d-sm-block ">
+                    <div class="mt-4 d-none d-sm-flex gap-3">
                         <a href="#" class="delis-btn secondary">دسرهای دلیس</a>
-                        <a href="#" class="delis-btn">قصه‌sی دلیس</a>
+                        <a href="#" class="delis-btn">قصه‌ی دلیس</a>
                     </div>
                 </div>
             </div>
@@ -57,7 +57,7 @@ $products = get_posts(
                                     type="video/mp4">
                         </video>
                     </div>
-                    <div class="mt-5 d-flex justify-content-between d-lg-none">
+                    <div class="mt-5 d-flex d-lg-none gap-3">
                         <a href="#" class="delis-btn">دسرهای دلیس</a>
                         <a href="#" class="delis-btn">قصه ی دلیس</a>
                     </div>
@@ -68,17 +68,26 @@ $products = get_posts(
 </section>
 <section id="products">
     <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="title-group">
+                    <h2>دسرهای دلیس</h2>
+                    <img src="<?php echo get_template_directory_uri();?>/assets/images/title-products.png" class="img-fluid">
+                </div>
+            </div>
+        </div>
         <div class="row justify-content-between">
-            <div class="col-6">
-                <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="row horizontal-scroll">
                     <?php
                     $i = 1;
                     foreach ($categories as $category) :
                         $cat = get_field('image', 'term_' . $category->term_id);
                         ?>
-                        <div class="col-4 mb-4">
+                        <div class="col col-lg-4 mb-4">
                             <div class="select-category <?php echo $i == 1 ? 'selected' : '' ?>"
                                  data-id="<?php echo $category->term_id; ?>">
+                                <span><?php echo $category->name; ?></span>
                                 <img class="mx-auto d-block img-fluid" src="<?php echo $cat['url']; ?>"
                                      alt="<?php echo $cat['title']; ?>">
                             </div>
@@ -88,34 +97,34 @@ $products = get_posts(
                     endforeach;
                     ?>
                 </div>
-                <div class="d-flex justify-content-center">
+                <div class="d-none d-lg-flex justify-content-center">
                     <a href="#" class="delis-btn mt-4">همه‌ی دسرها</a>
                 </div>
             </div>
-            <div class="col-5">
+            <div class="col-12 col-lg-6">
                 <div id="product-slider">
-
-
                     <div id="product-loader" class="d-none">
                         <div class="spinner-border" role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>
                     </div>
-                    <div class="swiper product-swiper">
+                    <div class="swiper product-swiper h-100">
                         <div id="product-wrap" class="swiper-wrapper">
-                            <?php foreach ($products as $product) : ?>
+                            <?php $i=1; foreach ($products as $product) :
+                                $terms = get_the_terms( $product->ID, 'product-flavor' );
+                                $terms = join(', ', wp_list_pluck( $terms , 'slug') );
+                                ?>
                                 <div class="swiper-slide">
                                     <img src="<?php echo get_the_post_thumbnail_url($product->ID); ?>"
                                          class="img-fluid mx-auto d-block"
                                          alt="<?php echo get_the_title($product->post_title); ?>">
-                                    <div class="taste-shapes">
-                                        <img class="float-shape"
-                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/shapes/banana/banana-double.png"/>
-                                        <img class="float-shape"
-                                             src="<?php echo get_template_directory_uri(); ?>/assets/images/shapes/banana/banana.png"/>
+                                    <div class="taste-shapes <?php echo $i==1 ? 'move-in' : ''; ?> <?php echo $terms;?>">
+                                        <img class="float-shape" src="<?php echo get_template_directory_uri(); ?>/assets/images/shapes/banana/banana-double.png" />
+                                        <img class="float-shape" src="<?php echo get_template_directory_uri(); ?>/assets/images/shapes/banana/banana.png" />
+                                        <img class="float-shape" src="<?php echo get_template_directory_uri(); ?>/assets/images/shapes/shape.png" />
                                     </div>
                                 </div>
-                            <?php endforeach; ?>
+                            <?php $i++; endforeach; ?>
                         </div>
                         <span class="swiper-button-next">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="21" viewBox="0 0 16 21"
@@ -140,18 +149,12 @@ $products = get_posts(
 <section id="about">
     <div class="about-us position-relative">
         <div class="container">
-            <div class="row justify-content-between align-content-start  mb-5">
+            <div class="row justify-content-between align-content-start">
                 <div class="col-lg-5">
                     <div class="title-group ">
-                        <span class="sub-title">خوشمزه</span>
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/yellow-heart.svg"
-                             class="yellow-heart">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector12.svg"
-                             class="dotted-line">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/Rectangle155.png"
-                             class="circle-img">
-
                         <h2>دلیس یعنی دسر</h2>
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/title-about.png"
+                             class="yellow-heart">
                     </div>
                     <p>
                         <span>ما اینجاییم تا لحظه‌های خوشمزه‌تون رو رنگی‌تر کنیم.</span>
@@ -163,9 +166,9 @@ $products = get_posts(
 
                 </div>
                 <div class="col-lg-7 text-start">
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group212.svg" class="girl"
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group212.svg" class="girl d-none d-lg-block"
                          alt="">
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group17.png" class="left-img "
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group17.png" class="img-fluid"
                          alt="">
                 </div>
 
@@ -179,23 +182,14 @@ $products = get_posts(
 
     <div class="container">
         <div class="fruit w-100 h-100 position-relative">
-            <img src="<?php echo get_template_directory_uri() ?>/assets/images/tout.svg" class="tout" alt="">
-            <img src="<?php echo get_template_directory_uri() ?>/assets/images/anar.svg" class="anar" alt="">
-            <img src="<?php echo get_template_directory_uri() ?>/assets/images/box.svg" alt="" class="box">
+            <img src="<?php echo get_template_directory_uri() ?>/assets/images/anar.svg" class="anar d-none d-lg-block" alt="">
             <div class="title-group">
-                <span class="sub-title">همراه شو</span>
-                <img src="<?php echo get_template_directory_uri() ?>/assets/images/purple-heart.svg"
-                     class="purple-heart">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector12.svg" class="dotted-line">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/images/Rectangle155.png" class="circle-img">
-                <h2> پودینگ دلیس</h2>
+                <img src="<?php echo get_template_directory_uri() ?>/assets/images/title-instagram.png">
+                <h2>اینستاگرام دلیس</h2>
             </div>
             <div class="swiper py-5" id="instagram-cards">
                 <div class="swiper-wrapper">
-
                     <!-- Slide -->
-
-
                     <div class="swiper-slide">
                         <div class="card  instagram-box p-0">
                             <div class="card-header border-0 ">
@@ -340,7 +334,12 @@ $products = get_posts(
         <!-- Swiper -->
         <div class="d-flex justify-content-center">
 
-            <a href="#" class="delis-btn secondary"> اینستاگرام دلیس </a>
+            <a href="#" class="delis-btn secondary">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M1 12C1 6.81495 1 4.22126 2.61063 2.61063C4.22126 1 6.81379 1 12 1C17.1851 1 19.7787 1 21.3894 2.61063C23 4.22126 23 6.81379 23 12C23 17.1851 23 19.7787 21.3894 21.3894C19.7787 23 17.1862 23 12 23C6.81495 23 4.22126 23 2.61063 21.3894C1 19.7787 1 17.1862 1 12Z" stroke="#10069F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18.5 5L18.3662 5.0338M17.2106 12.0005C17.2106 13.3824 16.6616 14.7077 15.6845 15.6849C14.7073 16.662 13.382 17.211 12.0001 17.211C10.6182 17.211 9.29284 16.662 8.31568 15.6849C7.33852 14.7077 6.78955 13.3824 6.78955 12.0005C6.78955 10.6186 7.33852 9.29323 8.31568 8.31607C9.29284 7.33891 10.6182 6.78994 12.0001 6.78994C13.382 6.78994 14.7073 7.33891 15.6845 8.31607C16.6616 9.29323 17.2106 10.6186 17.2106 12.0005Z" stroke="#10069F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                اینستاگرام دلیس </a>
 
         </div>
     </div>
@@ -354,27 +353,14 @@ $products = get_posts(
         <div class="row justify-content-between">
             <div class="col-12 col-lg-6">
                 <div class="title-group">
-                    <span class="sub-title">برای همه</span>
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/yellow-heart.svg"
-                         class="yellow-heart">
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector12.svg"
-                         class="dotted-line">
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Rectangle155.png"
-                         class="circle-img">
                     <h2> پودینگ دلیس</h2>
-                </div>
-                <span>
-    تکی برای خودت، مولتی‌پک برای همه
-</span>
-
-                <div class="border-title">
                 </div>
                 <p class="mt-3">پودینگ‌های دلیس با دو بسته‌بندی به بازار اومدن تا هر سبک زندگی و سلیقه‌ای رو پوشش بدن.
                     می‌خوای یه لحظه ناب برای خودت بسازی؟ بسته‌بندی تکی دلیس با توئه. اما اگه دنبال یه انتخاب به‌صرفه و
                     همیشه در دسترس برای مهمونی‌ها، دورهمی‌های خانوادگی یا حتی ذخیره خوشمزه برای روزهای شلوغی، مولتی‌پک
                     دلیس گزینه‌ ایده‌آله.
                 </p>
-                <a href="#" class="delis-btn">پودینگ‌ها رو بشناس</a>
+                <a href="#" class="delis-btn secondary">پودینگ‌ها</a>
             </div>
             <div class="col-12 col-lg-6">
                 <div class="pod-img">

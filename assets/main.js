@@ -25,14 +25,25 @@ import {Autoplay, Navigation, Pagination} from 'swiper/modules';
         centeredSlides: true,
         loop: true,
         autoplay: false,
-        autoHeight:true,
+        autoHeight:false,
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
     });
-    swiperProduct.on('slideChange', function (e) {
-        console.log('*** mySwiper.activeIndex', e);
+    swiperProduct.on('slideChangeTransitionEnd', function () {
+        // اول از همه کلاس رو از همه taste-shapes ها حذف می‌کنیم
+        document.querySelectorAll('.swiper-slide .taste-shapes').forEach(el => {
+            el.classList.remove('move-in');
+        });
+
+        // حالا فقط taste-shapes داخل اسلاید فعال رو انتخاب و کلاس اضافه می‌کنیم
+        const activeSlide = swiperProduct.slides[swiperProduct.activeIndex];
+        const activeTaste = activeSlide.querySelector('.taste-shapes');
+
+        if (activeTaste) {
+            activeTaste.classList.add('move-in');
+        }
     });
     function fetchProduct(id) {
         const sliderWrapper = document.getElementById('product-wrap')
@@ -64,6 +75,13 @@ import {Autoplay, Navigation, Pagination} from 'swiper/modules';
                     sliderWrapper.innerHTML = '';
                     sliderWrapper.innerHTML = data.data;
                     swiperProduct.update()
+                    const activeSlide = swiperProduct.slides[swiperProduct.activeIndex];
+                    const activeTaste = activeSlide.querySelector('.taste-shapes');
+
+                    if (activeTaste) {
+                        activeTaste.classList.add('move-in');
+                    }
+
                 } else {
                     //message_alert('error', data.data.message);
                 }

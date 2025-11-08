@@ -28,8 +28,16 @@ class AjaxHelper{
         );
         $html='';
         foreach ($products as $product) {
-            $html.='<div class="swiper-slide"><img src="'.get_the_post_thumbnail_url($product->ID).'"
-                                         class="img-fluid mx-auto d-block" alt="'.get_the_title($product->post_title).'"></div>';
+            $terms = get_the_terms( $product->ID, 'product-flavor' );
+            $terms = join(', ', wp_list_pluck( $terms , 'slug') );
+            $html.='<div class="swiper-slide"><img src="' . get_the_post_thumbnail_url($product->ID) . '"
+                                         class="img-fluid mx-auto d-block" alt="' . get_the_title($product->post_title) . '">
+                                         <div class="taste-shapes '.$terms.'">
+                                         <img class="float-shape" src="' . get_template_directory_uri() . '/assets/images/shapes/banana/banana-double.png" />
+                                         <img class="float-shape" src="' . get_template_directory_uri() . '/assets/images/shapes/banana/banana.png" />
+                                         <img class="float-shape" src="' . get_template_directory_uri() . '/assets/images/shapes/shape.png" />
+</div>
+                                         </div>';
         }
         wp_send_json_success($html);
     }

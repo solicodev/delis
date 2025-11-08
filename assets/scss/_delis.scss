@@ -43,47 +43,24 @@
 .title-group {
   position: relative;
   margin-bottom: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   @include media-breakpoint-down('md') {
-    margin: 12% 0;
+    padding: 2rem;
   }
-
-  .circle-img {
-    position: absolute;
-    top: 0;
-    right: 20%;
-    @include media-breakpoint-down('md') {
-      right: 31%;
-      top: -20%;
-    }
+  img{
+    width: fluid-font(160px,330px);
   }
-
-  .yellow-heart {
+  h2 {
+    font-feature-settings: 'ss03' on;
+    font-size: fluid-font(20px,40px);
+    font-weight: 900;
+    line-height: normal;
+    color: #10069F;
     position: absolute;
-    top: 0;
-    left: 45%;
-  }
-
-  .dotted-line {
-    position: absolute;
-    right: 16%;
   }
 }
-
-h2 {
-  font-feature-settings: 'ss03' on;
-  font-size: 40px;
-  font-weight: 900;
-  line-height: normal;
-  color: #10069F;
-  position: absolute;
-  top: 34%;
-  right: 9%;
-  @include media-breakpoint-down('md') {
-    top: 23%;
-    right: 7%;
-  }
-}
-
 body {
   background-color: #FFFAE6;
   font-family: Pelak, "IranSans", sans-serif;
@@ -92,33 +69,33 @@ body {
   direction: rtl;
 
 }
-.delis-btn.secondary{
 
-}
 .delis-btn {
   border: 2px solid $primary-color;
   font-size: fluid-font(14px, 24px);
   font-weight: 500;
   box-shadow: 0 6px 0 0 $primary-color;
-  border-radius: 20px;
+  border-radius: clamp(12px, 3px + 0.8vw, 24px);
   color: #000;
   background-color: #fff;
   padding: 14px 10px;
   width: 300px;
+  display: block;
   text-align: center;
   @include media-breakpoint-down('md') {
-    width: 204px;
+    width: 100%;
     text-align: center;
   }
-  &.secondary{
+  &.secondary {
     background-color: $secondary-color;
   }
 }
 
 #hero {
   background-image: url("images/HiroBackground.svg");
-  background-size: cover;
+  background-size: 100%;
   padding: 0 0 18% 0;
+  background-repeat: no-repeat;
   @include media-breakpoint-down('md') {
     background-image: url("images/hero-mobile.svg");
   }
@@ -206,11 +183,11 @@ body {
 }
 
 #about {
-  background-image: url("images/Frame9.svg");
+  background-image: url("images/about-bg.png");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: bottom;
-  padding: 100px 0;
+  padding: 70px 0;
 
   .delis-btn {
     a {
@@ -237,7 +214,7 @@ body {
 
   p {
     color: #000;
-    text-align: right;
+    text-align: justify;
     font-size: fluid-font(14px, 22px);
     font-style: normal;
     font-weight: 400;
@@ -319,11 +296,12 @@ $icon-color: #ff6600;
 
 #instagram {
   background-color: #FFF0B3;
-  background-image: url("images/50sant.svg");
+  background-image: url("images/insta-bg.png");
   z-index: 2;
   background-repeat: repeat-y;
-  background-size: 100%;
+  background-size: 100% 100%;
   background-position: bottom;
+
   .fruit {
     .tout {
       position: absolute;
@@ -344,6 +322,7 @@ $icon-color: #ff6600;
       left: -7%;
     }
   }
+
   .instagram-box {
     text-align: left;
     background-color: #FFFAE6;
@@ -351,10 +330,12 @@ $icon-color: #ff6600;
     border: 1px solid #000;
 
   }
+
   body {
     background-color: #fff9e9;
     font-family: 'IRANSans', sans-serif;
   }
+
   .insta-info {
     padding: 10px 15px;
     text-align: left;
@@ -378,72 +359,22 @@ $icon-color: #ff6600;
   .swiper-button-prev {
     color: #ffce00;
     transition: opacity 0.3s ease;
+
+    svg {
+
+      height: fluid-font(12px, 24px);
+
+    }
   }
 
   .swiper-button-next:hover,
   .swiper-button-prev:hover {
     opacity: 0.7;
   }
-
-  .title-group {
-    position: relative;
-    margin-bottom: 0;
-
-    .circle-img {
-      position: absolute;
-      top: 0;
-      right: 45%;
-    }
-
-    .purple-heart {
-      position: absolute;
-      top: -7%;
-      left: 40%;
-    }
-
-    .dotted-line {
-      position: absolute;
-      right: 42%;
-    }
-
-    h2 {
-      font-feature-settings: 'ss03' on;
-      font-size: fluid-font(20px, 40px);
-      font-weight: 900;
-      line-height: normal;
-      color: #10069F;
-      position: absolute;
-      top: 32%;
-      right: 41%;
-    }
-
-    p {
-      text-align: right;
-      font-size: fluid-font(14px, 20px);
-      font-style: normal;
-      font-weight: 400;
-    }
-  }
-
-  .sub-title {
-    font-size: fluid-font(60px, 96px);
-    font-weight: bold;
-    mix-blend-mode: multiply;
-    color: #FFFAE6;
-    text-shadow: -1px -1px 0 #FFCD00,
-    1px -1px 0 #FFF0B3,
-    -1px 1px 0 #FFF0B3,
-    1px 1px 0 #FFCD00;
-    font-feature-settings: 'ss03' on;
-    z-index: 20;
-    position: relative;
-
-
-  }
 }
 
 #poo-delis {
-  background-image: url("images/under.svg");
+  background-image: url("images/insta-bottom.png");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top;
@@ -524,10 +455,12 @@ $icon-color: #ff6600;
 #footer {
   border-top: 1px solid #10069F;
   border-bottom: 1px solid #10069F;
-  .box-center{
+
+  .box-center {
     border-left: 1px solid #10069F;
     border-right: 1px solid #10069F;
   }
+
   .link-Image {
     position: absolute;
     bottom: 15%;
@@ -552,7 +485,8 @@ $icon-color: #ff6600;
   }
 
   .footer-bar {
-    border-top:1px solid #10069F ;
+    border-top: 1px solid #10069F;
+
     p {
       font-size: fluid-font(14px, 16px);
       color: #000;
@@ -708,6 +642,24 @@ $icon-color: #ff6600;
 }
 
 #products {
+  background-image: url("images/product-bg.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center bottom;
+  .horizontal-scroll {
+    @include media-breakpoint-down('lg') {
+      flex-wrap: nowrap;
+      overflow: auto;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .select-category {
+        width: clamp(30vw, 50vw, 40vw);
+      }
+    }
+
+  }
+
   .select-category {
     aspect-ratio: 1 / 1;
     width: 100%;
@@ -716,6 +668,8 @@ $icon-color: #ff6600;
     box-shadow: -4px 6px 12px 0 rgba(0, 0, 0, 0.15);
     padding: 20px;
     position: relative;
+    background-color: #FFFAE6;
+
     &::before {
       content: "";
       position: absolute;
@@ -723,17 +677,34 @@ $icon-color: #ff6600;
       background: radial-gradient(50% 50% at 50% 50%, #FFFAE6 0%, #FFFAE6 50%, #FFE166 100%);
       opacity: 0;
       transition: opacity 0.3s ease-in;
-      z-index: -1;
+      z-index: 0;
       border-radius: 24px;
     }
-    &.selected, &:hover {
+
+    &:hover {
+      border: 2px solid $primary-color;
+    }
+    &.selected{
       border: 2px solid $primary-color;
       &::before {
         opacity: 1;
       }
     }
 
+    span {
+      text-align: center;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-weight: bold;
+      color: $primary-color;
+      position: relative;
+      z-index: 1;
+    }
+
     img {
+      position: relative;
+      z-index: 1;
       height: 100%;
     }
   }
@@ -742,35 +713,89 @@ $icon-color: #ff6600;
     aspect-ratio: 1 / 1;
     width: 100%;
     height: 100%;
-    border: 2px solid $primary-color;
-    background: radial-gradient(50% 50% at 50% 50%, #FFFAE6 0%, #FFFAE6 50%, #FFE166 100%);
-    border-radius: 24px;
+    //border: 2px solid $primary-color;
+    //border-radius: 24px;
     position: relative;
-    .taste-shapes{
+
+    .taste-shapes {
       position: absolute;
-      top: 0;
-      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 100%;
       width: 100%;
-      &.move-in{
-        .float-shape{
-          &:nth-child(1){
-            inset: 5% auto auto 5%;
+      top: 0;
+      z-index: -1;
+      border-radius: 24px;
+
+      //&.banana {
+      //  background: radial-gradient(50% 50% at 50% 50%, #FFFAE6 0%, #FFFAE6 50%, #FFE166 100%);
+      //}
+      //
+      //&.chocolate {
+      //  background: radial-gradient(50% 50% at 50% 50%, #B9A69D 0%, #997E71 50%, #603D2D 100%);
+      //}
+      //
+      //&.caramel {
+      //  background: radial-gradient(50% 50% at 50% 50%, #FFC19C 0%, #F28C4E 50%, #E45600 100%);
+      //}
+      //
+      //&.apple {
+      //  background: radial-gradient(50% 50% at 50% 50%, #E9FFE5 0%, #AAE0A1 50%, #69C359 100%);
+      //}
+      //
+      //&.melon {
+      //  background: radial-gradient(50% 50% at 50% 50%, #E9FFEF 0%, #9FDEB0 50%, #72B384 100%);
+      //}
+      //
+      //&.strawberry {
+      //  background: radial-gradient(50% 50% at 50% 50%, #FAC0C8 0%, #EA7382 50%, #EB3950 100%);
+      //}
+      //
+      //&.orange {
+      //  background: radial-gradient(50% 50% at 50% 50%, #FFD5B2 0%, #FFA95E 50%, #FF7600 100%);
+      //}
+      //
+      //&.vanilla {
+      //  background: radial-gradient(50% 50% at 50% 50%, #FFF 0%, #FFF7D7 50%, #FFEB99 100%);
+      //}
+      //
+      //&.cookie {
+      //  background: radial-gradient(50% 50% at 50% 50%, #FFF 0%, #FFECD3 50%, #F3CB94 100%);
+      //}
+      //
+      //&.cherry {
+      //  background: radial-gradient(50% 50% at 50% 50%, #FF7878 0%, #D52929 50%, #A60707 100%);
+      //}
+
+      .float-shape {
+        //position: absolute;
+        //inset: 50% 50% auto auto;
+        z-index: -1;
+        transform: translate(0, 0) scale(0);
+        //inset: 0;
+        transition: all linear 0.4s;
+        transition-delay: 0.1s;
+      }
+
+      &.move-in {
+        .float-shape {
+
+          &:nth-child(1) {
+            transform: translate(85%, -220%) scale(1);
           }
-          &:nth-child(2){
-            inset: auto 5% 5% auto;
+
+          &:nth-child(2) {
+            transform: translate(-230%, 200%) scale(1);
+          }
+
+          &:nth-child(3) {
+            transform: translate(-80%, -190%) scale(1);
           }
         }
       }
-      .float-shape{
-        position: absolute;
-        inset: 0;
-        margin: auto;
-        z-index: -1;
-        transition: all ease-in 0.3s;
-      }
-
     }
+
     #product-loader {
       position: absolute;
       width: 100%;
@@ -793,12 +818,19 @@ $icon-color: #ff6600;
     .swiper {
       .swiper-slide {
         width: 100% !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & > img {
+          height: 80%;
+        }
       }
 
       .swiper-button-next, .swiper-button-prev {
-        width: 64px;
-        height: 64px;
-        border-radius: 24px;
+        width: fluid-font(32px, 64px);
+        height: fluid-font(32px, 64px);
+        border-radius: clamp(12px, 3px + 0.8vw, 24px);
         border: 2px solid var(--Primary-Blue, #10069F);
         background: var(--Primary-Yellow, #FFCD00);
         box-shadow: 0 6px 0 0 #10069F;
@@ -810,6 +842,10 @@ $icon-color: #ff6600;
         justify-content: center;
         align-items: center;
         z-index: 1;
+
+        svg {
+          width: fluid-font(12px, 24px);;
+        }
       }
 
       .swiper-button-next {

@@ -118,6 +118,9 @@ $link-decoration: none;
 @import '../node_modules/bootstrap/scss/helpers';
 @import 'swiper/css';
 @import "scss/delis";
+@import "scss/about";
+
+
 @import "scss/single-product";
 // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import '../node_modules/bootstrap/scss/utilities/api';

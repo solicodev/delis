@@ -39,7 +39,23 @@
   font-weight: 900;
   src: url('fonts/Pelak-Black.woff') format('woff');
 }
-
+@keyframes float {
+  0% {
+    //box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+  }
+  50% {
+    //box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);
+    transform: translatey(-20px);
+  }
+  100% {
+    //box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
+    transform: translatey(0px);
+  }
+}
+.shape-float{
+  animation: float 3s ease-in-out infinite;
+}
 .title-group {
   position: relative;
   margin-bottom: 5%;
@@ -61,15 +77,6 @@
     position: absolute;
   }
 }
-body {
-  background-color: #FFFAE6;
-  font-family: Pelak, "IranSans", sans-serif;
-  margin: 0;
-  padding: 0;
-  direction: rtl;
-
-}
-
 .delis-btn {
   border: 2px solid $primary-color;
   font-size: fluid-font(14px, 24px);
@@ -82,15 +89,60 @@ body {
   width: 300px;
   display: block;
   text-align: center;
+  transition: all .3s;
   @include media-breakpoint-down('md') {
     width: 100%;
     text-align: center;
   }
+  &:hover{
+    background-color: #E7E6F5;
+  }
+
   &.secondary {
     background-color: $secondary-color;
+    &:hover{
+      background-color: #FFE166;
+    }
   }
 }
+.swiper {
+  .swiper-button-next, .swiper-button-prev {
+    width: fluid-font(32px, 64px);
+    height: fluid-font(32px, 64px);
+    border-radius: clamp(12px, 3px + 0.8vw, 24px);
+    border: 2px solid var(--Primary-Blue, #10069F);
+    background: var(--Primary-Yellow, #FFCD00);
+    box-shadow: 0 6px 0 0 #10069F;
+    display: flex;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 
+    svg {
+      width: fluid-font(12px, 24px);;
+    }
+  }
+
+  .swiper-button-next {
+    right: 0;
+  }
+
+  .swiper-button-prev {
+    left: 0;
+  }
+}
+body {
+  background-color: #FFFAE6;
+  font-family: Pelak, "IranSans", sans-serif;
+  margin: 0;
+  padding: 0;
+  direction: rtl;
+
+}
 #hero {
   background-image: url("images/HiroBackground.svg");
   background-size: 100%;
@@ -181,13 +233,12 @@ body {
     }
   }
 }
-
 #about {
   background-image: url("images/about-bg.png");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: bottom;
-  padding: 70px 0;
+  padding: 10% 0;
 
   .delis-btn {
     a {
@@ -238,7 +289,6 @@ body {
     }
   }
 }
-
 $circle-size: 50px;
 $circle-bg: #0a0a80;
 $icon-color: #ff6600;
@@ -301,7 +351,7 @@ $icon-color: #ff6600;
   background-repeat: repeat-y;
   background-size: 100% 100%;
   background-position: bottom;
-
+padding: 70px 0;
   .fruit {
     .tout {
       position: absolute;
@@ -328,12 +378,34 @@ $icon-color: #ff6600;
     background-color: #FFFAE6;
     border-radius: 24px;
     border: 1px solid #000;
-
-  }
-
-  body {
-    background-color: #fff9e9;
-    font-family: 'IRANSans', sans-serif;
+    .card-header{
+      span{
+        font-size: fluid-font(10px, 20px);
+      }
+      img{
+        width: fluid-font(22px, 52px);
+      }
+    }
+    .card-footer{
+      .mark{
+        img{
+          height: fluid-font(10px,20px);
+        }
+      }
+      .instagram-icons{
+        .info-count{
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          span{
+            font-size: fluid-font(10px,16px);
+          }
+          img{
+            height: fluid-font(10px,20px);
+          }
+        }
+      }
+    }
   }
 
   .insta-info {
@@ -378,7 +450,7 @@ $icon-color: #ff6600;
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top;
-  padding: 52px;
+  padding: 10% 0;
   @include media-breakpoint-down('md') {
     padding: 0;
   }
@@ -414,12 +486,11 @@ $icon-color: #ff6600;
   }
 
   .pod-img {
+    padding: 10%;
     img {
       width: 100%;
-      padding: 60px 0;
+
     }
-
-
     p {
       text-align: right;
       font-size: fluid-font(14px, 24px);
@@ -645,7 +716,7 @@ $icon-color: #ff6600;
   background-image: url("images/product-bg.svg");
   background-repeat: no-repeat;
   background-size: 100%;
-  background-position: center bottom;
+  background-position: center 75%;
   .horizontal-scroll {
     @include media-breakpoint-down('lg') {
       flex-wrap: nowrap;
@@ -712,7 +783,7 @@ $icon-color: #ff6600;
   #product-slider {
     aspect-ratio: 1 / 1;
     width: 100%;
-    height: 100%;
+    //height: 100%;
     //border: 2px solid $primary-color;
     //border-radius: 24px;
     position: relative;
@@ -814,46 +885,14 @@ $icon-color: #ff6600;
         color: $primary-color;
       }
     }
+    .swiper-slide {
+      width: 100% !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-    .swiper {
-      .swiper-slide {
-        width: 100% !important;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        & > img {
-          height: 80%;
-        }
-      }
-
-      .swiper-button-next, .swiper-button-prev {
-        width: fluid-font(32px, 64px);
-        height: fluid-font(32px, 64px);
-        border-radius: clamp(12px, 3px + 0.8vw, 24px);
-        border: 2px solid var(--Primary-Blue, #10069F);
-        background: var(--Primary-Yellow, #FFCD00);
-        box-shadow: 0 6px 0 0 #10069F;
-        display: flex;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        margin: auto;
-        justify-content: center;
-        align-items: center;
-        z-index: 1;
-
-        svg {
-          width: fluid-font(12px, 24px);;
-        }
-      }
-
-      .swiper-button-next {
-        right: 5%;
-      }
-
-      .swiper-button-prev {
-        left: 5%;
+      & > img {
+        height: 80%;
       }
     }
   }

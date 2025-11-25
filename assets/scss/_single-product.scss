@@ -1,0 +1,410 @@
+:root {
+  --delis-bg-color: transparent;
+  --delis-primary-gradient-color: transparent;
+  --delis-scondary-gradient-color: transparent;
+  --delis-title-color: transparent;
+
+}
+
+body {
+  &.single-product {
+
+    header {
+      position: absolute;
+      width: 100%;
+      background: transparent;
+    }
+  }
+  #product-hero{
+    &.milkshake,&.milk,&.beverage{
+      &:before{
+        background-image: url("images/product-single/Milk.png");
+      }
+    }
+  }
+  #product-hero{
+    &.jelly{
+      &:before{
+        background-image: url("images/product-single/jelly.jpg");
+      }
+    }
+  }
+  #product-hero{
+    &.pouding,&.dessert{
+      &:before{
+        background-image: url("images/product-single/pouding.jpg");
+      }
+    }
+  }
+
+  .banana {
+    --delis-bg-color: #FFE166;
+    --delis-primary-gradient-color: rgba(255, 225, 102, 0);
+    --delis-secondary-gradient-color: rgba(255, 225, 102, 1);
+    --delis-title-color: rgba(255, 205, 0, 1);
+  }
+
+  .strawberry {
+    --delis-bg-color: rgba(234, 115, 130, 1);
+    --delis-primary-gradient-color: rgba(234, 115, 130, 0);
+    --delis-secondary-gradient-color: rgba(234, 115, 130, 1);
+    --delis-title-color: rgba(242, 81, 101, 1);
+  }
+
+  .caramel {
+    --delis-bg-color: rgba(218, 122, 36, 1);
+    --delis-primary-gradient-color: rgb(218, 122, 36, 0);
+    --delis-secondary-gradient-color: rgba(218, 122, 36, 1);
+    --delis-title-color: rgba(195, 92, 0, 1);
+  }
+
+  .vanilla {
+    --delis-bg-color: rgba(245, 233, 212, 1);
+    --delis-primary-gradient-color: rgba(245, 233, 212, 0);
+    --delis-secondary-gradient-color: rgba(245, 233, 212, 1);
+    --delis-title-color: rgba(238, 212, 167, 1);
+  }
+
+  .chocolate {
+    --delis-bg-color: rgba(136, 69, 50, 1);
+    --delis-primary-gradient-color: rgba(136, 69, 50, 0);
+    --delis-secondary-gradient-color: rgba(136, 69, 50, 1);
+    --delis-title-color: rgba(113, 54, 38, 1);
+  }
+
+  .cherry {
+    --delis-bg-color: rgba(163, 54, 55, 1);
+    --delis-primary-gradient-color: rgba(163, 54, 55, 0);
+    --delis-secondary-gradient-color: rgba(163, 54, 55, 1);
+    --delis-title-color: rgba(163, 16, 17, 1);
+  }
+
+  .apple {
+    --delis-bg-color: rgba(99, 192, 81, 1);
+    --delis-primary-gradient-color: rgba(99, 192, 81, 0);
+    --delis-secondary-gradient-color: rgba(99, 192, 81, 1);
+    --delis-title-color: rgba(85, 168, 69, 1);
+  }
+
+  .orange {
+    --delis-bg-color: rgba(255, 138, 47, 1);
+    --delis-primary-gradient-color: rgba(255, 138, 47, 0);
+    --delis-secondary-gradient-color: rgba(255, 138, 47, 1);
+    --delis-title-color: rgba(255, 120, 15, 1);
+  }
+
+  .cookie {
+    --delis-bg-color: rgba(194, 121, 75, 1);
+    --delis-primary-gradient-color: rgba(194, 121, 75, 0);
+    --delis-secondary-gradient-color: rgba(194, 121, 75, 1);
+    --delis-title-color: rgba(194, 121, 75, 1);
+  }
+
+  .melon {
+    --delis-bg-color: rgba(155, 208, 116, 1);
+    --delis-primary-gradient-color: rgba(155, 208, 116, 0);
+    --delis-secondary-gradient-color: rgba(155, 208, 116, 1);
+    --delis-title-color: rgba(147, 200, 109, 1);
+  }
+
+
+  #single-product-wrap {
+    transition: all ease-in-out .3s;
+
+
+    .background-color {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      z-index: 0;
+      background-color: var(--delis-bg-color);
+
+      .scale-anim {
+        width: 0;
+        height: 0;
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        background-color: rgba(0, 0, 0, 0.2);
+        border-radius: 50%;
+      }
+    }
+
+    svg {
+      path {
+        transition: all ease-in-out .3s;
+      }
+    }
+  }
+
+  #product-hero {
+    height: 100dvh;
+    position: relative;
+
+    .shape1 {
+      position: absolute;
+      left: 0;
+      bottom: 24dvh;
+      z-index: 1;
+    }
+
+    .shape2 {
+      position: absolute;
+      right: 0;
+      bottom: 20dvh;
+      z-index: 1;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      position: absolute;
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      mix-blend-mode: soft-light;
+    }
+
+    .gradient {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      background-image: linear-gradient(180deg, var(--delis-primary-gradient-color) 0%, var(--delis-primary-gradient-color) 50%, var(--delis-secondary-gradient-color) 100%);
+      top: 0;
+      z-index: 0;
+      //animation: gradientRotate 5s ease infinite;
+    }
+
+    .big-text {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 100%;
+      top: 13dvh;
+
+      svg {
+        max-width: 100%;
+
+        path {
+          fill: var(--delis-title-color);
+        }
+      }
+    }
+
+    #product-name {
+      color: $primary-color;
+      font-size: 40px;
+      font-weight: bold;
+      position: absolute;
+      top: 80dvh;
+      text-align: center;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: 1;
+    }
+
+    .product-frame {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      .next-product{
+        transform: translatex(5vw);
+      }
+      .prev-product{
+        transform: translatex(-5vw);
+      }
+      .product-frame-wrap {
+        position: relative;
+        background-image: url("images/product-single/product-frame.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: contain;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        @include media-breakpoint-up('sm') {
+          width: 40vw;
+        }
+        @include media-breakpoint-up('lg') {
+          width: 20vw;
+        }
+
+      }
+
+      .product-image-outer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .product {
+          max-height: 50vh;
+        }
+      }
+
+      //width: 100%;
+      h1 {
+        font-size: 40px;
+        color: $primary-color;
+        font-weight: bold;
+        text-align: center;
+        position: relative;
+        z-index: 3;
+      }
+
+    }
+  }
+
+  #product-info {
+
+    color: #000;
+    position: relative;
+    z-index: 1;
+    @include media-breakpoint-up('lg') {
+      height: 100dvh;
+    }
+
+    #product-box {
+      border: 4px dashed #FFCD00;
+      box-shadow: -4px 6px 12px 0px #00000026;
+      width: 100%;
+      height: 60vh;
+      border-radius: 24px;
+    }
+
+    .product-desc {
+      position: relative;
+      .shape1{
+        position: absolute;
+        width: 50px;
+        left: 0;
+        top: -50px;
+      }
+      h3 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-bottom: 48px;
+      }
+
+      p {
+        font-size: 20px;
+        font-weight: normal;
+        text-align: justify;
+      }
+    }
+  }
+
+  #product-slogan {
+    height: 70dvh;
+    background: rgba(255, 255, 255, 0.30);
+    backdrop-filter: blur(5px);
+    position: relative;
+    z-index: 3;
+    .shape1 {
+      position: absolute;
+      left: 0;
+      bottom: 5dvh;
+      z-index: 1;
+    }
+
+    .shape2 {
+      position: absolute;
+      right: 0;
+      bottom: 5dvh;
+      z-index: 1;
+    }
+    .slogan {
+      font-size: fluid-font(32px, 48px);
+      color: $primary-color;
+      font-weight: bold;
+      text-align: center;
+    }
+
+  }
+
+  #product-decorative {
+    height: 70vh;
+    background-image: url("images/product-single/milkshake-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    z-index: 2;
+  }
+
+  #product-others {
+    padding: 20vh 0;
+
+    .container {
+      @include media-breakpoint-down('xxl') {
+        margin-right: 0;
+        padding: 0;
+      }
+
+      #other-product {
+        direction: ltr;
+      }
+    }
+
+    .select-category {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      border-radius: 24px;
+      border: 2px dashed $primary-color;
+      box-shadow: -4px 6px 12px 0 rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      position: relative;
+      background: linear-gradient(180deg, var(--delis-title-color) 0%, var(--delis-secondary-gradient-color) 100%);
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(50% 50% at 50% 50%, #FFFAE6 0%, #FFFAE6 50%, #FFE166 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease-in;
+        z-index: 0;
+        border-radius: 24px;
+      }
+
+      &:hover {
+        border: 2px solid $primary-color;
+      }
+
+      &.selected {
+        border: 2px solid $primary-color;
+
+        &::before {
+          opacity: 1;
+        }
+      }
+
+      span {
+        text-align: center;
+        display: block;
+        margin-bottom: 10px;
+        font-size: 24px;
+        font-weight: bold;
+        color: $primary-color;
+        position: relative;
+        z-index: 1;
+      }
+
+      img {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+      }
+    }
+  }
+}

@@ -22,7 +22,7 @@
 
 <div id="wrapper">
     <header class="custom-header d-flex justify-content-between align-items-center">
-
+        <?php get_template_part( 'template/template','navbar'); ?>
         <div class="header-icon left">
             <a href="#">
                 <img src="<?php echo get_template_directory_uri()?>/assets/images/toggle-btn.svg" alt="">

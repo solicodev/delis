@@ -1,6 +1,6 @@
 <?php
 get_header();
-$terms = wp_get_post_terms(get_the_ID(),'product-category');
+$terms = wp_get_post_terms(get_the_ID(), 'product-category');
 
 $all_flavors = array();
 if (have_rows('flavor_items')):
@@ -14,9 +14,9 @@ if (have_rows('flavor_items')):
             array_push($all_flavors, array(
                 'name' => $flavor->slug,
                 'image' => $image['sizes']['large'],
-                'pname'=>$name,
-                'shape1'=>$shape1,
-                'shape2'=>$shape2
+                'pname' => $name,
+                'shape1' => $shape1,
+                'shape2' => $shape2
             ));
         endif;
     endwhile;
@@ -30,8 +30,8 @@ endif;
     <section id="product-hero" class="<?php echo $terms[0]->slug; ?>">
         <div class="gradient"></div>
         <div class="h-100 position-relative container">
-            <img class="shape-float shape shape1" src="<?php echo $all_flavors[0]['shape1'];?>" alt="">
-            <img class="shape-float shape shape2" src="<?php echo $all_flavors[0]['shape2'];?>" alt="">
+            <img class="shape-float shape shape1" src="<?php echo $all_flavors[0]['shape1']; ?>" alt="">
+            <img class="shape-float shape shape2" src="<?php echo $all_flavors[0]['shape2']; ?>" alt="">
             <div class="big-text">
                 <svg xmlns="http://www.w3.org/2000/svg" width="1433" height="231" viewBox="0 0 1433 231"
                      fill="none">
@@ -55,8 +55,14 @@ endif;
                 </svg>
             </div>
             <div class="product-frame">
-                <a class="next-product"><img
-                            src="<?php echo get_template_directory_uri(); ?>/assets/images/product-single/arrow-next.png"></a>
+                <a class="next-product">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="23" viewBox="0 0 17 23" fill="none">
+                        <path d="M15.8426 10.2553L1.57668 0.185218C0.91427 -0.282368 0 0.191366 0 1.00219V21.1423C0 21.9532 0.914269 22.4269 1.57668 21.9593L15.8426 11.8892C16.4071 11.4908 16.4071 10.6537 15.8426 10.2553Z"
+                              fill="#10069F"/>
+                    </svg>
+                    </span>
+                </a>
                 <div class="product-frame-wrap">
                     <div class="product-image-outer">
                         <div class="product-image-inner">
@@ -69,7 +75,7 @@ endif;
                             src="<?php echo get_template_directory_uri(); ?>/assets/images/product-single/arrow.png"></a>
             </div>
             <div>
-                <h1 class="shape" id="product-name"><?php echo $all_flavors[0]['pname'];?></h1>
+                <h1 class="shape" id="product-name"><?php echo $all_flavors[0]['pname']; ?></h1>
             </div>
         </div>
     </section>
@@ -78,7 +84,7 @@ endif;
             <div class="row h-100 justify-content-evenly align-items-center">
                 <div class="col-12 col-lg-3">
                     <div class="product-desc">
-                        <img class="shape-float shape shape1" src="<?php echo $all_flavors[0]['shape1'];?>" alt="">
+                        <img class="shape-float shape shape1" src="<?php echo $all_flavors[0]['shape1']; ?>" alt="">
                         <h3>میلک شیک موزی</h3>
                         <p class="">یه جرعه خنک، لطیف و موزی برای وقتی که هوس یه طعم ساده و خوش‌حال‌کننده می‌کنی.
                             سبک، دلنشین و درست همون اندازه‌ای که حالتو بهتر کنه.</p>
@@ -114,8 +120,8 @@ endif;
                     </div>
                 </div>
             </div>
-            <img class="shape-float shape shape1" src="<?php echo $all_flavors[0]['shape1'];?>" alt="">
-            <img class="shape-float shape shape2" src="<?php echo $all_flavors[0]['shape2'];?>" alt="">
+            <img class="shape-float shape shape1" src="<?php echo $all_flavors[0]['shape1']; ?>" alt="">
+            <img class="shape-float shape shape2" src="<?php echo $all_flavors[0]['shape2']; ?>" alt="">
         </div>
     </section>
     <section id="product-decorative">
@@ -184,8 +190,13 @@ endif;
         setTimeout(function (t) {
             document.getElementById('product-main-image').src = flavors[index].image
             document.getElementById('product-name').innerHTML = flavors[index].pname
-            document.querySelector('.shape1').src = flavors[index].shape1
-            document.querySelector('.shape2').src = flavors[index].shape2
+
+            document.querySelectorAll('.shape1').forEach(function (item) {
+                item.src = flavors[index].shape1
+            })
+            document.querySelectorAll('.shape2').forEach(function (item) {
+                item.src = flavors[index].shape2
+            })
         }, 500)
     }
 

@@ -22,11 +22,17 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
     requestAnimationFrame(raf);
     lenis.on('scroll', ScrollTrigger.update);
     document.addEventListener('DOMContentLoaded', function () {
+        var fullNav=document.querySelector('.fullscreen-menu');
+        var menuButton=document.querySelector('.nav-button');
+        menuButton.addEventListener('click', function(){
+            fullNav.classList.toggle('open');
+        })
+
         const singleProduct = document.getElementsByClassName('single-product');
         if (singleProduct.length > 0) {
 
             console.log(document.getElementById("product-box").offsetTop - document.querySelector(".product").height)
-            mm.add("(min-width: 600px)", () => {
+            //mm.add("(min-width: 600px)", () => {
                 let photo = document.querySelector(".product-image-outer");
                 let target = document.querySelector("#product-box");
                 let lastTarget = document.querySelector("#product-decorative");
@@ -144,7 +150,7 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
                             }, '<')
                     })
                 })
-            })
+            //})
         }
     })
 

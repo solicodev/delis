@@ -167,6 +167,7 @@ body {
       background-position: center center;
       background-repeat: no-repeat;
       mix-blend-mode: soft-light;
+      background-attachment: fixed;
     }
 
     .gradient {
@@ -186,7 +187,11 @@ body {
       margin: auto;
       width: 100%;
       top: 13dvh;
-
+      font-size: fluid-font(60px,290px);
+      text-align: center;
+      text-transform: capitalize;
+      font-weight: bold;
+      color:  var(--delis-title-color);
       svg {
         max-width: 100%;
 
@@ -196,12 +201,12 @@ body {
       }
     }
 
-    #product-name {
+    .product-name {
       color: $primary-color;
-      font-size: 40px;
+      font-size: fluid-font(20px,40px);
       font-weight: bold;
       position: absolute;
-      top: 80dvh;
+      bottom: 20dvh;
       text-align: center;
       left: 0;
       right: 0;
@@ -219,32 +224,7 @@ body {
       z-index: 1;
       .next-product{
         transform: translatex(5vw);
-        &>span{
-          display: block;
-          border-radius: 24px;
-          position: relative;
-          border: 2px solid var(--Primary-Blue, #10069F);
-          background: var(--Primary-Yellow, #FFCD00);
-          box-shadow: -4px 4px 12px 0 rgba(255, 255, 255, 0.40) inset, 4px -4px 12px 0 rgba(255, 255, 255, 0.40) inset;
-          padding: 23px;
-        }
-        &:before{
-          content: '';
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          top: 5px;
-          border-radius: 24px;
-          background: var(--Primary-Blue, #10069F);
-        }
-        &:hover{
-          &>span{
-            border-radius: 24px;
-            border: 3px solid var(--Primary-Blue, #10069F);
-            background: var(--Primary-Yellow, #FFCD00);
-            box-shadow: 2px -2px 8px 0 rgba(0, 0, 0, 0.45) inset, -2px 2px 8px 0 rgba(0, 0, 0, 0.45) inset;
-          }
-        }
+
       }
       .prev-product{
         transform: translatex(-5vw);
@@ -259,6 +239,7 @@ body {
         align-items: center;
         justify-content: center;
         width: 100%;
+        max-width: 50vw;
         @include media-breakpoint-up('sm') {
           width: 40vw;
         }
@@ -304,8 +285,11 @@ body {
       border: 4px dashed #FFCD00;
       box-shadow: -4px 6px 12px 0px #00000026;
       width: 100%;
-      height: 60vh;
+      height: 50dvh;
       border-radius: 24px;
+      @include media-breakpoint-up('lg') {
+        height: 60dvh;
+      }
     }
 
     .product-desc {
@@ -316,16 +300,55 @@ body {
         left: 0;
         top: -50px;
       }
-      h3 {
-        font-size: 32px;
+      .nutrition-facts{
+        .item{
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 32px;
+          font-size: fluid-font(14px,20px);
+          font-weight: 600;
+          .name{
+            display: flex;
+            align-items: center;
+            gap:10px;
+
+            .icon{
+              width: 40px;
+              height: 40px;
+              display: inline-block;
+              &.expire{
+                background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19.25" stroke="black" stroke-width="1.5"/><circle cx="20" cy="20" r="13.25" stroke="black" stroke-width="1.5"/><path d="M18 18V21.5C18 22.0523 18.4477 22.5 19 22.5H22.5" stroke="black" stroke-width="1.5" stroke-linecap="round"/></svg>');
+              }
+              &.energy{
+                background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19.25" stroke="black" stroke-width="1.5"/><path d="M12.0144 26.4754C13.0306 27.9291 17.4521 29.0696 19.5413 26.3494C21.8006 27.4296 25.5262 27.0947 28.5606 25.4024C28.9818 25.1684 29.3806 24.8714 29.6254 24.4537C30.1772 23.513 30.1898 22.2078 29.1835 20.2824C27.5047 16.0932 24.4866 12.4152 23.2678 10.9363C23.0176 10.7086 21.4217 10.3845 20.4477 10.0722C20.0175 9.93983 19.2172 9.85162 18.2604 11.1136C17.8058 11.7113 15.7436 13.1812 18.3594 14.1687C18.7654 14.2722 19.0633 14.4621 20.9131 14.1246C21.1534 14.0832 21.7547 14.1246 22.1787 14.8681L23.0644 16.1346C23.1472 16.2519 23.1995 16.388 23.2165 16.5307C23.3713 17.88 23.3659 19.5686 24.1184 20.4247C22.9573 19.5839 19.9202 18.5866 17.6321 21.4256M12 19.8459C13.03 18.9278 14.3433 18.3898 15.7214 18.3213C17.0995 18.2529 18.4595 18.6581 19.5755 19.4696" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+              }
+              &.fat{
+                background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"><path d="M20 11.1689C20.1464 11.3483 20.3161 11.56 20.5049 11.7988C21.1528 12.6185 22.0159 13.7589 22.877 15.0439C23.7396 16.3315 24.591 17.751 25.2246 19.1289C25.8647 20.5211 26.25 21.803 26.25 22.8359C26.25 24.5426 25.5871 26.1763 24.4131 27.3779C23.2396 28.5788 21.6518 29.25 20 29.25C18.3482 29.25 16.7604 28.5788 15.5869 27.3779C14.4129 26.1763 13.75 24.5426 13.75 22.8359C13.75 21.803 14.1353 20.5211 14.7754 19.1289C15.409 17.751 16.2604 16.3315 17.123 15.0439C17.9841 13.7589 18.8472 12.6185 19.4951 11.7988C19.6839 11.56 19.8536 11.3483 20 11.1689Z" stroke="black" stroke-width="1.5"/><circle cx="20" cy="20" r="19.25" stroke="black" stroke-width="1.5"/></svg>');
+              }
+              &.salt{
+                background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19.25" stroke="black" stroke-width="1.5"/><path d="M18.5415 22.5863L16.428 20.4729C16.0602 20.1051 16.0357 19.5168 16.3717 19.1198L23.3598 10.8611C23.7473 10.4032 24.4479 10.3871 24.856 10.8266L28.2705 14.5037C28.6648 14.9283 28.6168 15.5981 28.166 15.9621L19.8769 22.6572C19.4791 22.9785 18.903 22.9479 18.5415 22.5863Z" stroke="black" stroke-width="1.5"/><circle cx="15" cy="23" r="1" fill="black"/><circle cx="17" cy="27" r="1" fill="black"/><circle cx="13" cy="27" r="1" fill="black"/><circle cx="16" cy="31" r="1" fill="black"/></svg>');
+              }
+              &.sugar{
+                background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19.25" stroke="black" stroke-width="1.5"/><path d="M11 17.5L18 11L26.5 13.5L29 22.5L22 29M11 17.5L13.5 26.5L22 29M11 17.5L19.5 20.5M22 29L19.5 20.5M24 16L19.5 20.5" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+              }
+
+            }
+          }
+        }
+      }
+      .product-name,.nutrition-facts-title {
+        font-size: fluid-font(20px,32px);
         font-weight: bold;
         margin-bottom: 48px;
+        color: black;
       }
 
       p {
-        font-size: 20px;
+        font-size: fluid-font(14px,20px);
         font-weight: normal;
         text-align: justify;
+        color: black;
       }
     }
   }

@@ -2,7 +2,7 @@ body{
 h2{
   font-feature-settings: 'ss03' on;
   font-family: Pelak;
-  font-size: 40px;
+  font-size: fluid-font(20px,40px);
   font-style: normal;
   font-weight: 800;
   line-height: normal;
@@ -11,7 +11,7 @@ h2{
 }
 p{
   font-family: Pelak;
-  font-size: 24px;
+  font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 180%
@@ -39,7 +39,11 @@ p{
   background-repeat: no-repeat;
   background-position: bottom;
   padding: 6% 0;
-  margin: 7% 0;
+  margin: 4% 0;
+  @media (max-width: 576px){
+    background-position: center;
+background-size: contain;
+  }
   .girl-bit{
     position: absolute;
     top: 135%;
@@ -67,6 +71,9 @@ align-items: center;
       font-size: 22px;
       position: relative;
       z-index: 9;
+      @media (max-width:578px){
+        font-size: 14px;
+      }
     }
     .outline{
       height: calc(100% - 0.75vw);
@@ -101,13 +108,13 @@ align-items: center;
   }
   h2{
     margin: 24px 0;
-    font-size: 32px;
+    font-size: fluid-font(20px,40px);
     padding: 3% 0;
   }
 
   p{
     color: #10069F;
-    font-size: 24px;
+    font-size: fluid-font(14px, 24px);
     font-style: normal;
     font-weight: 700;
   }
@@ -127,8 +134,144 @@ z-index: -2;
   background: none;
 }
 }
+#contact-way{
+  margin: 5% 0;
+  .icon-box{
+    p{
+      font-size: fluid-font(14px, 20px);
+    }
+    span{
+      text-align: right;
+      font-size: fluid-font(14px, 20px);
+      font-style: normal;
+      font-weight: 700;
+      padding: 0 5%;
+    }
+  }}
 @media (max-width:760px) {
   p{
     font-size: 18px;
     color: #10069F;
   }}
+.wpcf7-submit{
+  border-radius: 20px;
+  border: 2px solid #10069F;
+  background:#FFF;
+  box-shadow: 0 6px 0 0 #10069F;
+  width:35%;
+}
+
+label {
+  display: block;
+  text-align: right;
+  font-family: Pelak;
+  font-size: 18px;
+  font-style: normal;
+  margin-bottom: 6px;
+}
+
+textarea {
+  height:100px;
+  width: 100%;
+  border: 1px solid #999;
+  background: #FFF0B3;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #999;
+  background: #FFF0B3;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #10069F;
+}
+
+.submit-wrapper {
+  text-align: left;
+}
+
+input.wpcf7-submit {
+  background: #fff;
+  border: 1px solid #10069F;
+  border-radius: 12px;
+  cursor: pointer;
+
+}
+.wpcf7-submit{
+  border-radius: 20px;
+  border: 2px solid #10069F;
+  background:#FFF;
+  box-shadow: 0 6px 0 0 #10069F;
+  width:35%;
+}
+
+label {
+  display: block;
+  text-align: right;
+  font-family: Pelak;
+  font-size: 18px;
+  font-style: normal;
+  margin-bottom: 6px;
+}
+
+textarea {
+  height:100px;
+  width: 100%;
+  border: 1px solid #999;
+  background: #FFF0B3;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+input {
+  width: 100%;
+  border: 1px solid #999;
+  background: #FFF0B3;
+  padding: 5px;
+  border-radius: 6px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #10069F;
+}
+
+.submit-wrapper {
+  text-align: left;
+}
+
+input.wpcf7-submit {
+  background: #fff;
+  border: 1px solid #10069F;
+  border-radius: 12px;
+  cursor: pointer;
+
+}
+@media(max-width:578px){
+
+  .wpcf7-submit{
+    border-radius: 20px;
+    border: 2px solid #10069F;
+    background:#FFF;
+    box-shadow: 0 6px 0 0 #10069F;
+    width:100%;
+  }
+}
+@media(max-width:578px){
+
+  .wpcf7-submit{
+    border-radius: 20px;
+    border: 2px solid #10069F;
+    background:#FFF;
+    box-shadow: 0 6px 0 0 #10069F;
+    width:100%;
+  }
+
+
+}

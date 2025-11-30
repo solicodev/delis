@@ -53,7 +53,7 @@ $products = get_posts(
 
                     <div class="tv-screen position-absolute">
                         <video id="resVideo" autoplay loop muted playsinline>
-                            <source src="<?php echo get_template_directory_uri(); ?>/assets/video/IMG_6956.mp4"
+                            <source src="<?php echo get_template_directory_uri(); ?>/assets/video/IMG_7042.mp4"
                                     type="video/mp4">
                         </video>
                     </div>

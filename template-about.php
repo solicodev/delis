@@ -15,11 +15,11 @@ get_header();
         </div>
     </div>
     <div class="row align-content-center align-items-center">
-        <div class="col-md-6 position-relative">
+        <div class="col-md-6 position-relative order-last order-lg-first">
             <h2>
                 قاشق به قاشق
             </h2>
-<p>
+<p class="">
     دلیس، یک برند خلاقه که از سال 1398 وارد دنیای تولید انواع دسرها شد و در سال 1402 با یه چهره جسور و تازه اومد تا هر لحظه رو به یه جشن شیرین تبدیل کنه.
     دسرهای دلیس فقط یه خوراکی نیستن؛ اونا کلید یه حال خوبن، یه راه برای فرار از روزمرگی و یه بهونه برای لبخند زدن. با هر قاشق دلیس، انگار یه تکه شادی به زندگیت اضافه می‌کنی.
 </p>
@@ -63,11 +63,11 @@ get_header();
 <section id="mission" >
     <div class="container position-relative">
         <div class="row   align-content-center align-items-center" >
-<div class="">
+<div class="col-md-12">
     <img src="<?php echo get_template_directory_uri()?>/assets/images/heart-beat.svg" alt="" class="blink heart-beat ">
 </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6 ">
                 
                 <h2>
                     ماموریت دلیس
@@ -77,7 +77,7 @@ get_header();
                     ما تو دلیس می‌خوایم هر قاشق، یک قصه جدید باشه. از مهمونی‌های پرهیجان تا لحظه‌های دنج تنهایی، دلیس کنارته تا روزت رو بسازی، عزیزات رو شگفت‌زده کنی و زندگیت رو پر از انرژی و حال خوب کنی. ما فقط دسر نمی‌سازیم؛ حس زندگی رو بهت هدیه می‌دیم.
                 </p>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 order-first order-lg-last">
                 <img src="<?php echo get_template_directory_uri()?>/assets/images/Group291.png " alt="" class="img-fluid">
             </div>
         </div>
@@ -97,7 +97,10 @@ get_header();
     </div>
 
     <div class="row text-center justify-content-center align-items-center">
-        <div class="col-md-3">
+        <div class="col-12">
+        <div id="swiper-about" class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
             <div class="card text-center  border-0 ">
                 <div class="card-body  serious-box ">
                     <div class="outline">
@@ -112,7 +115,8 @@ get_header();
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+                <div class="swiper-slide">
+
             <div class="card  border-0  ">
                 <div class="card-body  serious-box ">
                     <img src="<?php echo get_template_directory_uri()?>/assets/images/Group100.png" alt="">
@@ -121,7 +125,8 @@ get_header();
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+                <div class="swiper-slide">
+
             <div class="card text-center border-0">
                 <div class="card-body  serious-box ">
                     <img src="<?php echo get_template_directory_uri()?>/assets/images/Group100.png" alt="">
@@ -129,8 +134,8 @@ get_header();
                     <p>طعمی که با یک قاشق،<br> کل روزت رو زیر و رو می‌کنه.</p>
                 </div>
             </div>
-        </div>
-        <div class="col-md-3">
+                </div>
+                <div class="swiper-slide">
             <div class="card text-center  border-0">
                 <div class="card-body serious-box ">
                     <img src="<?php echo get_template_directory_uri()?>/assets/images/Group100.png" alt="">
@@ -139,7 +144,7 @@ get_header();
                 </div>
             </div>
         </div>
-    </div>
-</div>
+            </div></div>
+        </div></div></div>
 </section>
 <?php get_footer(); ?>

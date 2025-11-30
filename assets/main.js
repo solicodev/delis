@@ -194,6 +194,7 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
             prevEl: ".swiper-button-prev",
         },
     });
+
     const swiperPooding = new Swiper("#swiper-pooding", {
         modules: [Navigation, Pagination, Autoplay],
         slidesPerView: 1,
@@ -205,6 +206,19 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
+    });
+    const swiperabout = new Swiper("#swiper-about", {
+        modules: [Navigation, Pagination, Autoplay],
+        slidesPerView: 1.5,
+        spaceBetween: 16,
+        loop: true,
+        autoplay: false,
+        autoHeight: false,
+        breakpoints: {
+            768: {slidesPerView: 2},
+            992: {slidesPerView: 4}
+        }
+
     });
     swiperProduct.on('slideChangeTransitionEnd', function () {
         // اول از همه کلاس رو از همه taste-shapes ها حذف می‌کنیم

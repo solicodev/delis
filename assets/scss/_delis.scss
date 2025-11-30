@@ -472,6 +472,9 @@ $icon-color: #ff6600;
   background-size: 100% 100%;
   background-position: bottom;
 padding: 70px 0;
+  &.about-page{
+    background: none;
+  }
   .fruit {
     .tout {
       position: absolute;

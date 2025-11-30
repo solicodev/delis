@@ -6,14 +6,13 @@
         <div class=" wrapper p-md-5">
             <div class="container last-footer">
                 <div class="row justify-content-between align-items-center">
-                    <div class="col-12 col-md-3  text-end">
-
+                    <div class="col-12 col-md-3 text-center text-lg-end">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group152.png" alt="">
                         <p>دِلیس، برند خلاق گروه سولیکو است که از سال ۱۳۹۸ فعالیت خود را آغاز کرده تا با دسرهای جذابش، لحظه‌ها را شیرین‌تر کند. </p>
 
                     </div>
                     <div class="col-12 col-md-5 ">
-                        <div class="row box-center">
+                        <div class="row box-center text-center text-lg-end">
                             <div class="col-md-6 ">
                                 <div class="link-Container position-relative d-flex flex-column col-6 col-md-12 ">
 
@@ -56,7 +55,7 @@
 
                     </div>
                     <div class="col-12 col-md-3 ">
-                        <img src="<?php echo get_template_directory_uri()?>/assets/images/Group316.png" alt="" class="img-fluid">
+                        <img src="<?php echo get_template_directory_uri()?>/assets/images/Group316.png" alt="" class="img-fluid  d-none d-lg-block">
                 
                     </div>
 

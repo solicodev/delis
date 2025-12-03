@@ -23,7 +23,7 @@ get_header();
     دلیس، یک برند خلاقه که از سال 1398 وارد دنیای تولید انواع دسرها شد و در سال 1402 با یه چهره جسور و تازه اومد تا هر لحظه رو به یه جشن شیرین تبدیل کنه.
     دسرهای دلیس فقط یه خوراکی نیستن؛ اونا کلید یه حال خوبن، یه راه برای فرار از روزمرگی و یه بهونه برای لبخند زدن. با هر قاشق دلیس، انگار یه تکه شادی به زندگیت اضافه می‌کنی.
 </p>
-            <img src="<?php echo get_template_directory_uri()?>/assets/images/Group212.png" alt=""  class="girl-bit">
+            <img src="<?php echo get_template_directory_uri()?>/assets/images/Group212.png" alt=""  class="girl-bit d-none d-lg-block">
 
         </div>
         <div class="col-md-6">

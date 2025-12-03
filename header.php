@@ -30,9 +30,8 @@
         </div>
 
         <div class="header-logo text-center">
-            
-            <img src="<?php echo get_template_directory_uri()?>/assets/images/Logo-delis.png  "  class="text-logo" alt="Delis" />
-            <img src="<?php echo get_template_directory_uri()?>/assets/images/circle.png"  class="d-md-none circle-img"   alt="">
+            <a href="<?php echo home_url();?>">
+            <img src="<?php echo get_template_directory_uri()?>/assets/images/Logo-delis.png"  class="text-logo" alt="Delis" /></a>
         </div>
 
         <div class="header-icon right">

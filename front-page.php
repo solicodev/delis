@@ -1,12 +1,6 @@
 <?php
 get_header();
 
-$categories = get_terms(
-    array(
-        'taxonomy' => 'product-category',
-        'hide_empty' => false,
-    )
-);
 $products = get_posts(
     array(
         'post_type' => 'product',
@@ -14,11 +8,6 @@ $products = get_posts(
         'posts_per_page' => -1,
         'orderby' => 'date',
         'order' => 'DESC',
-        'tax_query' => array(
-            'taxonomy' => 'product-category',
-            'field' => 'term_id',
-            'terms' => $categories[0]->term_id,
-        )
     )
 );
 ?>
@@ -78,15 +67,15 @@ $products = get_posts(
                 <div class="row horizontal-scroll">
                     <?php
                     $i = 1;
-                    foreach ($categories as $category) :
-                        $cat = get_field('image', 'term_' . $category->term_id);
+                    foreach ($products as $category) :
+                        $cat = get_the_post_thumbnail_url($category->ID, 'large');
                         ?>
                         <div class="col col-lg-4 mb-4">
                             <div class="select-category <?php echo $i == 1 ? 'selected' : '' ?>"
-                                 data-id="<?php echo $category->term_id; ?>">
-                                <span><?php echo $category->name; ?></span>
-                                <img class="mx-auto d-block img-fluid" src="<?php echo $cat['url']; ?>"
-                                     alt="<?php echo $cat['title']; ?>">
+                                 data-id="<?php echo $category->ID; ?>">
+                                <span><?php echo $category->post_title; ?></span>
+                                <img class="mx-auto d-block img-fluid" src="<?php echo $cat; ?>"
+                                     alt="<?php echo $category->post_title; ?>">
                             </div>
                         </div>
                         <?php
@@ -150,6 +139,33 @@ $products = get_posts(
         </div>
     </div>
 </section>
+<section id="campaign">
+    <div class="container h-100">
+        <div class="row h-100 justify-content-between align-items-end">
+            <div class="col-12 col-lg-6">
+                <div class="title-group">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/title-pouding.png">
+                    <h2>دنیای دلیس</h2>
+                </div>
+                <strong class="my-5 d-block">
+                    دلت میخواد دنیای دلیس چه شکلی باشه؟!
+                </strong>
+                <p class="mb-0">
+                    رنگی، بامزه، خیالی یا پر از دسرهای خوش‌مزه؟
+                </p>
+                <p>
+                    نقاشیش کن و با ما به اشتراک بذار! هر ماه بین همه‌ی نقاشی‌ها قرعه‌کشی داریم و شاید همین بار، نوبت تو
+                    باشه. نقاشیت رو آپلود کن و وارد دنیای دلیس شو!
+                </p>
+                <a href="#" class="delis-btn secondary">آپلود نقاشی</a>
+            </div>
+            <div class="col-12 col-lg-6">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/painting-campaign.png"
+                     class="img-fluid d-block mx-auto" alt="">
+            </div>
+        </div>
+    </div>
+</section>
 <section id="about">
     <div class="about-us position-relative">
         <div class="container">
@@ -185,9 +201,6 @@ $products = get_posts(
     <div class="position-relative">
         <div class="container">
             <div class="fruit w-100 h-100 position-relative">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/images/anar.svg"
-                     class="anar d-none d-lg-block"
-                     alt="">
                 <div class="title-group">
                     <img src="<?php echo get_template_directory_uri() ?>/assets/images/title-instagram.png">
                     <h2>اینستاگرام دلیس</h2>
@@ -394,7 +407,6 @@ $products = get_posts(
                     همیشه در دسترس برای مهمونی‌ها، دورهمی‌های خانوادگی یا حتی ذخیره خوشمزه برای روزهای شلوغی، مولتی‌پک
                     دلیس گزینه‌ ایده‌آله.
                 </p>
-                <a href="#" class="delis-btn secondary">پودینگ‌ها</a>
             </div>
             <div class="col-12 col-lg-6">
                 <div id="swiper-pooding" class="swiper">

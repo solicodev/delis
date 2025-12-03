@@ -16,13 +16,6 @@ body {
     }
   }
   #product-hero{
-    &.milkshake,&.milk,&.beverage{
-      &:before{
-        background-image: url("images/product-single/Milk.png");
-      }
-    }
-  }
-  #product-hero{
     &.jelly{
       &:before{
         background-image: url("images/product-single/jelly.jpg");
@@ -30,7 +23,7 @@ body {
     }
   }
   #product-hero{
-    &.pouding,&.dessert{
+    &.pouding{
       &:before{
         background-image: url("images/product-single/pouding.jpg");
       }
@@ -168,6 +161,7 @@ body {
       background-repeat: no-repeat;
       mix-blend-mode: soft-light;
       background-attachment: fixed;
+      background-image: url("images/product-single/Milk.png");
     }
 
     .gradient {

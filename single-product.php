@@ -1,6 +1,5 @@
 <?php
 get_header();
-$terms = wp_get_post_terms(get_the_ID(), 'product-category');
 $product_info = get_field('product_info');
 $all_flavors = array();
 if (have_rows('flavor_items')):
@@ -43,13 +42,13 @@ endif;
         <div class="scale-anim">
         </div>
     </div>
-    <section id="product-hero" class="<?php echo $terms[0]->slug; ?>">
+    <section id="product-hero" class="<?php echo $post->post_name; ?>">
         <div class="gradient"></div>
         <div class="h-100 position-relative container">
             <img class="shape-float shape shape1" src="<?php echo $all_flavors[0]['shape1']; ?>" alt="">
             <img class="shape-float shape shape2" src="<?php echo $all_flavors[0]['shape2']; ?>" alt="">
             <div class="big-text">
-                <?php echo $terms[0]->slug; ?>
+                <?php echo $post->post_name; ?>
             </div>
             <div class="product-frame">
                 <a class="slider-btn next-product">
@@ -104,7 +103,6 @@ endif;
                 </div>
                 <div class="col-12 col-lg-4">
                     <div id="product-box">
-
                     </div>
                     <div class="d-flex align-items-center justify-content-center my-5 gap-5">
                         <a class="slider-btn next-product">
@@ -160,21 +158,20 @@ endif;
             <div id="other-product" class="swiper">
                 <div class="swiper-wrapper">
                     <?php
-                    $categories = get_terms(
+                    $categories = get_posts(
                         array(
-                            'taxonomy' => 'product-category',
-                            'hide_empty' => false,
+                            'post_type' => 'product',
+                            'posts_per_page' => -1,
                             'exclude' => array(get_the_ID())
                         )
                     );
                     foreach ($categories as $category) :
-                        $cat = get_field('image', 'term_' . $category->term_id);
                         ?>
                         <div class="swiper-slide">
                             <div class="select-category">
-                                <span><?php echo $category->name; ?></span>
-                                <img class="mx-auto d-block img-fluid" src="<?php echo $cat['url']; ?>"
-                                     alt="<?php echo $cat['title']; ?>">
+                                <span><?php echo $category->post_title; ?></span>
+                                <img class="mx-auto d-block img-fluid" src="<?php echo get_the_post_thumbnail_url($category); ?>"
+                                     alt="<?php echo $category->post_title; ?>">
                             </div>
                         </div>
                     <?php

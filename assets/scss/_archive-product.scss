@@ -1,0 +1,253 @@
+.post-type-archive-product {
+  //.archive-card{
+  //  &.milkshake,&.milk,&.beverage{
+  //    &:after{
+  //      background-image: url("images/product-single/Milk.png");
+  //    }
+  //  }
+  //}
+  //.archive-card{
+  //  &.jelly{
+  //    &:after{
+  //      background-image: url("images/product-single/jelly.jpg");
+  //    }
+  //  }
+  //}
+  //.archive-card{
+  //  &.pouding,&.dessert{
+  //    &:after{
+  //      background-image: url("images/product-single/pouding.jpg");
+  //    }
+  //  }
+  //}
+  .swiper{
+    overflow-y: auto;
+    padding: 100px 0;
+    .swiper-slide{
+      &.swiper-slide-active{
+        transform: scale(1.2);
+        box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.05);
+        z-index: 3;
+        border-radius: 24px;
+         .archive-card{
+          border-color: $secondary-color;
+
+          &:before {
+            mix-blend-mode: exclusion;
+            transition: all linear 0.5s;
+            opacity: 1;
+          }
+
+          .bilbilak {
+            top: 30%;
+
+            path {
+              fill: $secondary-color;
+            }
+
+          }
+
+          .card-image {
+            img {
+              opacity: 0.3;
+            }
+          }
+
+          .card-logo {
+            opacity: 1;
+          }
+
+          .card-cat-name {
+            -webkit-text-stroke: 1px rgba(255, 205, 0, 0.4);
+            color: $primary-color;
+            top: 50%;
+            z-index: 1;
+            transform: translateY(-100%);
+          }
+
+          .card-product-name {
+            color: $secondary-color;
+            z-index: 1;
+            bottom: 50%;
+            transform: translateY(30%);
+          }
+
+          .product-link {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+  .archive-card {
+    border-radius: 24px;
+    padding: 80px 40px;
+    position: relative;
+    border: 4px solid rgba(255, 225, 102, 1);
+    transition: all linear 0.3s;
+    background-blend-mode: soft-light;
+    background-size: cover;
+    background: rgba(255, 225, 102, 1) url("images/product-single/Milk.png") no-repeat center center/cover;
+    &.pouding{
+      background: rgba(255, 225, 102, 1) url("images/product-single/pouding.jpg") no-repeat center center/cover;
+    }
+    &.jelly{
+      background: rgba(255, 225, 102, 1) url("images/product-single/jelly.jpg") no-repeat center center/cover;
+    }
+    //&:after {
+    //  content: '';
+    //  display: block;
+    //  height: 100%;
+    //  width: 100%;
+    //  top: 0;
+    //  position: absolute;
+    //  background-size: cover;
+    //  background-position: center center;
+    //  background-repeat: no-repeat;
+    //  mix-blend-mode: soft-light;
+    //  background-attachment: fixed;
+    //}
+    .bilbilak {
+      position: absolute;
+      top: 12%;
+      //opacity: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      transition: all linear 0.3s;
+      z-index: 2;
+      width: 20%;
+      path {
+        fill: $primary-color;
+        transition: fill linear 0.3s;
+      }
+
+    }
+
+    .card-logo {
+      position: absolute;
+      top: 5%;
+      left: 0;
+      right: 0;
+      margin: auto;
+      opacity: 0;
+      z-index: 2;
+      transition: all linear 0.3s;
+      width: 40%;
+    }
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 24px;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 250, 230, 1);
+      transition: all linear 0.5s;
+      opacity: 0;
+    }
+    .card-image {
+      z-index: 1;
+      height: 40dvh;
+      display: flex;
+    }
+    .card-cat-name {
+      color: $secondary-color;
+      font-weight: 900;
+      font-size: fluid-font(20px, 52px);
+      text-transform: capitalize;
+      position: absolute;
+      top: 40px;
+      transition: all linear 0.5s;
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center;
+      display: block;
+    }
+
+    .card-product-name {
+      font-size: fluid-font(16px, 40px);
+      color: $primary-color;
+      font-weight: 900;
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      margin: auto;
+      text-align: center;
+      display: block;
+      transition: all linear 0.5s;
+    }
+
+    .product-link {
+      position: absolute;
+      bottom: 40px;
+      opacity: 0;
+    }
+    &:hover {
+      border-color: $secondary-color;
+
+      &:before {
+        mix-blend-mode: exclusion;
+        transition: all linear 0.5s;
+        opacity: 1;
+      }
+
+      .bilbilak {
+        top: 30%;
+
+        path {
+          fill: $secondary-color;
+        }
+
+      }
+
+      .card-image {
+        img {
+          opacity: 0.3;
+        }
+      }
+
+      .card-logo {
+        opacity: 1;
+      }
+
+      .card-cat-name {
+        -webkit-text-stroke: 1px rgba(255, 205, 0, 0.4);
+        color: $primary-color;
+        top: 50%;
+        z-index: 1;
+        transform: translateY(-100%);
+      }
+
+      .card-product-name {
+        color: $secondary-color;
+        z-index: 1;
+        bottom: 50%;
+        transform: translateY(30%);
+      }
+
+      .product-link {
+        opacity: 1;
+      }
+    }
+  }
+  #product-grid{
+    margin: fluid-font(70px,150px) 0;
+  }
+  #decorative {
+    height: 70vh;
+    background-image: url("images/product-single/milkshake-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+
+  }
+  #about{
+    background: none;
+  }
+}

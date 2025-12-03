@@ -153,7 +153,20 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
             //})
         }
     })
-
+    const archiveSlider = new Swiper("#archive-slider", {
+        slidesPerView: 2,
+        spaceBetween: -50,
+        loop: true,
+        centeredSlides: true,
+        // navigation: {
+        //     nextEl: ".swiper-button-next",
+        //     prevEl: ".swiper-button-prev",
+        // },
+        breakpoints: {
+            768: {slidesPerView: 2},
+            992: {slidesPerView: 3}
+        }
+    });
     const swiperInstagram = new Swiper("#instagram-cards", {
         slidesPerView: 1.5,
         spaceBetween: 16,

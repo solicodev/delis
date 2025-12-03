@@ -15,7 +15,6 @@
                         <div class="row box-center text-center text-lg-end">
                             <div class="col-md-6 ">
                                 <div class="link-Container position-relative d-flex flex-column col-6 col-md-12 ">
-
                                 <span class="text-hover">درباره ما</span>
                                     <a href="<?php echo home_url('story'); ?>" class="link-Text stretched-link"> قصه‌ی
                                          دلیس</a>
@@ -24,7 +23,6 @@
                                 </div>
                                 <div class="link-Container position-relative d-flex flex-column col-6 col-md-12">
                                     <span class="text-hover">پاسخ های شما</span>
-
                                     <a href="<?php echo home_url('faq'); ?>" class="link-Text stretched-link"> سوال‌های
                                         شما</a>
                                     <div class="border-btm">
@@ -34,7 +32,6 @@
                             <div class="col-md-6">
                                 <div class="link-Container position-relative d-flex flex-column col-6 col-md-12">
                                     <span class="text-hover">خوشمزه</span>
-
                                     <a href="<?php echo home_url('history'); ?>" class="link-Text stretched-link">دسرهای
                                         دلیس</a>
                                     <div class="border-btm">

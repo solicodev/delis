@@ -58,6 +58,7 @@ get_header();
                 <h2>
                     راه‌های تماس با دلیس
                 </h2>
+
            <div class="row icon-box py-3">
                <div class="col-lg-5 col-sm-12">
 

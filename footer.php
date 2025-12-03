@@ -3,7 +3,7 @@
 </section>
 <footer>
     <section id="footer">
-        <div class=" wrapper p-md-5">
+        <div class=" wrapper p-md-2">
             <div class="container last-footer">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-12 col-md-3 text-center text-lg-end">
@@ -56,14 +56,10 @@
                     </div>
                     <div class="col-12 col-md-3 ">
                         <img src="<?php echo get_template_directory_uri()?>/assets/images/Group316.png" alt="" class="img-fluid  d-none d-lg-block">
-                
                     </div>
-
                 </div>
             </div>
         </div>
-
-
         <div class="footer-bar d-flex justify-content-center align-items-center ">
             <img src="<?php echo get_template_directory_uri() ?>/assets/images/Solicoo.svg" class="m-2" alt="">
             <p class="m-0">تمام حقوق محفوظ و متعلق به گروه صنایع غذایی سولیکو کاله است.</p>

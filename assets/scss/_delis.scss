@@ -271,33 +271,27 @@ body {
   @include media-breakpoint-down('md') {
     background-image: url("images/hero-mobile.svg");
   }
-
-
   .dotted-line {
     position: absolute;
     bottom: 13vw;
     left: 8%;
   }
-
   .hero-text {
     .heart {
       position: absolute;
       top: 12%;
       left: 8%;
     }
-
     .dotted-line {
       position: absolute;
       top: 25%;
       left: 0;
     }
   }
-
   .subtitle {
     font-size: fluid-font(32px, 40px);
     color: #10069F;
     font-weight: 500;
-
   }
 
   .logo-text {
@@ -665,6 +659,8 @@ padding: 70px 0;
     margin: 35% 0;
     max-height: 132px;
     max-width: 160px;
+    @include media-breakpoint-down('md') {
+      margin: 20% 28% 16% 28%;    }
     &:hover {
       .text-hover{
         display: block;
@@ -699,10 +695,12 @@ display: none;
     border-top: 1px solid #10069F;
     background: #FFFAE6;
     padding: 10px 0;
+
     p {
-      font-size: fluid-font(14px, 16px);
+      font-size: fluid-font(12px, 16px);
       color: #000;
       text-align: justify;
+
     }
 
   }
@@ -713,7 +711,7 @@ display: none;
             linear-gradient(to bottom, #FFCD00 1px, transparent 2px);
     background-size: 100% 129px;
     background-repeat: repeat-y;
-
+    background-position: 0 -20px;
     p {
       color: #000;
       font-size: fluid-font(14px, 18px);

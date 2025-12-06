@@ -297,6 +297,8 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
 
     const productWrap = document.getElementById('product-slider');
     if (productWrap) {
+        var defaultCat= document.querySelector('.select-category.selected').dataset.id;
+        fetchProduct(defaultCat);
         document.querySelectorAll('.select-category').forEach(selector => {
             selector.addEventListener('click', e => {
                 let parent = selector.dataset.id;

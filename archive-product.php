@@ -67,7 +67,7 @@ get_header();
                             دلیس همیشه دنبال ساختن لحظه‌های کوچک اما لذیذه؛ با طعم‌هایی که هم راحت سرو می‌شن و هم یه
                             هیجان نرم و خوشایند به روزتون اضافه می‌کنن.
                         </p>
-                        <a href="#" class="delis-btn mt-4"> ماجراجویی بیشتر</a>
+                        <a href="<?php echo home_url('about-us'); ?>" class="delis-btn mt-4"> ماجراجویی بیشتر</a>
 
                     </div>
                     <div class="col-lg-7 text-start">
@@ -78,7 +78,6 @@ get_header();
                              class="img-fluid"
                              alt="">
                     </div>
-
                 </div>
             </div>
         </div>

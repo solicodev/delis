@@ -48,7 +48,7 @@ endif;
             <img class="shape-float shape shape1" src="<?php echo $all_flavors[0]['shape1']; ?>" alt="">
             <img class="shape-float shape shape2" src="<?php echo $all_flavors[0]['shape2']; ?>" alt="">
             <div class="big-text">
-                <?php echo $post->post_name; ?>
+                <?php echo get_field('english_name'); ?>
             </div>
             <div class="product-frame">
                 <a class="slider-btn next-product">
@@ -79,7 +79,7 @@ endif;
                 </a>
             </div>
             <div>
-                <h1 class="shape product-name"><?php echo get_the_title() ?></h1>
+                <h1 class="shape product-name"><?php echo $all_flavors[0]['pname']; ?></h1>
             </div>
         </div>
     </section>
@@ -89,7 +89,7 @@ endif;
                 <div class="col-12 col-lg-3">
                     <div class="product-desc">
                         <img class="shape-float shape shape1" src="<?php echo $all_flavors[0]['shape1']; ?>" alt="">
-                        <h2 class="product-name"><?php echo $all_flavors[0]['pname']; ?></h2>
+                        <h2 ><?php echo get_the_title() ?></h2>
                         <p id="short-description">
                             <?php echo $all_flavors[0]['desc']; ?>
                         </p>
@@ -172,6 +172,7 @@ endif;
                                 <span><?php echo $category->post_title; ?></span>
                                 <img class="mx-auto d-block img-fluid" src="<?php echo get_the_post_thumbnail_url($category); ?>"
                                      alt="<?php echo $category->post_title; ?>">
+                                <a class="stretched-link" href="<?php echo get_the_permalink($category); ?>"></a>
                             </div>
                         </div>
                     <?php

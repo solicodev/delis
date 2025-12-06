@@ -28,6 +28,11 @@ body {
         background-image: url("images/product-single/pouding.jpg");
       }
     }
+    &.fruit-yogurt{
+      .big-text{
+        font-size: fluid-font(64px,200px);
+      }
+    }
   }
 
   .banana {
@@ -99,11 +104,26 @@ body {
     --delis-secondary-gradient-color: rgba(155, 208, 116, 1);
     --delis-title-color: rgba(147, 200, 109, 1);
   }
-
-
+  .mango {
+    --delis-bg-color: rgba(253, 179, 19, 1);
+    --delis-primary-gradient-color: rgba(253, 179, 19, 0);
+    --delis-secondary-gradient-color: rgba(253, 179, 19, 1);
+    --delis-title-color: rgba(255, 187, 40, 1);
+  }
+  .peachmango {
+    --delis-bg-color: rgba(253, 189, 131, 1);
+    --delis-primary-gradient-color: rgba(253, 189, 131, 0);
+    --delis-secondary-gradient-color: rgba(253, 189, 131, 1);
+    --delis-title-color: rgba(253, 189, 131, 1);
+  }
+  .bananastrawberry {
+    --delis-bg-color: rgba(234, 115, 130, 1);
+    --delis-primary-gradient-color: rgba(234, 115, 130, 0);
+    --delis-secondary-gradient-color: rgba(234, 115, 130, 1);
+    --delis-title-color: rgba(250, 132, 147, 1);
+  }
   #single-product-wrap {
     transition: all ease-in-out .3s;
-
 
     .background-color {
       position: fixed;

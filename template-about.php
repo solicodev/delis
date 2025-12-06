@@ -103,11 +103,6 @@ get_header();
                 <div class="swiper-slide">
             <div class="card text-center  border-0 ">
                 <div class="card-body  serious-box ">
-                    <div class="outline">
-                        <svg width="100%" height="100%">
-                            <rect width="100%" height="100%" fill="none" />
-                        </svg>
-                    </div>
                     <img src="<?php echo get_template_directory_uri()?>/assets/images/Group100.png" alt="">
                     <h2>خوشمزگی بی‌حد</h2>
                     <p>طعمی که با یک قاشق،<br> کل روزت رو زیر و رو می‌کنه.</p>

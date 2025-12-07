@@ -39,7 +39,6 @@
   font-weight: 900;
   src: url('fonts/Pelak-Black.woff') format('woff');
 }
-
 @keyframes float {
   0% {
     //box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);
@@ -54,12 +53,10 @@
     transform: translatey(0px);
   }
 }
-
-.shape-float {
-  width: fluid-font(25px, 165px);
+.shape-float{
+  width: fluid-font(25px,165px);
   animation: float 3s ease-in-out infinite;
 }
-
 .blink {
   animation: blink 1.2s infinite steps(1, end);
   transform-origin: center;
@@ -79,11 +76,10 @@
     filter: saturate(0.4);
   }
 }
-
 h2 {
   font-feature-settings: 'ss03' on;
   font-family: Pelak;
-  font-size: fluid-font(20px, 40px);
+  font-size: fluid-font(20px, 32px);
   font-style: normal;
   font-weight: 800;
   line-height: normal;
@@ -98,7 +94,6 @@ p {
   line-height: 180%
 
 }
-
 .title-group {
   position: relative;
   margin-bottom: 5%;
@@ -108,21 +103,18 @@ p {
   @include media-breakpoint-down('md') {
     padding: 2rem;
   }
-
-  img {
-    width: fluid-font(160px, 330px);
+  img{
+    width: fluid-font(160px,330px);
   }
-
-  h2, h1 {
+  h2,h1 {
     font-feature-settings: 'ss03' on;
-    font-size: fluid-font(20px, 40px);
+    font-size: fluid-font(20px, 32px);
     font-weight: 900;
     line-height: normal;
     color: #10069F;
     position: absolute;
   }
 }
-
 .delis-btn {
   border: 2px solid $primary-color;
   font-size: fluid-font(14px, 24px);
@@ -140,20 +132,17 @@ p {
     width: 100%;
     text-align: center;
   }
-
-  &:hover {
+  &:hover{
     background-color: #E7E6F5;
   }
 
   &.secondary {
     background-color: $secondary-color;
-
-    &:hover {
+    &:hover{
       background-color: #FFE166;
     }
   }
 }
-
 .swiper {
   .swiper-button-next, .swiper-button-prev {
     width: fluid-font(32px, 64px);
@@ -184,60 +173,53 @@ p {
     left: 0;
   }
 }
-
-.slider-btn {
+.slider-btn{
   position: relative;
-
-  &.prev-product {
-    svg {
+  &.prev-product{
+    svg{
       transform: rotate(180deg);
     }
   }
-
-  & > span {
+  &>span{
     display: block;
     border-radius: 24px;
     position: relative;
     border: 3px solid var(--Primary-Blue, #10069F);
     background: var(--Primary-Yellow, #FFCD00);
     box-shadow: -4px 4px 12px 0 rgba(255, 255, 255, 0.40) inset, 4px -4px 12px 0 rgba(255, 255, 255, 0.40) inset;
-    padding: 19px 23px;
+    padding:19px 23px;
     transition: all linear 0.3s;
-    @include media-breakpoint-down('lg') {
+    @include media-breakpoint-down('lg'){
       border-radius: 18px;
       padding: 12px 16px;
     }
   }
-
-  &:before {
+  &:before{
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
-    transform: translateY(5px);
+    transform:translateY(5px);
     border-radius: 24px;
     background: var(--Primary-Blue, #10069F);
     transition: all linear 0.3s;
-    @include media-breakpoint-down('lg') {
+    @include media-breakpoint-down('lg'){
       border-radius: 18px;
     }
   }
-
-  &:hover {
-    & > span {
+  &:hover{
+    &>span{
       border: 3px solid var(--Primary-Blue, #10069F);
       background: var(--Primary-Yellow, #FFCD00);
-      transform: translateY(5px);
+      transform:translateY(5px);
       box-shadow: 2px -2px 8px 0 rgba(0, 0, 0, 0.45) inset, -2px 2px 8px 0 rgba(0, 0, 0, 0.45) inset;
     }
-
-    &:before {
+    &:before{
 
     }
   }
 }
-
-.fullscreen-menu {
+.fullscreen-menu{
   width: 100%;
   position: fixed;
   right: 0;
@@ -251,37 +233,32 @@ p {
   top: -100vh;
   height: 100dvh;
   transition: all linear 0.3s;
-  @include media-breakpoint-down('lg') {
+  @include media-breakpoint-down('lg'){
     background-position: bottom center;
     background-size: contain;
   }
-
-  &.open {
+  &.open{
     top: 0;
   }
-
-  nav {
+  nav{
     display: flex;
     flex-wrap: wrap;
-
-    .nav-item-wrap {
+    .nav-item-wrap{
       width: 50%;
       margin-bottom: 80px;
-      @include media-breakpoint-down('lg') {
+      @include media-breakpoint-down('lg'){
         width: 100%;
         margin-bottom: 50px;
         text-align: center;
       }
-
-      a {
+      a{
         color: $primary-color;
-        font-size: fluid-font(16px, 32px);
+        font-size: fluid-font(16px,32px);
         font-weight: 800;
         transition: all linear .3s;
         position: relative;
         display: inline-block;
-
-        &:before {
+        &:before{
           content: '';
           height: 8px;
           width: 0;
@@ -292,25 +269,22 @@ p {
           right: 0;
           z-index: -1;
           transition: all linear 0.3s;
-          @include media-breakpoint-down('lg') {
+          @include media-breakpoint-down('lg'){
             width: 100%;
             bottom: 10px;
 
           }
         }
-
-        img {
+        img{
           width: 48px;
           margin-left: 32px;
           transition: all linear .3s;
         }
-
-        &:hover {
-          img {
+        &:hover{
+          img{
             transform: scale(1.2) rotate(45deg);
           }
-
-          &:before {
+          &:before{
             width: 100%;
           }
         }
@@ -318,7 +292,6 @@ p {
     }
   }
 }
-
 body {
   background-color: #FFFAE6;
   font-family: Pelak, "IranSans", sans-serif;
@@ -327,36 +300,31 @@ body {
   direction: rtl;
 
 }
-
 #hero {
   background-image: url("images/HiroBackground.svg");
-  background-size: cover;
+  background-size:100% 100%;
   padding: 0 0 10% 0;
   background-repeat: no-repeat;
   @include media-breakpoint-down('md') {
     background-image: url("images/hero-mobile.svg");
   }
-
   .dotted-line {
     position: absolute;
     bottom: 13vw;
     left: 8%;
   }
-
   .hero-text {
     .heart {
       position: absolute;
       top: 12%;
       left: 8%;
     }
-
     .dotted-line {
       position: absolute;
       top: 25%;
       left: 0;
     }
   }
-
   .subtitle {
     font-size: fluid-font(32px, 40px);
     color: #10069F;
@@ -416,7 +384,6 @@ body {
     }
   }
 }
-
 #about {
   background-image: url("images/about-bg.png");
   background-repeat: no-repeat;
@@ -473,7 +440,6 @@ body {
     }
   }
 }
-
 $circle-size: 50px;
 $circle-bg: #0a0a80;
 $icon-color: #ff6600;
@@ -508,7 +474,6 @@ $icon-color: #ff6600;
     align-items: center;
     padding: 40px;
     z-index: 9;
-
     img {
       width: 80px;
 
@@ -537,12 +502,12 @@ $icon-color: #ff6600;
   background-repeat: repeat-y;
   background-size: 100% 100%;
   background-position: bottom;
-  padding: 70px 0;
-
-  &.about-page {
+padding: 70px 0;
+  &.about-page{
     background: none;
-  }
+    padding-bottom: 70px;
 
+  }
   .fruit {
     .tout {
       position: absolute;
@@ -569,36 +534,30 @@ $icon-color: #ff6600;
     background-color: #FFFAE6;
     border-radius: 24px;
     border: 1px solid #000;
-    position: relative;
-    .card-header {
-      span {
+    .card-header{
+      span{
         font-size: fluid-font(10px, 20px);
       }
-
-      img {
+      img{
         width: fluid-font(22px, 52px);
       }
     }
-
-    .card-footer {
-      .mark {
-        img {
-          height: fluid-font(10px, 20px);
+    .card-footer{
+      .mark{
+        img{
+          height: fluid-font(10px,20px);
         }
       }
-
-      .instagram-icons {
-        .info-count {
+      .instagram-icons{
+        .info-count{
           display: flex;
           align-items: center;
           gap: 5px;
-
-          span {
-            font-size: fluid-font(10px, 16px);
+          span{
+            font-size: fluid-font(10px,16px);
           }
-
-          img {
-            height: fluid-font(10px, 20px);
+          img{
+            height: fluid-font(10px,20px);
           }
         }
       }
@@ -685,12 +644,10 @@ $icon-color: #ff6600;
 
   .pod-img {
     padding: 10%;
-
     img {
       width: 100%;
 
     }
-
     p {
       text-align: justify;
       font-size: fluid-font(14px, 24px);
@@ -722,49 +679,62 @@ $icon-color: #ff6600;
     }
   }
 }
-
-#top-footer {
-  background-image: url("images/line-top.jpg");
+#top-footer{
+  background-image:url("images/line-top.jpg") ;
   background-repeat: no-repeat;
-  background-size: 100% 100%;
+  background-size: 100%;
   background-position: center bottom;
   height: 50px;
 }
-
 #footer {
-  position: relative;
-  z-index: 10;
+  .right-title{
+    margin-top: 44px;
+    @include media-breakpoint-down('md'){
+margin: 0;
+    }
 
+  }
+  .left-title{
+    margin-top: 44px;
+    @include media-breakpoint-down('md'){
+margin: 0;
+    }
+  }
+.logo-img{
+  @include media-breakpoint-down('md'){
+    width: 40%;
+    padding: 3% 0;
+  }
+}
   .link-Image {
     position: absolute;
     bottom: 15%;
   }
-
-
   .link-Container {
     margin: 35% 0;
     max-height: 132px;
     max-width: 160px;
     @include media-breakpoint-down('md') {
-      margin: 20% 28% 16% 28%;
-    }
-
+      margin: 13% 28% 26% 28%;   }
     &:hover {
-      .text-hover {
+      .text-hover{
         display: block;
-
       }
     }
-
-    .text-hover {
-      font-size: 23px;
+    .text-hover{
+      font-size: fluid-font(18px,24px);
       font-style: normal;
       font-weight: 700;
-      color: #FFCD00;
-      display: none;
+      color: #FFCD00 ;
+display: none;
       position: absolute;
       top: -24px;
-      right: 8%;
+  left: 4%;
+      @include media-breakpoint-down('md'){
+display: block;
+        left: 8%;
+
+      }
 
     }
 
@@ -772,7 +742,7 @@ $icon-color: #ff6600;
       color: #10069F;
       text-align: center;
       font-feature-settings: 'ss03' on;
-      font-size: fluid-font(14px, 24px);
+      font-size: fluid-font(18px, 24px);
       font-style: normal;
       font-weight: 800;
       line-height: normal;
@@ -796,21 +766,27 @@ $icon-color: #ff6600;
 
   .wrapper {
     background-color: #FFE166;
-    background-image: linear-gradient(to bottom, #FFCD00 1px, transparent 2px);
+    background-image:
+            linear-gradient(to bottom, #FFCD00 1px, transparent 2px);
     background-size: 100% 129px;
     background-repeat: repeat-y;
     background-position: 0 -20px;
-
     p {
       color: #000;
-      font-size: fluid-font(14px, 18px);
-      text-align: justify;
+      font-size: fluid-font(14px, 17px);
+text-align: justify;
     }
   }
 
   .icon-box {
+    .text-left{
+      @include media-breakpoint-down('md'){
+        text-align: left!important;
+      }
+    }
     img {
       width: 48px;
+
     }
 
     p {
@@ -850,8 +826,14 @@ $icon-color: #ff6600;
   height: 8px;
   border-radius: 300px;
   background: #FFCD00;
-  margin-right: 10%;
-  margin-top: -7%;
+  margin-top: -5%;
+  &:hover{
+    box-shadow: -4px 6px 18px 0 rgba(0, 0, 0, 0.15);
+  }
+  @include media-breakpoint-down('md'){
+    margin-right: 0;
+    margin-top: -4%;  }
+
 }
 
 .border-title {
@@ -862,6 +844,7 @@ $icon-color: #ff6600;
   margin-right: -2%;
   margin-top: -4%;
   max-width: 100%;
+
 }
 
 .product-categories {
@@ -945,32 +928,27 @@ $icon-color: #ff6600;
     }
   }
 }
-
-#campaign {
+#campaign{
   background-image: url("images/landing-bg.svg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top center;
   height: 110dvh;
   padding-bottom: 15dvh;
-
-  strong {
+  strong{
     font-size: fluid-font(14px, 24px);
     color: $primary-color;
   }
-
-  p {
+  p{
     font-size: fluid-font(14px, 24px);
   }
 }
-
 #products {
   background-image: url("images/product-bg.svg");
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: bottom center;
   margin-bottom: -15px;
-
   .horizontal-scroll {
     @include media-breakpoint-down('lg') {
       flex-wrap: nowrap;
@@ -988,7 +966,7 @@ $icon-color: #ff6600;
   .select-category {
     aspect-ratio: 1 / 1;
     width: 100%;
-    border-radius: fluid-font(14px, 20px);
+    border-radius: 24px;
     border: 2px dashed $primary-color;
     box-shadow: -4px 6px 12px 0 rgba(0, 0, 0, 0.15);
     padding: 20px;
@@ -1009,10 +987,8 @@ $icon-color: #ff6600;
     &:hover {
       border: 2px solid $primary-color;
     }
-
-    &.selected {
+    &.selected{
       border: 2px solid $primary-color;
-
       &::before {
         opacity: 1;
       }
@@ -1022,7 +998,7 @@ $icon-color: #ff6600;
       text-align: center;
       display: block;
       margin-bottom: 10px;
-      font-size: fluid-font(14px, 20px);
+      font-size: 24px;
       font-weight: bold;
       color: $primary-color;
       position: relative;
@@ -1033,7 +1009,6 @@ $icon-color: #ff6600;
       position: relative;
       z-index: 1;
       height: 100%;
-      max-height: fluid-font(94px, 174px);
     }
   }
 
@@ -1095,12 +1070,10 @@ $icon-color: #ff6600;
       //}
 
       .float-shape {
-        position: absolute;
+        //position: absolute;
         //inset: 50% 50% auto auto;
         z-index: -1;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%) scale(0);
+        transform: translate(0, 0) scale(0);
         //inset: 0;
         transition: all linear 0.4s;
         transition-delay: 0.1s;
@@ -1108,26 +1081,17 @@ $icon-color: #ff6600;
 
       &.move-in {
         .float-shape {
+
           &:nth-child(1) {
-            transform: scale(1);
-            bottom: 0;
-            left: 0;
-            top: auto;
-            max-height: fluid-font(35px, 70px);
+            transform: translate(85%, -220%) scale(1);
           }
 
           &:nth-child(2) {
-            transform: scale(1);
-            top: 0;
-            right: 0;
-            max-height: fluid-font(50px, 100px);
+            transform: translate(-230%, 200%) scale(1);
           }
 
           &:nth-child(3) {
-            top: 0;
-            left: 0;
-            transform: scale(1);
-            max-height: fluid-font(30px, 63px);
+            transform: translate(-80%, -190%) scale(1);
           }
         }
       }
@@ -1151,16 +1115,14 @@ $icon-color: #ff6600;
         color: $primary-color;
       }
     }
-
     .swiper-slide {
       width: 100% !important;
       display: flex;
       justify-content: center;
       align-items: center;
 
-      & > a > img {
-        height: 100%;
-        max-height: fluid-font(226px, 400px);
+      & > img {
+        height: 80%;
       }
     }
   }

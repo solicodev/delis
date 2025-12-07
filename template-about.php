@@ -5,7 +5,7 @@ get_header();
 
 ?>
 <section id="hero-section">
-    <div class="container">
+    <div class="container position-relative">
     <div class="row justify-content-center text-center">
         <div class="col-md-12">
             <div class="title-group">
@@ -14,9 +14,9 @@ get_header();
             </div>
         </div>
     </div>
-    <div class="row align-content-center align-items-center">
-        <div class="col-md-6 position-relative order-last order-lg-first">
-            <h2>
+    <div class="row align-content-center align-items-start justify-content-between">
+        <div class="col-md-5 position-relative order-last order-lg-first">
+            <h2 class="py-4">
                 قاشق به قاشق
             </h2>
 <p class="">
@@ -37,15 +37,15 @@ get_header();
 
  <section>
      <div class="container ">
-         <div class="row   align-content-center align-items-center" >
+         <div class="row   align-content-center align-items-center justify-content-between" >
 
-             <div class="col-md-6">
+             <div class="col-md-5">
 
                  <img src="<?php echo get_template_directory_uri()?>/assets/images/Group234.png " alt="" class="img-fluid">
 
              </div>
              <div class="col-md-6">
-                 <h2>
+                 <h2 class="py-4">
                      قصه شیرین دلیس
                  </h2>
                  <p class="">
@@ -62,14 +62,14 @@ get_header();
 
 <section id="mission" >
     <div class="container position-relative">
-        <div class="row   align-content-center align-items-center" >
+        <div class="row   align-content-center align-items-center justify-content-between" >
 <div class="col-md-12">
     <img src="<?php echo get_template_directory_uri()?>/assets/images/heart-beat.svg" alt="" class="blink heart-beat ">
 </div>
 
-            <div class="col-md-6 ">
+            <div class="col-md-5 ">
                 
-                <h2>
+                <h2 class="py-4">
                     ماموریت دلیس
 
                 </h2>

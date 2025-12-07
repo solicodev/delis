@@ -4,7 +4,7 @@
 get_header();
 
 ?>
-<section id="hero-section">
+<section id="hero-section" class="position-relative">
     <div class="container">
     <div class="row justify-content-center text-center">
         <div class="col-md-12">
@@ -14,8 +14,8 @@ get_header();
             </div>
         </div>
     </div>
-    <div class="row align-content-center align-items-center">
-        <div class="col-md-6 position-relative order-last order-lg-first">
+    <div class="row align-content-center align-items-start justify-content-between">
+        <div class="col-md-5 position-relative order-last order-lg-first">
             <h2 class="">
                 سوال دارید؟ ما اینجاییم.</h2>
 <p class="mt-5">
@@ -24,7 +24,7 @@ get_header();
 
         </div>
         <div class="col-md-6">
-            <img src="<?php echo get_template_directory_uri()?>/assets/images/hero-faq.png" alt="" class="img-fluid">
+            <img src="<?php echo get_template_directory_uri()?>/assets/images/q3.png" alt="" class="img-fluid">
         </div>
     </div>
     </div>
@@ -37,7 +37,7 @@ get_header();
     if ($categories):
         ?>
 
-        <div class="container py-5">
+        <div class="container ">
             <div class="row">
                 <div class="col-md-12">
                     <div class="faq-tabs nav flex-row flex-nowrap nav-pills justify-content-between" id="faq_category" role="tablist">

@@ -3,13 +3,13 @@
 </section>
 <footer>
     <section id="footer">
-        <div class=" wrapper p-md-2">
+        <div class=" wrapper position-relative  p-4">
             <div class="container last-footer">
                 <div class="row justify-content-between align-items-center">
-                    <div class="col-12 col-md-3 text-center text-lg-end">
+                    <div class="col-12 col-md-3 text-center text-lg-end ">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group152.png" alt="" class="logo-img">
-                        <p>دِلیس، برند خلاق گروه سولیکو است که از سال ۱۳۹۸ فعالیت خود را آغاز کرده تا با دسرهای جذابش، لحظه‌ها را شیرین‌تر کند. </p>
-
+                        <p class="mt-3">دِلیس، برند خلاق گروه سولیکو است که از سال ۱۳۹۸ فعالیت خود را آغاز کرده تا با دسرهای جذابش، لحظه‌ها را شیرین‌تر کند. </p>
+                        <img src="<?php echo get_template_directory_uri()?>/assets/images/Men3.svg" alt="" class="instagram">
                     </div>
                     <div class="col-12 col-md-5 ">
                         <div class="row box-center text-center text-lg-end">

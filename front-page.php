@@ -201,186 +201,62 @@ $products = get_posts(
     <div class="position-relative">
         <div class="container">
             <div class="fruit w-100 h-100 position-relative">
+
                 <div class="title-group">
                     <img src="<?php echo get_template_directory_uri() ?>/assets/images/title-instagram.png">
                     <h2>اینستاگرام دلیس</h2>
                 </div>
+                <p class="text-center">برای کشف تازه‌ترین طعم‌ها، ایده‌های خوشمزه و جشن‌های کوچک، ما رو تو شبکه‌های اجتماعی دنبال کن.</p>
                 <div class="swiper py-5" id="instagram-cards">
                     <div class="swiper-wrapper">
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                            <div class="card  instagram-box p-0">
-                                <div class="card-header border-0 ">
+                        <?php while (have_rows('instagram_repeater', 'option')):the_row();  ?>
+                            <div class="swiper-slide">
+                                <div class="card instagram-box p-0">
+                                    <div class="card-header border-0 ">
                         <span>
                             delis_dessert_
                         </span>
-                                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group146.svg"
-                                         alt="">
-                                </div>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title"></h5>
-                                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Insta-2.png"
-                                         class="img-fluid w-100">
-                                </div>
-                                <div class="card-footer text-muted d-flex justify-content-between">
-                                    <div class="mark">
-                                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector42.svg">
+                                        <a class="stretched-link" href="<?php echo get_sub_field('post_link'); ?>"><img src="<?php echo get_template_directory_uri() ?>/assets/images/Group146.svg" alt=""></a>
                                     </div>
-                                    <div class="instagram-icons d-flex align-items-center gap-2 gap-lg-3 justify-content-end">
-                                        <div class="info-count">
-                                            <span> 21 </span>
-                                            <img
-                                                    src="<?php echo get_template_directory_uri() ?>/assets/images/Vector33.svg"
-                                                    alt="">
+                                    <div class="card-body p-0">
+                                        <h5 class="card-title"></h5>
+                                        <img src="<?php echo get_sub_field('image') ?>"
+                                             class="img-fluid w-100">
+                                    </div>
+                                    <div class="card-footer text-muted d-flex justify-content-between">
+                                        <div class="mark">
+                                            <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector42.svg">
                                         </div>
-                                        <div class="info-count">
-                                            <span> 71 </span>
-                                            <img
-                                                    src="<?php echo get_template_directory_uri() ?>/assets/images/Vector30.svg"
-                                                    alt="">
-                                        </div>
-                                        <div class="info-count">
-                                            <span> 21 </span>
-                                            <img
-                                                    src="<?php echo get_template_directory_uri() ?>/assets/images/Vector32.svg"
-                                                    alt="">
+                                        <div class="instagram-icons d-flex align-items-center gap-2 gap-lg-3 justify-content-end">
+                                            <div class="info-count">
+                                                <span> <?php echo number_format(get_sub_field('share')) ?> </span>
+                                                <img
+                                                        src="<?php echo get_template_directory_uri() ?>/assets/images/Vector33.svg"
+                                                        alt="">
+                                            </div>
+                                            <div class="info-count">
+                                                <span> <?php echo number_format(get_sub_field('comment')) ?> </span>
+                                                <img
+                                                        src="<?php echo get_template_directory_uri() ?>/assets/images/Vector30.svg"
+                                                        alt="">
+                                            </div>
+                                            <div class="info-count">
+                                                <span> <?php echo number_format(get_sub_field('like')) ?> </span>
+                                                <img
+                                                        src="<?php echo get_template_directory_uri() ?>/assets/images/Vector32.svg"
+                                                        alt="">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="card  instagram-box p-0">
-                                <div class="card-header border-0 ">
-                        <span>
-                            delis_dessert_
-                        </span>
-
-                                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group146.svg"
-                                         alt="">
-                                </div>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title"></h5>
-                                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Insta-2.png"
-                                         class="img-fluid w-100">
-                                </div>
-                                <div class="card-footer text-muted d-flex justify-content-between">
-                                    <div class="mark">
-                                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector42.svg">
-                                    </div>
-                                    <div class="instagram-icons d-flex align-items-center gap-2 gap-lg-3 justify-content-end">
-                                        <div class="info-count">
-                                            <span> 21 </span>
-                                            <img
-                                                    src="<?php echo get_template_directory_uri() ?>/assets/images/Vector33.svg"
-                                                    alt="">
-                                        </div>
-                                        <div class="info-count">
-                                            <span> 71 </span>
-                                            <img
-                                                    src="<?php echo get_template_directory_uri() ?>/assets/images/Vector30.svg"
-                                                    alt="">
-                                        </div>
-                                        <div class="info-count">
-                                            <span> 21 </span>
-                                            <img
-                                                    src="<?php echo get_template_directory_uri() ?>/assets/images/Vector32.svg"
-                                                    alt="">
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="card  instagram-box p-0">
-                                <div class="card-header border-0 ">
-                        <span>
-                            delis_dessert_
-                        </span>
-                                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group146.svg"
-                                         alt="">
-                                </div>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title"></h5>
-                                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Insta-2.png"
-                                         class="img-fluid w-100">
-                                </div>
-                                <div class="card-footer justify-content-between d-flex">
-                                    <div class="mark">
-                                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector42.svg">
-                                    </div>
-                                    <div class="instagram-icons d-flex align-items-center gap-2 gap-lg-3 justify-content-end">
-                                        <div class="info-count">
-                                            <span> 21 </span>
-                                            <img
-                                                    src="<?php echo get_template_directory_uri() ?>/assets/images/Vector33.svg"
-                                                    alt="">
-                                        </div>
-                                        <div class="info-count">
-                                            <span> 71 </span>
-                                            <img
-                                                    src="<?php echo get_template_directory_uri() ?>/assets/images/Vector30.svg"
-                                                    alt="">
-                                        </div>
-                                        <div class="info-count">
-                                            <span> 21 </span>
-                                            <img
-                                                    src="<?php echo get_template_directory_uri() ?>/assets/images/Vector32.svg"
-                                                    alt="">
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <div class="card  instagram-box p-0">
-                                <div class="card-header border-0 ">
-                        <span>
-                            delis_dessert_
-                        </span>
-                                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group146.svg"
-                                         alt="">
-                                </div>
-                                <div class="card-body p-0">
-                                    <h5 class="card-title"></h5>
-                                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Insta-2.png"
-                                         class="img-fluid">
-                                </div>
-
-
-                                <div class="card-footer text-muted d-flex justify-content-between">
-                                    <div class="mark">
-                                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector42.svg">
-                                    </div>
-                                    <div class="insta-icons justify-content-end">
-                                    <span> 21 <img
-                                                src="<?php echo get_template_directory_uri() ?>/assets/images/Vector33.svg"
-                                                alt=""></span>
-                                        <span> 71 <img
-                                                    src="<?php echo get_template_directory_uri() ?>/assets/images/Vector30.svg"
-                                                    alt=""></span>
-                                        <span> 21 <img
-                                                    src="<?php echo get_template_directory_uri() ?>/assets/images/Vector32.svg"
-                                                    alt=""></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        <?php endwhile; ?>
                     </div>
-
                 </div>
             </div>
 
             <!-- Swiper -->
             <div class="d-flex justify-content-center">
-
                 <a href="#" class="delis-btn secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M1 12C1 6.81495 1 4.22126 2.61063 2.61063C4.22126 1 6.81379 1 12 1C17.1851 1 19.7787 1 21.3894 2.61063C23 4.22126 23 6.81379 23 12C23 17.1851 23 19.7787 21.3894 21.3894C19.7787 23 17.1862 23 12 23C6.81495 23 4.22126 23 2.61063 21.3894C1 19.7787 1 17.1862 1 12Z"
@@ -389,7 +265,6 @@ $products = get_posts(
                               stroke="#10069F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                     اینستاگرام دلیس </a>
-
             </div>
         </div>
     </div>

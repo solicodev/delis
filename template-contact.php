@@ -9,20 +9,20 @@ get_header();
     <div class="row justify-content-center text-center">
         <div class="col-md-12">
             <div class="title-group">
-                <h2>ارتباط با دلیس</h2>
+                <h1>ارتباط با دلیس</h1>
                 <img src="<?php echo get_template_directory_uri();?>/assets/images/contact-us.png" class="img-fluid">
             </div>
         </div>
     </div>
-    <div class="row align-content-center align-items-start justify-content-between">
-        <div class="col-md-5 position-relative order-last order-lg-first">
+    <div class="row align-content-center align-items-start justify-content-between position-relative">
+        <div class="col-md-5  order-last order-lg-first">
             <h2 class="py-2">صدای شما، شیرین ترین طعم ما       </h2>
 <p>
     ما عاشق شنیدن صدای شمائیم، چه بخوای از یه طعم جدید تعریف کنی، چه بخوای یه پیشنهاد خوشمزه بدی یا حتی یه انتقاد دوستانه بگی.</p>
-            <img src="<?php echo get_template_directory_uri()?>/assets/images/Group212.png" alt=""  class="girl-bit  d-none d-lg-block ">
+            <img src="<?php echo get_template_directory_uri()?>/assets/images/Group212.png" alt=""  class="girl-bit   ">
         </div>
         <div class="col-md-5">
-            <img src="<?php echo get_template_directory_uri()?>/assets/images/old-phone.png" alt="" class="img-fluid">
+            <img src="<?php echo get_template_directory_uri()?>/assets/images/old-phone.png" alt="" class="img-fluid phone-img">
         </div>
     </div>
     </div>
@@ -61,7 +61,7 @@ get_header();
                    <p>تهران، خیابان آذربایجان شرقی، پلاک 103</p>
                </div>
            </div>
-                <div class="row icon-box justify-content-between py-3">
+                <div class="row icon-box justify-content-between middle-box ">
                 <div class="col-5">
                    <img src="<?php echo get_template_directory_uri()?>/assets/images/Vec38.svg" alt="">  <span> شماره تماس:  </span></div>
                <div class="col-7">
@@ -90,7 +90,6 @@ get_header();
                     <h2>اینستاگرام دلیس</h2>
                 </div>
                 <p class="text-center">برای کشف تازه‌ترین طعم‌ها، ایده‌های خوشمزه و جشن‌های کوچک، ما رو تو شبکه‌های اجتماعی دنبال کن.</p>
-
                 <div class="swiper py-5" id="instagram-cards">
                     <div class="swiper-wrapper">
                         <?php while (have_rows('instagram_repeater', 'option')):the_row();  ?>

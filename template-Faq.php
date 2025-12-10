@@ -9,22 +9,21 @@ get_header();
     <div class="row justify-content-center text-center">
         <div class="col-md-12">
             <div class="title-group">
-                <h2>سوال‌های شما</h2>
+                <h1>سوال‌های شما</h1>
                 <img src="<?php echo get_template_directory_uri();?>/assets/images/hero-faqq.png" class="img-fluid">
             </div>
         </div>
     </div>
-    <div class="row align-content-center align-items-start justify-content-between">
-        <div class="col-md-5 position-relative order-last order-lg-first">
+    <div class="row align-content-center align-items-start justify-content-between position-relative">
+        <div class="col-md-5  order-last order-lg-first">
             <h2 class="">
                 سوال دارید؟ ما اینجاییم.</h2>
 <p class="mt-5">
     اینجا می‌تونید جواب رایج‌ترین سوال‌ها درباره محصولات و تجربه دلیس رو خیلی سریع پیدا کنید. اگر چیزی از قلم افتاد، با خیال راحت بپرسید.</p>
-            <img src="<?php echo get_template_directory_uri()?>/assets/images/Group212.png" alt=""  class="girl-bit  d-none d-lg-block ">
-
+            <img src="<?php echo get_template_directory_uri()?>/assets/images/Group212.png" alt=""  class="girl-bit  ">
         </div>
         <div class="col-md-6">
-            <img src="<?php echo get_template_directory_uri()?>/assets/images/q3.png" alt="" class="img-fluid">
+            <img src="<?php echo get_template_directory_uri()?>/assets/images/q3.png" alt="" class="img-fluid phone-img">
         </div>
     </div>
     </div>
@@ -94,6 +93,7 @@ get_header();
                                                             type="button"
                                                             data-bs-toggle="collapse"
                                                             data-bs-target="#collapse-<?php echo $content_index; ?>-<?php echo $q_index; ?>">
+                                                        <span></span>
                                                         <?php echo esc_html($faq['question']); ?>
                                                     </button>
                                                 </h2>

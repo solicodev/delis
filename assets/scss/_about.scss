@@ -6,6 +6,11 @@
     position: absolute;
     right: 30%;
     top: 0;
+    @include media-breakpoint-down('lg'){
+      top: 55%;
+      right: 76%;
+      width: 14%;
+    }
   }
 }
 
@@ -18,11 +23,29 @@
 
   @include media-breakpoint-down('lg') {
     background-position: center;
+    background-image: url("images/Vector88.png");
+    .about-bg{
+      width: 60%;
+      float: left;
+    }
+    .phone-img{
+      width: 60%;
+      float: left;
+    }
+    .phone-img{
+      width: 60%;
+      float: left;
+    }
+  }
 
-  }
-  h2{
+  h2 {
     margin-top: 15dvh;
+    @include media-breakpoint-down('lg'){
+      margin-top: 0;
+
+    }
   }
+
   p {
     padding: 0 0 23% 0;
     @include media-breakpoint-down('lg') {
@@ -31,8 +54,14 @@
     }
 
   }
+
   .girl-bit {
     position: absolute;
+    bottom: 10%;
+    @include media-breakpoint-down('lg'){
+      width: 40%;
+      top: 31%;
+    }
   }
 
   .title-shape {
@@ -54,7 +83,12 @@
     position: relative;
 
     overflow: hidden;
-
+    h2 {
+      margin: 24px 0;
+      font-size: fluid-font(20px, 32px);
+      padding: 3% 0;
+      font-weight: 700;
+    }
     p {
       color: #000;
       font-weight: 400;
@@ -100,12 +134,7 @@
     }
   }
 
-  h2 {
-    margin: 24px 0;
-    font-size: fluid-font(20px, 32px);
-    padding: 3% 0;
-    font-weight: 700;
-  }
+
 
   p {
     color: #10069F;
@@ -134,15 +163,17 @@
 
 #contact-way {
   margin: 5% 0;
-
+.middle-box{
+  margin-top: 21px;
+}
   .icon-box {
     &:not(:last-child) {
-      border-bottom: 1px dashed #10069F;
-    }
-    p {
-      font-size: fluid-font(14px, 18px);
+      border-bottom: 1px dashed #FFCD00;
     }
 
+    p {
+      font-size: fluid-font(14px, 20px);
+    }
     span {
       text-align: right;
       font-size: fluid-font(14px, 18px);
@@ -264,8 +295,10 @@ input.wpcf7-submit {
     width: 100%;
   }
 }
+
 #faq {
   padding: 8% 0;
+
   .faq-tabs {
     gap: 20px;
     overflow-x: scroll;
@@ -355,21 +388,45 @@ input.wpcf7-submit {
       .accordion-header {
         button {
           background: none;
-          padding: 30px 20px;
+          padding: 15px 20px;
           font-size: fluid-font(14px, 20px);
           font-weight: 600;
           color: #10069F;
           box-shadow: none;
           transition: all 0.25s ease;
           text-align: right;
-
-          &::after {
+          position: relative;
+          &:after{
             content: '';
-            width: 20px;
+            display: none;
+          }
+          span{
             position: absolute;
-            left: 5%;
+            left: 50px;
+          }
+          &:not(.collapsed) {
+            span {
+              &:before {
+                content: '-';
+              }
+            }
+          }
+
+          span {
+            width: 30px;
+            height: 30px;
+            background-color: $secondary-color;
+            color: $primary-color;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+
+            &:before {
+              content: '+';
+            }
           }
         }
+
       }
 
       .accordion-body {

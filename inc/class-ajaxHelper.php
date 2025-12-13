@@ -20,12 +20,12 @@ class AjaxHelper
                 if (get_row_layout() == 'product_flavor'):
                     //var_dump(get_sub_field('shape_1'));
                     $html .= '<div class="swiper-slide"><a href="' . get_the_permalink($args['parent']) . '"><img src="' . get_sub_field('image')['url'] . '"
-                                         class="img-fluid mx-auto d-block" alt="' . get_sub_field('name') . '"></a>
+                                         class="img-fluid mx-auto d-block product-float" alt="' . get_sub_field('name') . '"></a>
                                          <div class="taste-shapes ' . get_sub_field('flavor')->slug . '">
                                          <div class="position-relative w-75 h-75">
-                                         <img class="float-shape" src="' . get_sub_field('shape_1') . '" />
-                                         <img class="float-shape" src="' . get_sub_field('shape_2') . '" />
-                                         <img class="float-shape" src="' . get_template_directory_uri() . '/assets/images/shapes/shape.png" />
+                                         <img class="float-shape shape-float" src="' . get_sub_field('shape_1') . '" />
+                                         <img class="float-shape shape-float" src="' . get_sub_field('shape_2') . '" />
+                                         <img class="float-shape shape-float" src="' . get_template_directory_uri() . '/assets/images/shapes/shape.png" />
                                          </div>
                                          </div>
                                          </div>';

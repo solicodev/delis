@@ -17,24 +17,25 @@ $products = get_posts(
             <div class="col-12 col-lg-4 order-last order-lg-first">
                 <div class="hero-text  text-end  align-items-center position-relative">
                     <h1 class="logo-text  d-none d-sm-block ">
+                        <img class="bg-logo" src="<?php echo get_template_directory_uri() ?>/assets/images/bglogo.svg" alt="">
                         <img src="<?php echo get_template_directory_uri() ?>/assets/images/Logo.png" alt="">
                     </h1>
                     <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector15.svg"
                          class="heart d-none d-lg-block"
                          alt="">
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector24.svg"
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector26.svg"
                          class="dotted-line d-none d-lg-block"
                          alt="">
                     <p class="subtitle">... دِلم می‌خواد</p>
                     <div class="mt-4 d-flex gap-3">
-                        <a href="#" class="delis-btn secondary">دسرهای دلیس</a>
-                        <a href="#" class="delis-btn">قصه‌ی دلیس</a>
+                        <a href="<?php echo home_url('products');?>" class="delis-btn secondary">دسرهای دلیس</a>
+                        <a href="" data-bs-target="#painting-modal" data-bs-toggle="modal" class="delis-btn">مسابقه
+                            نقاشی</a>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-lg-7">
-                <img src="<?php echo get_template_directory_uri() ?>/assets/images/Vector26.svg" class="dotted-line "
-                     alt="">
+
 
                 <div class="tv-container position-relative">
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Group183.png"
@@ -52,7 +53,11 @@ $products = get_posts(
     </div>
 </section>
 <section id="products">
+
     <div class="container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="37" height="71" viewBox="0 0 37 71" fill="none">
+            <path d="M4.29577 3.03436C4.82129 3.20419 5.3857 2.91534 5.55554 2.38982C5.72503 1.86444 5.43636 1.30081 4.91101 1.13103L4.02038 0.848808C3.12351 0.56926 2.20629 0.298569 1.26843 0.0372849L1.16882 0.0148239C0.669273 -0.071434 0.176124 0.23291 0.0369815 0.731621C-0.111233 1.26363 0.199324 1.8158 0.731317 1.96404L1.64343 2.22283C2.54829 2.48472 3.43234 2.75532 4.29577 3.03436ZM17.8495 8.96502C18.326 9.24355 18.9378 9.08304 19.2167 8.60662C19.4956 8.12996 19.3359 7.5174 18.8592 7.23845C16.7825 6.02316 14.5085 4.87274 12.0311 3.80096C11.5244 3.58192 10.936 3.8148 10.7167 4.32146C10.4974 4.82834 10.7303 5.41759 11.2372 5.63689C13.6452 6.67868 15.8468 7.79308 17.8495 8.96502ZM29.0546 18.2931C29.4004 18.7236 30.0303 18.7922 30.4608 18.4465C30.8913 18.1006 30.96 17.4707 30.6141 17.0402C29.1047 15.1616 27.292 13.3342 25.162 11.59C24.7347 11.2402 24.1047 11.3035 23.7548 11.7306C23.4049 12.1579 23.4672 12.788 23.8944 13.1379C25.9252 14.8008 27.6383 16.5305 29.0546 18.2931ZM35.4901 32.341C36.0416 32.3121 36.4653 31.8417 36.4364 31.2902L36.4061 30.8195C36.2294 28.4627 35.6491 26.0618 34.6385 23.6789L34.5936 23.5871C34.3497 23.1429 33.8046 22.9466 33.328 23.1486C32.8195 23.3642 32.5821 23.9517 32.7977 24.4601L32.9784 24.8976C33.8537 27.0875 34.3282 29.2716 34.4393 31.3947L34.4501 31.4963C34.5274 31.9973 34.973 32.368 35.4901 32.341ZM31.3319 45.8263C32.9924 43.9346 34.2806 41.8092 35.1512 39.5265L35.3202 39.0685L35.3495 38.9699C35.4691 38.4776 35.1988 37.9648 34.7108 37.7922C34.1901 37.608 33.6186 37.8809 33.4344 38.4015C32.6528 40.611 31.4375 42.6744 29.829 44.507L30.5809 45.1662L31.3319 45.8263ZM19.4618 45.7033C19.8278 46.1167 20.4603 46.1552 20.8739 45.7892C21.2874 45.4232 21.3258 44.7907 20.9598 44.3771C20.0284 43.3245 18.9228 42.3262 17.6483 41.3908C16.2364 40.3546 14.817 39.8462 13.454 39.8029L13.3514 39.8049C12.8458 39.84 12.4392 40.2532 12.4227 40.7707C12.4053 41.3226 12.8386 41.7844 13.3905 41.8019L13.7313 41.8273C14.5435 41.9215 15.463 42.268 16.4647 43.0031C17.6373 43.8637 18.6346 44.7684 19.4618 45.7033ZM9.49304 53.301C9.95768 53.5035 10.5097 53.3255 10.7635 52.8742C11.0342 52.3928 10.8631 51.7826 10.3817 51.5119L10.202 51.4054C8.50557 50.3362 8.0003 48.2804 8.53405 46.1965L8.66003 45.7648L8.6864 45.6662C8.79341 45.1708 8.50981 44.665 8.01745 44.5051C7.52492 44.3451 6.99819 44.588 6.79382 45.0519L6.75768 45.1476L6.67565 45.4142C5.87118 48.1941 6.40207 51.5684 9.40124 53.2551L9.49304 53.301ZM29.9208 45.9181C30.3357 46.2824 30.9675 46.2411 31.3319 45.8263L29.829 44.507C29.4649 44.922 29.5059 45.5539 29.9208 45.9181ZM20.8495 61.6037C21.2924 61.8718 21.8609 61.7556 22.1659 61.3508L22.2225 61.2658L22.536 60.7306C24.0452 58.0516 24.7492 55.3047 24.579 52.6115L24.5673 52.5099C24.4845 52.0098 24.0343 51.6433 23.5175 51.676C23.4904 51.6777 23.4637 51.6819 23.4374 51.6857C24.064 51.3897 24.6714 51.0738 25.2587 50.7385C25.7382 50.4646 25.9054 49.8537 25.6317 49.3742C25.3749 48.9245 24.8216 48.7494 24.3583 48.9552L24.2675 49.0011L23.8817 49.217C22.9752 49.7128 22.0157 50.1616 21.0057 50.5588C19.8419 51.0164 18.7714 51.3701 17.7899 51.632L17.3749 51.7385L17.2762 51.7677C16.7992 51.9383 16.5196 52.4459 16.6434 52.9484C16.7758 53.4845 17.3173 53.812 17.8534 53.6799C19.0436 53.386 20.3366 52.9708 21.7372 52.4201C22.1401 52.2617 22.5359 52.095 22.9247 51.9211C22.6982 52.1185 22.5625 52.4144 22.5829 52.7375L22.6014 53.1886C22.6439 55.2993 22.0546 57.5099 20.7928 59.7492L20.5126 60.2297L20.4637 60.3205C20.2465 60.7783 20.4067 61.3356 20.8495 61.6037ZM11.537 70.2121C11.847 70.669 12.4686 70.7877 12.9257 70.4777C14.1838 69.6243 15.3433 68.7491 16.4022 67.8556C16.8243 67.4995 16.8775 66.8686 16.5214 66.4465C16.1652 66.0244 15.5343 65.9712 15.1122 66.3273C14.361 66.9611 13.5527 67.5884 12.6874 68.2072L11.8036 68.8234L11.7216 68.8849C11.3331 69.2104 11.2463 69.7836 11.537 70.2121Z" fill="#10069F"/>
+        </svg>
         <div class="row">
             <div class="col-12">
                 <div class="title-group">
@@ -84,7 +89,7 @@ $products = get_posts(
                     ?>
                 </div>
                 <div class="d-none d-lg-flex justify-content-center">
-                    <a href="#" class="delis-btn mt-4">همه‌ی دسرها</a>
+                    <a href="<?php echo home_url('products');?>" class="delis-btn mt-4">همه‌ی دسرها</a>
                 </div>
             </div>
             <div class="col-12 col-lg-6">
@@ -133,7 +138,7 @@ $products = get_posts(
                     </div>
                 </div>
                 <div class="d-lg-none">
-                    <a href="#" class="delis-btn mt-4">همه‌ی دسرها</a>
+                    <a href="<?php echo home_url('products');?>" class="delis-btn mt-4">همه‌ی دسرها</a>
                 </div>
             </div>
         </div>
@@ -142,10 +147,10 @@ $products = get_posts(
 <section id="campaign">
     <div class="container h-100">
         <div class="row h-100 justify-content-between align-items-end">
-            <div class="col-12 col-lg-6">
-                <div class="title-group">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/title-pouding.png">
-                    <h2>دنیای دلیس</h2>
+            <div class="col-12 col-lg-5">
+                <div class="title-group right-align">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-title-bg.png">
+                    <h2>نقاشی‌های شما</h2>
                 </div>
                 <strong class="my-5 d-block">
                     دلت میخواد دنیای دلیس چه شکلی باشه؟!
@@ -157,7 +162,7 @@ $products = get_posts(
                     نقاشیش کن و با ما به اشتراک بذار! هر ماه بین همه‌ی نقاشی‌ها قرعه‌کشی داریم و شاید همین بار، نوبت تو
                     باشه. نقاشیت رو آپلود کن و وارد دنیای دلیس شو!
                 </p>
-                <a href="#" class="delis-btn secondary">آپلود نقاشی</a>
+                <a href="#" class="delis-btn secondary mt-5">آپلود نقاشی</a>
             </div>
             <div class="col-12 col-lg-6">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/painting-campaign.png"
@@ -171,9 +176,9 @@ $products = get_posts(
         <div class="container">
             <div class="row justify-content-between align-content-start">
                 <div class="col-lg-5">
-                    <div class="title-group ">
+                    <div class="title-group right-align">
                         <h2>دلیس یعنی دسر</h2>
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/title-about.png"
+                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/home-title-bg.png"
                              class="yellow-heart">
                     </div>
                     <p>
@@ -182,7 +187,7 @@ $products = get_posts(
                         <br>موس و پاناکوتا، یه دنیای خیال‌انگیز از دسرهای خوش‌طعم منتظر شماست.
                         دلیس همیشه دنبال ساختن تجربه‌های تازه‌ست، با طعم‌هایی که هم آشنا هستن هم هیجان‌انگیز.
                     </p>
-                    <a href="#" class="delis-btn mt-4"> ماجراجویی بیشتر</a>
+                    <a href="<?php echo home_url('about-us');?>" class="delis-btn mt-5"> ماجراجویی بیشتر</a>
 
                 </div>
                 <div class="col-lg-7 text-start">
@@ -201,7 +206,6 @@ $products = get_posts(
     <div class="position-relative">
         <div class="container">
             <div class="fruit w-100 h-100 position-relative">
-
                 <div class="title-group">
                     <img src="<?php echo get_template_directory_uri() ?>/assets/images/title-instagram.png">
                     <h2>اینستاگرام دلیس</h2>
@@ -257,7 +261,7 @@ $products = get_posts(
 
             <!-- Swiper -->
             <div class="d-flex justify-content-center">
-                <a href="#" class="delis-btn secondary">
+                <a href="<?php echo get_field('instagram_link','option');?>" class="delis-btn secondary">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M1 12C1 6.81495 1 4.22126 2.61063 2.61063C4.22126 1 6.81379 1 12 1C17.1851 1 19.7787 1 21.3894 2.61063C23 4.22126 23 6.81379 23 12C23 17.1851 23 19.7787 21.3894 21.3894C19.7787 23 17.1862 23 12 23C6.81495 23 4.22126 23 2.61063 21.3894C1 19.7787 1 17.1862 1 12Z"
                               stroke="#10069F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -271,10 +275,10 @@ $products = get_posts(
 </section>
 <section id="poo-delis">
     <div class="container">
-        <div class="row justify-content-between">
-            <div class="col-12 col-lg-6">
-                <div class="title-group">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/title-pouding.png">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-12 col-lg-5">
+                <div class="title-group right-align">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/home-title-bg.png">
                     <h2> پودینگ دلیس</h2>
                 </div>
                 <p class="mt-3">پودینگ‌های دلیس با دو بسته‌بندی به بازار اومدن تا هر سبک زندگی و سلیقه‌ای رو پوشش بدن.
@@ -294,13 +298,7 @@ $products = get_posts(
                         </div>
                         <div class="swiper-slide">
                             <div class="pod-img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pooding.png"
-                                     alt="">
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="pod-img">
-                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pooding.png"
+                                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/pooding-strewberry.png"
                                      alt="">
                             </div>
                         </div>
@@ -327,6 +325,116 @@ $products = get_posts(
     </div>
 
 </section>
-
+<!--<div class="modal" id="painting-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"-->
+<!--     aria-labelledby="staticBackdropLabel" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-lg modal-fullscreen-lg-down">-->
+<!--        <div class="modal-content">-->
+<!--            <ul class="nav nav-pills mb-4 steps-nav d-flex align-items-center justify-content-between p-0">-->
+<!--                <li class="nav-item"><a class="nav-link active" href="#">۱</a></li>-->
+<!--                <li class="separator"></li>-->
+<!--                <li class="nav-item"><a class="nav-link" href="#">۲</a></li>-->
+<!--                <li class="separator"></li>-->
+<!--                <li class="nav-item"><a class="nav-link" href="#">۳</a></li>-->
+<!--            </ul>-->
+<!---->
+<!--            <form id="multiForm">-->
+<!---->
+<!--                <div class="step active">-->
+<!--                    <p class="mb-5">-->
+<!--                        اول اطلاعاتت رو وارد کن تا بتونی فایل نقاشیت رو آپلود کنی و وارد دنیای دلیس بشی!-->
+<!--                    </p>-->
+<!--                    <div class="form-input">-->
+<!--                        <label for="inpName" class="form-label">نام خالق نقاشی</label>-->
+<!--                        <input id="inpName" type="text" class="form-control">-->
+<!--                        <div class="invalid-feedback">-->
+<!--                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16"-->
+<!--                                 fill="none">-->
+<!--                                <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                      d="M6.54618 1.17241C7.4037 -0.390805 9.5974 -0.390805 10.4538 1.17241L16.7087 12.5747C17.5494 14.108 16.4699 16 14.756 16H2.2451C0.530048 16 -0.549426 14.108 0.291285 12.5747L6.54618 1.17241ZM9.62094 12.5529C9.62094 12.8577 9.50284 13.1501 9.29262 13.3656C9.0824 13.5812 8.79729 13.7023 8.49999 13.7023C8.2027 13.7023 7.91758 13.5812 7.70736 13.3656C7.49714 13.1501 7.37904 12.8577 7.37904 12.5529C7.37904 12.248 7.49714 11.9557 7.70736 11.7401C7.91758 11.5245 8.2027 11.4034 8.49999 11.4034C8.79729 11.4034 9.0824 11.5245 9.29262 11.7401C9.50284 11.9557 9.62094 12.248 9.62094 12.5529ZM8.49999 3.35747C8.2027 3.35747 7.91758 3.47857 7.70736 3.69413C7.49714 3.90969 7.37904 4.20205 7.37904 4.5069V7.95517C7.37904 8.26002 7.49714 8.55238 7.70736 8.76794C7.91758 8.9835 8.2027 9.1046 8.49999 9.1046C8.79729 9.1046 9.0824 8.9835 9.29262 8.76794C9.50284 8.55238 9.62094 8.26002 9.62094 7.95517V4.5069C9.62094 4.20205 9.50284 3.90969 9.29262 3.69413C9.0824 3.47857 8.79729 3.35747 8.49999 3.35747Z"-->
+<!--                                      fill="#D81F25"/>-->
+<!--                            </svg>-->
+<!--                            نام خود را وارد کنید.-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-input">-->
+<!--                        <label class="form-label">سال تولد</label>-->
+<!--                        <input type="number" class="form-control">-->
+<!--                        <div class="invalid-feedback">-->
+<!--                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16"-->
+<!--                                 fill="none">-->
+<!--                                <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                      d="M6.54618 1.17241C7.4037 -0.390805 9.5974 -0.390805 10.4538 1.17241L16.7087 12.5747C17.5494 14.108 16.4699 16 14.756 16H2.2451C0.530048 16 -0.549426 14.108 0.291285 12.5747L6.54618 1.17241ZM9.62094 12.5529C9.62094 12.8577 9.50284 13.1501 9.29262 13.3656C9.0824 13.5812 8.79729 13.7023 8.49999 13.7023C8.2027 13.7023 7.91758 13.5812 7.70736 13.3656C7.49714 13.1501 7.37904 12.8577 7.37904 12.5529C7.37904 12.248 7.49714 11.9557 7.70736 11.7401C7.91758 11.5245 8.2027 11.4034 8.49999 11.4034C8.79729 11.4034 9.0824 11.5245 9.29262 11.7401C9.50284 11.9557 9.62094 12.248 9.62094 12.5529ZM8.49999 3.35747C8.2027 3.35747 7.91758 3.47857 7.70736 3.69413C7.49714 3.90969 7.37904 4.20205 7.37904 4.5069V7.95517C7.37904 8.26002 7.49714 8.55238 7.70736 8.76794C7.91758 8.9835 8.2027 9.1046 8.49999 9.1046C8.79729 9.1046 9.0824 8.9835 9.29262 8.76794C9.50284 8.55238 9.62094 8.26002 9.62094 7.95517V4.5069C9.62094 4.20205 9.50284 3.90969 9.29262 3.69413C9.0824 3.47857 8.79729 3.35747 8.49999 3.35747Z"-->
+<!--                                      fill="#D81F25"/>-->
+<!--                            </svg>-->
+<!--                            سال تولد خود را وارد کنید.-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="form-input">-->
+<!--                        <label class="form-label">شماره موبایل</label>-->
+<!--                        <input type="text" class="form-control">-->
+<!--                        <div class="invalid-feedback">-->
+<!--                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16"-->
+<!--                                 fill="none">-->
+<!--                                <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                      d="M6.54618 1.17241C7.4037 -0.390805 9.5974 -0.390805 10.4538 1.17241L16.7087 12.5747C17.5494 14.108 16.4699 16 14.756 16H2.2451C0.530048 16 -0.549426 14.108 0.291285 12.5747L6.54618 1.17241ZM9.62094 12.5529C9.62094 12.8577 9.50284 13.1501 9.29262 13.3656C9.0824 13.5812 8.79729 13.7023 8.49999 13.7023C8.2027 13.7023 7.91758 13.5812 7.70736 13.3656C7.49714 13.1501 7.37904 12.8577 7.37904 12.5529C7.37904 12.248 7.49714 11.9557 7.70736 11.7401C7.91758 11.5245 8.2027 11.4034 8.49999 11.4034C8.79729 11.4034 9.0824 11.5245 9.29262 11.7401C9.50284 11.9557 9.62094 12.248 9.62094 12.5529ZM8.49999 3.35747C8.2027 3.35747 7.91758 3.47857 7.70736 3.69413C7.49714 3.90969 7.37904 4.20205 7.37904 4.5069V7.95517C7.37904 8.26002 7.49714 8.55238 7.70736 8.76794C7.91758 8.9835 8.2027 9.1046 8.49999 9.1046C8.79729 9.1046 9.0824 8.9835 9.29262 8.76794C9.50284 8.55238 9.62094 8.26002 9.62094 7.95517V4.5069C9.62094 4.20205 9.50284 3.90969 9.29262 3.69413C9.0824 3.47857 8.79729 3.35747 8.49999 3.35747Z"-->
+<!--                                      fill="#D81F25"/>-->
+<!--                            </svg>-->
+<!--                            شماره موبایل نادرست است. لطفاً دوباره امتحان کنید.-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex gap-3">-->
+<!--                        <button type="button" class="delis-btn prevBtn">بستن</button>-->
+<!--                        <button type="button" class="delis-btn secondary nextBtn">ارسال کد تایید</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="step">-->
+<!--                    <p class="mb-3">کد ارسال شده به شماره 09128888888 رو وارد کنید.</p>-->
+<!--                    <div class="digits-group">-->
+<!--                        <input type="email" class="form-control digits">-->
+<!--                        <input type="email" class="form-control digits">-->
+<!--                        <input type="email" class="form-control digits">-->
+<!--                        <input type="email" class="form-control digits">-->
+<!--                    </div>-->
+<!--                    <div class="d-flex gap-3">-->
+<!--                        <button type="button" class="delis-btn prevBtn">قبلی</button>-->
+<!--                        <button type="button" class="delis-btn secondary nextBtn">تکمیل ثبت نام</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--                <div class="step">-->
+<!--                    <p class="mb-3">نقاشی را اینجا بارگذاری کنید و در مسابقه شرکت کنید!</p>-->
+<!--                    <div class="mb-3">-->
+<!--                        <div class="upload-zone">-->
+<!--                            <svg class="upload-bg" xmlns="http://www.w3.org/2000/svg" width="290" height="290"-->
+<!--                                 viewBox="0 0 290 290" fill="none">-->
+<!--                                <path opacity="0.1"-->
+<!--                                      d="M144.75 144.75L0.75 0.75M144.75 144.75L288.75 0.75M144.75 144.75L0.75 288.75M144.75 144.75L288.75 288.75M0.75 0.75V72.75M0.75 0.75H72.75M288.75 0.75V72.75M288.75 0.75H216.75M0.75 288.75V216.75M0.75 288.75H72.75M288.75 288.75V216.75M288.75 288.75H216.75"-->
+<!--                                      stroke="#10069F" stroke-width="1.5" stroke-linecap="round"-->
+<!--                                      stroke-linejoin="round"/>-->
+<!--                            </svg>-->
+<!--                            <label for="upload-paint" id="upload-button">-->
+<!--                                انتخاب از گالری-->
+<!--                                <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29"-->
+<!--                                     fill="none">-->
+<!--                                    <path fill-rule="evenodd" clip-rule="evenodd"-->
+<!--                                          d="M11.6 0C8.2708 0 5.82191 0.110844 4.15022 0.230067C2.02356 0.382156 0.382156 2.02291 0.230067 4.15087C0.110844 5.82191 0 8.2708 0 11.6C0 14.9292 0.110844 17.3781 0.230067 19.0498C0.378289 21.121 1.93784 22.7315 3.98396 22.9551C3.9024 21.1045 3.86329 19.2524 3.86667 17.4C3.86667 14.0276 3.9788 11.533 4.10189 9.81296C4.32229 6.72607 6.72607 4.32229 9.81296 4.10189C11.533 3.97944 14.0276 3.86667 17.4 3.86667C19.6233 3.86667 21.4645 3.91564 22.9551 3.98396C22.7315 1.93784 21.121 0.378289 19.0498 0.230067C17.3781 0.110844 14.9292 0 11.6 0ZM17.4 5.8C14.0708 5.8 11.6219 5.91084 9.95022 6.03007C7.82356 6.18216 6.18216 7.82291 6.03007 9.95087C5.91084 11.6219 5.8 14.0708 5.8 17.4C5.8 20.7292 5.91084 23.1781 6.03007 24.8498C6.18216 26.9764 7.82291 28.6178 9.95087 28.7699C11.6219 28.8892 14.0708 29 17.4 29C20.7292 29 23.1781 28.8892 24.8498 28.7699C26.9764 28.6178 28.6178 26.9771 28.7699 24.8491C28.8892 23.1781 29 20.7292 29 17.4C29 14.0708 28.8892 11.6219 28.7699 9.95022C28.6178 7.82356 26.9771 6.18216 24.8491 6.03007C23.1781 5.91084 20.7292 5.8 17.4 5.8ZM19.9778 12.2444C19.9778 11.5608 20.2494 10.9051 20.7328 10.4217C21.2162 9.93825 21.8719 9.66667 22.5556 9.66667C23.2392 9.66667 23.8949 9.93825 24.3783 10.4217C24.8617 10.9051 25.1333 11.5608 25.1333 12.2444C25.1333 12.9281 24.8617 13.5838 24.3783 14.0672C23.8949 14.5506 23.2392 14.8222 22.5556 14.8222C21.8719 14.8222 21.2162 14.5506 20.7328 14.0672C20.2494 13.5838 19.9778 12.9281 19.9778 12.2444ZM27.0132 21.1958C26.3278 20.5697 25.6266 19.9612 24.9104 19.3707C23.9482 18.5832 22.6567 18.4588 21.6005 19.1632C20.9148 19.6208 19.9945 20.3006 18.8107 21.3034C17.012 19.5911 15.756 18.4975 14.9182 17.8118C13.9554 17.0249 12.664 16.8999 11.6077 17.6043C10.7326 18.1882 9.47269 19.1361 7.772 20.6564C7.81453 22.3397 7.88542 23.6827 7.95889 24.7119C8.04267 25.8802 8.9204 26.758 10.0888 26.8411C11.7108 26.9571 14.1133 27.0667 17.4 27.0667C20.6867 27.0667 23.0892 26.9571 24.7119 26.8411C25.8802 26.7573 26.758 25.8802 26.8411 24.7119C26.9068 23.7948 26.97 22.629 27.0132 21.1958Z"-->
+<!--                                          fill="#0A1F8F"/>-->
+<!--                                </svg>-->
+<!--                            </label>-->
+<!--                            <input type="file" accept="image/png" class="d-none" id="upload-paint" name="upload-paint">-->
+<!--                            <div>فرمت‌های قابل قبول: JPEG، PNG (حداکثر حجم: ۵۰ مگابایت)</div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="d-flex gap-3">-->
+<!--                        <button type="button" class="delis-btn prevBtn">لغو</button>-->
+<!--                        <button type="submit" class="delis-btn secondary">ارسال</button>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!---->
+<!--            </form>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 <?php get_footer(); ?>
 

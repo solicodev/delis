@@ -14,7 +14,7 @@ get_header();
             </div>
         </div>
     </div>
-    <div class="row align-content-center align-items-start justify-content-between position-relative">
+    <div class="row align-content-center align-items-stretch justify-content-between position-relative">
         <div class="col-md-5  order-last order-lg-first">
             <h2 class="">
                 سوال دارید؟ ما اینجاییم.</h2>
@@ -45,7 +45,7 @@ get_header();
                         foreach ($categories as $cat):
                             $active = ($tab_index === 0) ? 'active' : '';
                             ?>
-                            <div class="nav-link  <?php echo $active; ?> d-flex flex-column"
+                            <div class="nav-link  <?php echo $active; ?> d-flex w-25 flex-column"
                                     id="tab-<?php echo $tab_index; ?>"
                                     data-bs-toggle="pill"
                                     data-bs-target="#content-<?php echo $tab_index; ?>"

@@ -1,4 +1,4 @@
-<div class="archive-card d-flex flex-column justify-content-between align-items-center <?php echo $post->post_name; ?>">
+<div class="archive-card d-flex flex-column justify-content-end align-items-center <?php echo $post->post_name; ?>">
     <img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo-white.png" class="card-logo">
     <svg class="bilbilak" xmlns="http://www.w3.org/2000/svg" width="68" height="44" viewBox="0 0 68 44" fill="none">
         <path d="M23.9561 31.3333C38.4728 30.1721 37.9539 35.2662 41.3784 40.4046C41.9477 41.2587 43.9043 40.524 43.9943 39.5015C44.7796 30.5765 46.3215 9.28275 23.9562 6.16845C-0.995814 2.69396 -5.34698 33.6773 23.9561 31.3333Z"
@@ -18,12 +18,13 @@
     <div class="card-product-name">
         <?php echo get_the_title(); ?>
     </div>
-    <a href="<?php echo get_the_permalink(); ?>" class="product-link slider-btn prev-product">
+    <span class="product-link slider-btn prev-product">
             <span>
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="23" viewBox="0 0 17 23" fill="none">
                 <path d="M15.8426 10.2553L1.57668 0.185218C0.91427 -0.282368 0 0.191366 0 1.00219V21.1423C0 21.9532 0.914269 22.4269 1.57668 21.9593L15.8426 11.8892C16.4071 11.4908 16.4071 10.6537 15.8426 10.2553Z"
                       fill="#10069F"/>
             </svg>
                 </span>
-    </a>
+    </span>
+    <a href="<?php echo get_the_permalink(); ?>" class="stretched-link z-3"></a>
 </div>

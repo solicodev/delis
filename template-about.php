@@ -60,9 +60,9 @@ get_header();
 
 <section id="mission" >
     <div class="container position-relative">
-        <div class="row   align-content-center align-items-center justify-content-between" >
+        <div class="row align-items-center justify-content-between" >
 <div class="col-md-12">
-    <img src="<?php echo get_template_directory_uri()?>/assets/images/heart-beat.svg" alt="" class="blink heart-beat ">
+    <img src="<?php echo get_template_directory_uri()?>/assets/images/heart-beat.svg" alt="" class="heart-beat ">
 </div>
 
             <div class="col-md-5 ">

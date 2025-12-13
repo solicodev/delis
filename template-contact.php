@@ -14,7 +14,7 @@ get_header();
             </div>
         </div>
     </div>
-    <div class="row align-content-center align-items-start justify-content-between position-relative">
+    <div class="row align-content-center align-items-stretch justify-content-between position-relative">
         <div class="col-md-5  order-last order-lg-first">
             <h2 class="py-2">صدای شما، شیرین ترین طعم ما       </h2>
 <p>
@@ -31,14 +31,14 @@ get_header();
 </section>
  <section>
      <div class="container ">
-         <div class="row   align-content-center align-items-center  justify-content-between" >
+         <div class="row align-items-center  justify-content-between" >
              <div class="col-md-5">
                  <img src="<?php echo get_template_directory_uri()?>/assets/images/comment.png " alt="" class="img-fluid">
              </div>
              <div class="col-md-6">
                  <h2 class="py-5">
                      پیامت رو برای ما بنویس.                 </h2>
-                 <?php echo do_shortcode('[contact-form-7 id="a0dd3ef" title="تماس با ما"]'); ?>
+                 <?php echo do_shortcode('[contact-form-7 id="34d3e71" title="Contact form 1"]'); ?>
 
              </div>
          </div>
@@ -46,9 +46,9 @@ get_header();
  </section>
 <section id="contact-way" >
     <div class="container position-relative">
-        <div class="row   align-content-center align-items-center justify-content-between" >
+        <div class="row  align-items-center justify-content-between" >
 
-            <div class="col-md-5 ">
+            <div class="col-md-6 ">
                 <h2 class="py-5">
                     راه‌های تماس با دلیس
                 </h2>
@@ -86,7 +86,7 @@ get_header();
             <div class="fruit w-100 h-100 position-relative">
 
                 <div class="title-group">
-                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/title-instagram.png">
+                    <img src="<?php echo get_template_directory_uri() ?>/assets/images/insta-bg.png">
                     <h2>اینستاگرام دلیس</h2>
                 </div>
                 <p class="text-center">برای کشف تازه‌ترین طعم‌ها، ایده‌های خوشمزه و جشن‌های کوچک، ما رو تو شبکه‌های اجتماعی دنبال کن.</p>

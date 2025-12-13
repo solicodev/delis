@@ -17,7 +17,7 @@ get_header();
             if (have_posts()) :
                 ?>
 
-                <div class="row d-none d-lg-flex">
+                <div class="row align-items-stretch d-none d-lg-flex">
                     <?php
                     while (have_posts()) : the_post(); ?>
                         <div class="col-4 mb-4">
@@ -54,9 +54,9 @@ get_header();
             <div class="container">
                 <div class="row justify-content-between align-content-start">
                     <div class="col-lg-5">
-                        <div class="title-group ">
+                        <div class="title-group right-align">
                             <h2>دلیس یعنی دسر</h2>
-                            <img src="<?php echo get_template_directory_uri() ?>/assets/images/title-about.png"
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/images/home-title-bg.png"
                                  class="yellow-heart">
                         </div>
                         <p>
@@ -67,7 +67,7 @@ get_header();
                             دلیس همیشه دنبال ساختن لحظه‌های کوچک اما لذیذه؛ با طعم‌هایی که هم راحت سرو می‌شن و هم یه
                             هیجان نرم و خوشایند به روزتون اضافه می‌کنن.
                         </p>
-                        <a href="<?php echo home_url('about-us'); ?>" class="delis-btn mt-4"> ماجراجویی بیشتر</a>
+                        <a href="<?php echo home_url('about-us'); ?>" class="delis-btn mt-5"> ماجراجویی بیشتر</a>
 
                     </div>
                     <div class="col-lg-7 text-start">

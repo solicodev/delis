@@ -22,134 +22,194 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
     requestAnimationFrame(raf);
     lenis.on('scroll', ScrollTrigger.update);
     document.addEventListener('DOMContentLoaded', function () {
-        var fullNav=document.querySelector('.fullscreen-menu');
-        var menuButton=document.querySelector('.nav-button');
-        menuButton.addEventListener('click', function(){
+        var fullNav = document.querySelector('.fullscreen-menu');
+        var menuButton = document.querySelector('.nav-button');
+        menuButton.addEventListener('click', function () {
             fullNav.classList.toggle('open');
+            menuButton.classList.toggle('open')
         })
+
+        // const paintingModal = document.getElementById('painting-modal');
+        //
+        //
+        // const steps = document.querySelectorAll(".step");
+        // const navLinks = document.querySelectorAll(".steps-nav .nav-link");
+        // let currentStep = 0;
+        //
+        // function showStep(index) {
+        //     steps.forEach((step, i) => {
+        //         step.classList.toggle("active", i === index);
+        //         navLinks[i].classList.toggle("active", i === index);
+        //     });
+        // }
+        // const uploadInput=document.getElementById('upload-paint');
+        // uploadInput.addEventListener('change', function (eve) {
+        //     const [file] = eve.target.files
+        //     console.log(file)
+        //     if (file) {
+        //         console.log(URL.createObjectURL(file))
+        //         document.querySelector('.upload-zone').style.backgroundImage="url('"+URL.createObjectURL(file)+"')";
+        //     }
+        // })
+        // document.querySelectorAll(".nextBtn").forEach((btn) => {
+        //     btn.addEventListener("click", function () {
+        //
+        //         // Validate current step
+        //         const inputs = steps[currentStep].querySelectorAll("input[required]");
+        //         for (let input of inputs) {
+        //             if (!input.checkValidity()) {
+        //                 input.classList.add("is-invalid");
+        //                 input.reportValidity();
+        //                 return; // stop here if invalid
+        //             } else {
+        //                 input.classList.remove("is-invalid");
+        //             }
+        //         }
+        //
+        //         // Move to next step
+        //         currentStep++;
+        //         showStep(currentStep);
+        //     });
+        //
+        // });
+        // document.querySelectorAll(".prevBtn").forEach((btn) => {
+        //     btn.addEventListener("click", function () {
+        //         currentStep--;
+        //         showStep(currentStep);
+        //     });
+        // });
+        //
+        // // Final form submit
+        // document.getElementById("multiForm").addEventListener("submit", function (e) {
+        //     e.preventDefault();
+        //     alert("فرم با موفقیت ارسال شد!");
+        // });
 
         const singleProduct = document.getElementsByClassName('single-product');
         if (singleProduct.length > 0) {
 
             console.log(document.getElementById("product-box").offsetTop - document.querySelector(".product").height)
             //mm.add("(min-width: 600px)", () => {
-                let photo = document.querySelector(".product-image-outer");
-                let target = document.querySelector("#product-box");
-                let lastTarget = document.querySelector("#product-decorative");
-                var tl = gsap.timeline({
-                    //rotate: 360,
-                    scrollTrigger: {
-                        trigger: photo,
-                        start: "center center",
-                        scrub: true,
-                        pin: true,
-                        anticipatePin: 1,
-                        //markers: true,
-                        end: () => {
-                            let dist = target.getBoundingClientRect().top
-                                - photo.getBoundingClientRect().top + 43;
-                            return "+=" + dist;
-                        }
-                    }
-                });
-                tl.to(photo, {
-                    rotate: -10,
-                    duration: 1
-                })
-
-                    // مرحله ۲: کمی به راست بچرخد
-                    .to(photo, {
-                        rotate: 10,
-                        duration: 1
-                    })
-
-                    // مرحله ۳: در انتها صاف شود
-                    .to(photo, {
-                        rotate: 0,
-                        duration: 1
-                    })
-                gsap.to(".product-image-inner", {
-                    scrollTrigger: {
-                        trigger: "#product-slogan",
-                        start: "center bottom",
-                        scrub: true,
-                    },
-                    rotate: 360,
-                    y:()=>{
-                        let dist=lastTarget.getBoundingClientRect().top - target.getBoundingClientRect().top
+            let photo = document.querySelector(".product-image-outer");
+            let target = document.querySelector("#product-box");
+            let targetHeight = target.getBoundingClientRect().height;
+            let photoHeight = photo.getBoundingClientRect().height;
+            let diff = targetHeight - photoHeight;
+            let lastTarget = document.querySelector("#product-decorative");
+            var tl = gsap.timeline({
+                //rotate: 360,
+                scrollTrigger: {
+                    trigger: photo,
+                    start: "center center",
+                    scrub: true,
+                    pin: true,
+                    anticipatePin: 1,
+                    //markers: true,
+                    end: () => {
+                        let dist = target.getBoundingClientRect().top
+                            - photo.getBoundingClientRect().top + (diff / 2);
                         return "+=" + dist;
-                    } ,
+                    }
+                }
+            });
+            tl.to(photo, {
+                rotate: -10,
+                duration: 1
+            })
+
+                // مرحله ۲: کمی به راست بچرخد
+                .to(photo, {
+                    rotate: 10,
                     duration: 1
-                });
-                document.querySelectorAll('.next-product').forEach(function (t) {
-                    t.addEventListener('click', function (e) {
-
-                        var scaletl = gsap.timeline({})
-                            .to('.product', {
-                                rotate: 720,
-                                duration: 0.5,
-                            }).to('.scale-anim', {
-                                width: 1000,
-                                height: 1000,
-                                scale: 5,
-                                duration: 0.5,
-                            }, '<').to('.shape', {
-                                y:100,
-                                opacity:0,
-                                duration: 0.2,
-                            }, '<')
-                            .to('.product', {
-                                rotate: 0,
-                                duration: 0.5,
-                            })
-                            .to('.scale-anim', {
-                                width: 0,
-                                height: 0,
-                                scale: 1,
-                                duration: 0.5,
-                            }).to('.shape', {
-                                y:0,
-                                opacity:1,
-                                duration: 0.2,
-                                transition:'bounce-in'
-                            }, '<')
-                    })
                 })
-                document.querySelectorAll('.prev-product').forEach(function (t) {
 
-                    t.addEventListener('click', function (e) {
-
-                        var scaletl = gsap.timeline({})
-                            .to('.product', {
-                                rotate: 720,
-                                duration: 0.5,
-                            }).to('.scale-anim', {
-                                width: 1000,
-                                height: 1000,
-                                scale: 5,
-                                duration: 0.5,
-                            }, '<').to('.shape', {
-                                y:100,
-                                opacity:0,
-                                duration: 0.2,
-                            }, '<')
-                            .to('.product', {
-                                rotate: 0,
-                                duration: 0.5,
-                            })
-                            .to('.scale-anim', {
-                                width: 0,
-                                height: 0,
-                                scale: 1,
-                                duration: 0.5,
-                            }).to('.shape', {
-                                y:0,
-                                opacity:1,
-                                duration: 0.2,
-                                transition:'bounce-in'
-                            }, '<')
-                    })
+                // مرحله ۳: در انتها صاف شود
+                .to(photo, {
+                    rotate: 0,
+                    duration: 1
                 })
+            gsap.to(".product-image-inner", {
+                scrollTrigger: {
+                    trigger: "#product-slogan",
+                    start: "center bottom",
+                    scrub: true,
+                },
+                rotate: 360,
+                y: () => {
+                    let dist = lastTarget.getBoundingClientRect().top - target.getBoundingClientRect().top
+                    return "+=" + dist;
+                },
+                duration: 1
+            });
+            document.querySelectorAll('.next-product').forEach(function (t) {
+                t.addEventListener('click', function (e) {
+
+                    var scaletl = gsap.timeline({})
+                        .to('.product', {
+                            rotate: 720,
+                            duration: 0.5,
+                        }).to('.scale-anim', {
+                            width: 1000,
+                            height: 1000,
+                            scale: 5,
+                            duration: 0.5,
+                        }, '<').to('.shape', {
+                            y: 100,
+                            opacity: 0,
+                            duration: 0.2,
+                        }, '<')
+                        .to('.product', {
+                            rotate: 0,
+                            duration: 0.5,
+                        })
+                        .to('.scale-anim', {
+                            width: 0,
+                            height: 0,
+                            scale: 1,
+                            duration: 0.5,
+                        }).to('.shape', {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.2,
+                            transition: 'bounce-in'
+                        }, '<')
+                })
+            })
+            document.querySelectorAll('.prev-product').forEach(function (t) {
+
+                t.addEventListener('click', function (e) {
+
+                    var scaletl = gsap.timeline({})
+                        .to('.product', {
+                            rotate: 720,
+                            duration: 0.5,
+                        }).to('.scale-anim', {
+                            width: 1000,
+                            height: 1000,
+                            scale: 5,
+                            duration: 0.5,
+                        }, '<').to('.shape', {
+                            y: 100,
+                            opacity: 0,
+                            duration: 0.2,
+                        }, '<')
+                        .to('.product', {
+                            rotate: 0,
+                            duration: 0.5,
+                        })
+                        .to('.scale-anim', {
+                            width: 0,
+                            height: 0,
+                            scale: 1,
+                            duration: 0.5,
+                        }).to('.shape', {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.2,
+                            transition: 'bounce-in'
+                        }, '<')
+                })
+            })
             //})
         }
     })
@@ -177,22 +237,22 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
         // },
         breakpoints: {
             768: {slidesPerView: 2},
-            992: {slidesPerView: 3}
+            992: {slidesPerView: 3, spaceBetween: 94}
         }
     });
     const otherProducts = new Swiper("#other-product", {
-        slidesPerView: 1.5,
+        slidesPerView: 2.5,
         spaceBetween: 16,
         loop: true,
+        centeredSlides:true,
         //direction:'ltr',
         // navigation: {
         //     nextEl: ".swiper-button-next",
         //     prevEl: ".swiper-button-prev",
         // },
         breakpoints: {
-            768: {slidesPerView: 2},
-            992: {slidesPerView: 4.5},
-            1440: {slidesPerView: 5}
+            992: {slidesPerView: 4.5,centeredSlides:false},
+            1440: {slidesPerView: 5,centeredSlides:false}
         }
     });
     const swiperProduct = new Swiper(".product-swiper", {
@@ -297,7 +357,7 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
 
     const productWrap = document.getElementById('product-slider');
     if (productWrap) {
-        var defaultCat= document.querySelector('.select-category.selected').dataset.id;
+        var defaultCat = document.querySelector('.select-category.selected').dataset.id;
         fetchProduct(defaultCat);
         document.querySelectorAll('.select-category').forEach(selector => {
             selector.addEventListener('click', e => {

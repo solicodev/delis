@@ -40,7 +40,7 @@
 
         <div class="header-logo text-center">
             <a href="<?php echo home_url();?>">
-            <img src="<?php echo get_template_directory_uri()?>/assets/images/Logo-delis.png"  class="text-logo" alt="Delis" /></a>
+            <img src="<?php echo get_template_directory_uri()?>/assets/images/Logo-deliss.png"  class="text-logo" alt="Delis" /></a>
         </div>
 
         <div class="header-icon right">

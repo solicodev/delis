@@ -8,11 +8,10 @@
             <div class="container last-footer">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-12 col-md-3 text-center text-lg-end ">
-                        <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group152.png" alt="" class="logo-img">
-                        <p class="mt-3">دِلیس، برند خلاق گروه سولیکو است که از سال ۱۳۹۸ فعالیت خود را آغاز کرده تا با دسرهای جذابش، لحظه‌ها را شیرین‌تر کند. </p>
-                        <a target="_blank" href="<?php echo get_field('instagram_link','option');?>">
-                            <img src="<?php echo get_template_directory_uri()?>/assets/images/Men3.svg" alt="" class="">
-                        </a>
+                        <div class="d-flex flex-column justify-content-between">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/images/Group152.png" alt="" class="logo-img">
+                            <p class="mt-3">دِلیس، برند خلاق گروه سولیکو است که از سال ۱۳۹۸ فعالیت خود را آغاز کرده تا با دسرهای جذابش، لحظه‌ها را شیرین‌تر کند. </p>
+                        </div>
                     </div>
                     <div class="col-12 col-md-5 ">
                         <div class="row box-center text-center text-lg-end">
@@ -55,13 +54,19 @@
                         <img src="<?php echo get_template_directory_uri()?>/assets/images/Group316.png" alt="" class="img-fluid  d-none d-lg-block">
                     </div>
                 </div>
+                <div class="row text-center text-md-end">
+                    <div class="col-12 col-md-4">
+                        <a target="_blank" href="<?php echo get_field('instagram_link','option');?>">
+                            <img src="<?php echo get_template_directory_uri()?>/assets/images/Men3.svg" alt="" class="instagram">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="footer-bar d-flex flex-column flex-lg-row  justify-content-center align-items-center ">
             <img src="<?php echo get_template_directory_uri() ?>/assets/images/Solicoo.svg" class="m-2" alt="">
             <p class="m-0">تمام حقوق محفوظ و متعلق به گروه صنایع غذایی سولیکو است.</p>
         </div>
-
     </section>
 </footer>
 <?php

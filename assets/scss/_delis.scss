@@ -109,12 +109,12 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+
   @include media-breakpoint-down('md') {
-    padding: 2rem;
   }
 
   img {
-    width: 330px;
+    width: 167px;
   }
 
   h2, h1 {
@@ -126,14 +126,22 @@ p {
     position: absolute;
     margin: 24px 0;
   }
-
   &.right-align {
     justify-content: start;
+    @include media-breakpoint-down('md'){
+      justify-content: center;
+      padding-top: 2rem;
+    }
     img{
       width: auto;
+      @include media-breakpoint-down('md'){
+      }
     }
     h2{
       padding-right: 15px;
+      @include media-breakpoint-down('lg'){
+        padding-right: 0;
+      }
     }
   }
 }
@@ -334,7 +342,6 @@ p {
     }
   }
 }
-
 body {
   background-color: #FFFAE6;
   font-family: Pelak, "IranSans", sans-serif;
@@ -350,7 +357,9 @@ body {
   padding: 0 0 10% 0;
   background-repeat: no-repeat;
   @include media-breakpoint-down('md') {
-    background-image: url("images/hero-mobile.svg");
+    background-image: url("images/Group272.svg");
+    background-size: contain;
+margin-bottom: 10px;
   }
 
   .dotted-line {
@@ -378,6 +387,7 @@ body {
     color: #10069F;
     font-weight: 500;
     margin-bottom: 3rem;
+    margin-top: 5rem;
   }
 
   .logo-text {
@@ -410,9 +420,7 @@ body {
   }
 
   .tv-container {
-
-    margin: 0 auto;
-  }
+    margin: 12px auto;  }
 
   .tv-frame {
     width: 100%;
@@ -449,7 +457,12 @@ body {
   background-size: 100%;
   background-position: bottom;
   padding: 10% 0;
-
+.yellow-img{
+  @include media-breakpoint-down('md'){
+    width: 78%;
+    padding-bottom: 3rem;
+  }
+}
   .delis-btn {
     a {
       width: 320px;
@@ -469,7 +482,7 @@ body {
   }
 
   @include media-breakpoint-down('md') {
-    padding: 0;
+    padding: 15dvh 0 0 0;
 
   }
 
@@ -504,7 +517,9 @@ body {
   position: relative;
   background: #fffbe9;
   padding: 10px 20px;
-
+  @include media-breakpoint-down('md') {
+ margin-top: 2rem;
+  }
   .header-logo {
     .text-logo {
       position: relative;
@@ -818,8 +833,10 @@ body {
 
 #footer {
   .instagram {
-    position: absolute;
-    bottom: 0;
+    margin-top: -10%;
+    @include media-breakpoint-down('lg'){
+      margin-top: 0;
+    }
   }
 
   .right-title {
@@ -833,19 +850,15 @@ body {
   .left-title {
     margin-top: 44px;
     @include media-breakpoint-down('md') {
-      margin: 0;
+      margin: 13px 0;    }
+  }
+.logo-img{
+  width: 60%;
+  @include media-breakpoint-down('md'){
+    width: 100%;
+    padding: 0 6rem;
     }
   }
-
-  .logo-img {
-
-    width: 60%;
-    @include media-breakpoint-down('md') {
-      width: 40%;
-      padding: 3% 0;
-    }
-  }
-
   .link-Image {
     position: absolute;
     bottom: 15%;
@@ -860,6 +873,8 @@ body {
     }
 
     &:hover {
+        box-shadow: -4px 6px 18px 0 rgba(0, 0, 0, 0.15);
+
       .text-hover {
         display: block;
       }
@@ -976,11 +991,6 @@ body {
   border-radius: 300px;
   background: #FFCD00;
   margin-top: -5%;
-
-  &:hover {
-    box-shadow: -4px 6px 18px 0 rgba(0, 0, 0, 0.15);
-  }
-
   @include media-breakpoint-down('md') {
     margin-right: 0;
     margin-top: -4%;
@@ -1086,8 +1096,18 @@ body {
   background-size: 100%;
   background-position: top center;
   height: 110dvh;
-  padding-bottom: 15dvh;
-
+  padding: 15dvh 0;
+  @include media-breakpoint-down('md'){
+    background: none;
+    height: auto;
+    padding: 15dvh 0 0 0;
+    }
+  .paint-img{
+    @include media-breakpoint-down('md'){
+      margin-top: 6dvh;
+      padding: 0;
+    }
+  }
   strong {
     font-size: fluid-font(14px, 24px);
     color: $primary-color;
@@ -1123,8 +1143,7 @@ body {
     aspect-ratio: 1 / 1;
     width: 100%;
     border-radius: 24px;
-    border: 2px dashed $primary-color;
-    box-shadow: -4px 6px 12px 0 rgba(0, 0, 0, 0.15);
+    border: 1px dashed $primary-color;
     padding: 20px;
     position: relative;
     background-color: #FFFAE6;

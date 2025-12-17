@@ -19,7 +19,7 @@
                             <div class="col-md-6  right-title ">
                                 <div class="link-Container position-relative d-flex flex-column col-6 col-md-12 link-top ">
                                 <span class="text-hover">درباره ما</span>
-                                    <a href="<?php echo home_url('story'); ?>" class="link-Text stretched-link"> قصه‌ی
+                                    <a href="<?php echo home_url('about-us'); ?>" class="link-Text stretched-link"> قصه‌ی
                                          دلیس</a>
                                     <div class="border-btm">
                                     </div>
@@ -35,7 +35,7 @@
                             <div class="col-md-6 left-title">
                                 <div class="link-Container position-relative d-flex flex-column col-6 col-md-12 link-top">
                                     <span class="text-hover">خوشمزه</span>
-                                    <a href="<?php echo home_url('history'); ?>" class="link-Text stretched-link">دسرهای
+                                    <a href="<?php echo home_url('products'); ?>" class="link-Text stretched-link">دسرهای
                                         دلیس</a>
                                     <div class="border-btm">
                                     </div>
@@ -43,7 +43,7 @@
 
                                 <div class="link-Container position-relative d-flex flex-column col-6 col-md-12">
                                     <span class="text-hover">همراه شو</span>
-                                    <a href="<?php echo home_url('history'); ?>" class="link-Text stretched-link">
+                                    <a href="<?php echo home_url('contact-us'); ?>" class="link-Text stretched-link">
                                         ارتباط با دلیس</a>
                                     <div class="border-btm">
                                     </div>

@@ -1,13 +1,32 @@
 #painting-modal {
   .modal-dialog{
-    width: 700px;
+    @include media-breakpoint-up('lg'){
+      width: 700px;
+    }
   }
   .modal-content {
     background-color: rgba(231, 230, 245, 1);
     border: 2px solid rgba(16, 6, 159, 1);
     box-shadow: 0 12px 0 0 rgba(16, 6, 159, 1);
     border-radius: 40px;
-    padding: 50px 100px;
+    padding: 70px 100px;
+    @include media-breakpoint-up('lg'){
+      padding: 70px;
+    }
+    a[data-bs-dismiss="modal"] {
+      width: 48px;
+      height: 48px;
+      background-color: $primary-color;
+      border-radius: 50%;
+      position: absolute;
+      right: 25px;
+      top: 25px;
+      svg{
+        width: 100%;
+        padding: 10px;
+      }
+    }
+
   }
 
   .step {
@@ -28,7 +47,7 @@
 
     .separator{
       border-bottom: 1px dashed $primary-color;
-      width: 7vw;
+      width: 3vw;
     }
     .nav-link {
       width: 60px;
@@ -55,6 +74,17 @@
   }
 
   #multiForm {
+    .statusText{
+      font-size: fluid-font(14px,20px);
+    }
+    #phone-error,#digits-error{
+      font-size: fluid-font(12px,16px);
+      color:#D81F25 ;
+    }
+    #otp-timer,#otp-resend{
+      font-size: fluid-font(12px,16px);
+      color: $primary-color;
+    }
     .upload-zone{
       height: 40dvh;
       width: 100%;
@@ -105,9 +135,19 @@
       background-color: rgba(255, 240, 179, 1);
       height: 60px;
 
-      &.digits {
-        width: 110px;
-        height: 110px;
+      &.input-digits {
+        font-size:  fluid-font(36px,60px);
+        width: fluid-font(70px,110px);
+        height:  fluid-font(70px,110px);
+        text-align: center;
+        font-weight: bold;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          /* display: none; <- Crashes Chrome on hover */
+          -webkit-appearance: none;
+          margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+          -moz-appearance:textfield; /* Firefox */
+        }
       }
 
       &:not(.is-invalid) {

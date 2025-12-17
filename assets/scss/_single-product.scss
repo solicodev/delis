@@ -244,7 +244,13 @@ body {
     --delis-secondary-gradient-color: rgba(234, 115, 130, 1);
     --delis-title-color: rgba(250, 132, 147, 1);
   }
-
+  .shape3{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 15vh;
+  }
   #single-product-wrap {
     transition: all ease-in-out .3s;
 
@@ -418,8 +424,10 @@ body {
     color: #000;
     position: relative;
     z-index: 1;
+
     @include media-breakpoint-up('lg') {
       height: 100dvh;
+      padding-top: 10dvh;
     }
 
     #product-box {

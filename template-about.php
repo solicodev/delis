@@ -16,7 +16,7 @@ get_header();
     </div>
     <div class="row align-content-center align-items-start justify-content-between position-relative">
         <div class="col-md-5  order-last order-lg-first">
-            <h2 class="py-4">
+            <h2 class="py-5">
                 قاشق به قاشق
             </h2>
 <p class="">
@@ -33,17 +33,17 @@ get_header();
     <div class="col-md-5">
     </div>
 </section>
- <section>
+ <section id="brand">
      <div class="container ">
          <div class="row   align-content-center align-items-center justify-content-between" >
 
              <div class="col-md-5">
 
-                 <img src="<?php echo get_template_directory_uri()?>/assets/images/Group234.png " alt="" class="img-fluid">
+                 <img src="<?php echo get_template_directory_uri()?>/assets/images/Group234.png " alt="" class="img-fluid img-dist">
 
              </div>
              <div class="col-md-6">
-                 <h2 class="py-4">
+                 <h2 class="py-5">
                      قصه شیرین دلیس
                  </h2>
                  <p class="">
@@ -62,12 +62,12 @@ get_header();
     <div class="container position-relative">
         <div class="row align-items-center justify-content-between" >
 <div class="col-md-12">
-    <img src="<?php echo get_template_directory_uri()?>/assets/images/heart-beat.svg" alt="" class="heart-beat ">
+    <img src="<?php echo get_template_directory_uri()?>/assets/images/heart-beat.svg" alt="" class="heart-beat  ">
 </div>
 
             <div class="col-md-5 ">
                 
-                <h2 class="py-4">
+                <h2 class="py-5">
                     ماموریت دلیس
 
                 </h2>
@@ -76,7 +76,7 @@ get_header();
                 </p>
             </div>
             <div class="col-md-6 order-first order-lg-last">
-                <img src="<?php echo get_template_directory_uri()?>/assets/images/Group291.png " alt="" class="img-fluid">
+                <img src="<?php echo get_template_directory_uri()?>/assets/images/Group291.png " alt="" class="img-fluid img-dist">
             </div>
         </div>
     </div>
@@ -89,7 +89,7 @@ get_header();
                 <h2>ارزش‌های دلیس</h2>
                 <img src="<?php echo get_template_directory_uri();?>/assets/images/Group307.png" class="img-fluid">
             </div>
-<p>دلیس یعنی خودِ لذت، یعنی یک روش زندگی پر از حس خوب</p>
+<span>دلیس یعنی خودِ لذت، یعنی یک روش زندگی پر از حس خوب</span>
             <div class="border-line"></div>
         </div>
     </div>

@@ -111,15 +111,19 @@ p {
   justify-content: center;
 
   @include media-breakpoint-down('md') {
+    margin-top: 100px;
   }
 
   img {
-    width: 167px;
+    width: 370px;
+    @include media-breakpoint-down('lg'){
+      width: 280px;
+    }
   }
 
   h2, h1 {
     font-feature-settings: 'ss03' on;
-    font-size: fluid-font(20px, 32px);
+    font-size: fluid-font(20px, 40px);
     font-weight: 900;
     line-height: normal;
     color: #10069F;

@@ -16,7 +16,7 @@ get_header();
     </div>
     <div class="row align-content-center align-items-stretch justify-content-between position-relative">
         <div class="col-md-5  order-last order-lg-first">
-            <h2 class="py-2">صدای شما، شیرین ترین طعم ما       </h2>
+            <h2 class="py-5">صدای شما، شیرین ترین طعم ما       </h2>
 <p>
     ما عاشق شنیدن صدای شمائیم، چه بخوای از یه طعم جدید تعریف کنی، چه بخوای یه پیشنهاد خوشمزه بدی یا حتی یه انتقاد دوستانه بگی.</p>
             <img src="<?php echo get_template_directory_uri()?>/assets/images/Group212.png" alt=""  class="girl-bit   ">

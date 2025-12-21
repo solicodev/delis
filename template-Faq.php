@@ -16,9 +16,9 @@ get_header();
     </div>
     <div class="row align-content-center align-items-stretch justify-content-between position-relative">
         <div class="col-md-5  order-last order-lg-first">
-            <h2 class="">
+            <h2 class="py-5">
                 سوال دارید؟ ما اینجاییم.</h2>
-<p class="mt-5">
+<p class="">
     اینجا می‌تونید جواب رایج‌ترین سوال‌ها درباره محصولات و تجربه دلیس رو خیلی سریع پیدا کنید. اگر چیزی از قلم افتاد، با خیال راحت بپرسید.</p>
             <img src="<?php echo get_template_directory_uri()?>/assets/images/Group212.png" alt=""  class="girl-bit  ">
         </div>

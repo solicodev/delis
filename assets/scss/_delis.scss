@@ -1,40 +1,45 @@
 @font-face {
   font-family: 'Pelak';
   font-style: normal;
-  font-weight: 400;
-  src: url('fonts/PELAKFA-MEDIUM.woff2') format('woff2'), url('fonts/Pelak-Medium.woff') format('woff');
-}
-
-@font-face {
-  font-family: 'pelak';
-  font-style: normal;
   font-weight: 300;
-  src: url('fonts/PELAKFA-REGULAR.woff2') format('woff2'), url('fonts/Pelak-Regular.woff') format('woff');
+  src: url('fonts/PELAKFA-LIGHT.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'pelak';
+  font-family: 'Pelak';
   font-style: normal;
-  font-weight: 200;
-  src: url('fonts/PELAKFA-LIGHT.woff2') format('woff2'), url('fonts/Pelak-light.woff') format('woff');
+  font-weight: 400;
+  src: url('fonts/PELAKFA-REGULAR.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'pelak';
+  font-family: 'Pelak';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/PELAKFA-MEDIUM.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Pelak';
+  font-style: normal;
+  font-weight: 600;
+  src: url('fonts/Pelak-SemiBold.woff') format('woff');
+}
+@font-face {
+  font-family: 'Pelak';
   font-style: normal;
   font-weight: 700;
-  src: url('fonts/PELAKFA-BOLD.woff2') format('woff2'), url('fonts/Pelak-BOLD.woff') format('woff');
+  src: url('fonts/PELAKFA-BOLD.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'pelak';
+  font-family: 'Pelak';
   font-style: normal;
   font-weight: 800;
   src: url('fonts/Pelak-ExtraBold.woff') format('woff');
 }
 
 @font-face {
-  font-family: 'pelak';
+  font-family: 'Pelak';
   font-style: normal;
   font-weight: 900;
   src: url('fonts/Pelak-Black.woff') format('woff');
@@ -54,9 +59,11 @@
     transform: translatey(0px);
   }
 }
-
+html,body,a{
+  cursor: none;
+}
 .shape-float {
-  width: fluid-font(25px, 165px);
+  width: fluid-font(40px, 165px);
   animation: float 3s ease-in-out infinite;
 }
 
@@ -110,14 +117,10 @@ p {
   align-items: center;
   justify-content: center;
 
-  @include media-breakpoint-down('md') {
-    margin-top: 100px;
-  }
-
   img {
     width: 370px;
     @include media-breakpoint-down('lg'){
-      width: 280px;
+      width: 170px;
     }
   }
 
@@ -126,7 +129,7 @@ p {
     font-size: fluid-font(20px, 40px);
     font-weight: 900;
     line-height: normal;
-    color: #10069F;
+    color: $primary-color;
     position: absolute;
     margin: 24px 0;
   }
@@ -149,11 +152,33 @@ p {
     }
   }
 }
+.Cursor {
+  pointer-events: none;
+  position: fixed;
+  display: block;
+  border-radius: 0;
+  transform-origin: center center;
+  mix-blend-mode: difference;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  filter: url("#goo");
+  span {
+    position: absolute;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 20px;
+    background-color: #fff;
+    transform-origin: center center;
+    transform: translate(-50%, -50%);
+  }
+}
 
 .delis-btn {
   border: 2px solid $primary-color;
   font-size: fluid-font(14px, 24px);
-  font-weight: 500;
+  font-weight: 400;
   box-shadow: 0 6px 0 0 $primary-color;
   border-radius: clamp(12px, 3px + 0.8vw, 24px);
   color: #000;
@@ -186,9 +211,9 @@ p {
     width: fluid-font(32px, 64px);
     height: fluid-font(32px, 64px);
     border-radius: clamp(12px, 3px + 0.8vw, 24px);
-    border: 2px solid var(--Primary-Blue, #10069F);
-    background: var(--Primary-Yellow, #FFCD00);
-    box-shadow: 0 6px 0 0 #10069F;
+    border: 2px solid $primary-color;
+    background: $secondary-color;
+    box-shadow: 0 6px 0 0 $primary-color;
     display: flex;
     position: absolute;
     top: 0;
@@ -197,10 +222,15 @@ p {
     justify-content: center;
     align-items: center;
     z-index: 1;
-    cursor: pointer;
-
+    @include media-breakpoint-down('lg'){
+      border: 1px solid $primary-color;
+      box-shadow: 0 4px 0 0 $primary-color;
+    }
     svg {
-      width: fluid-font(12px, 24px);;
+      width: fluid-font(12px, 24px);
+      @include media-breakpoint-down('lg'){
+        width:8px
+      }
     }
   }
 
@@ -226,7 +256,7 @@ p {
     display: block;
     border-radius: 24px;
     position: relative;
-    border: 3px solid var(--Primary-Blue, #10069F);
+    border: 3px solid var(--Primary-Blue, $primary-color);
     background: var(--Primary-Yellow, #FFCD00);
     box-shadow: -4px 4px 12px 0 rgba(255, 255, 255, 0.40) inset, 4px -4px 12px 0 rgba(255, 255, 255, 0.40) inset;
     padding: 19px 23px;
@@ -244,16 +274,16 @@ p {
     height: 100%;
     transform: translateY(5px);
     border-radius: 24px;
-    background: var(--Primary-Blue, #10069F);
+    background: var(--Primary-Blue, $primary-color);
     transition: all linear 0.3s;
     @include media-breakpoint-down('lg') {
       border-radius: 18px;
     }
   }
 
-  &:hover {
+  &:active {
     & > span {
-      border: 3px solid var(--Primary-Blue, #10069F);
+      border: 3px solid var(--Primary-Blue, $primary-color);
       background: var(--Primary-Yellow, #FFCD00);
       transform: translateY(5px);
       box-shadow: 2px -2px 8px 0 rgba(0, 0, 0, 0.45) inset, -2px 2px 8px 0 rgba(0, 0, 0, 0.45) inset;
@@ -273,7 +303,7 @@ p {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-position: center center;
-  z-index: 9;
+  z-index: 12;
   //opacity: 0;
   background-color: rgba(255, 225, 102, 1);
   top: -100vh;
@@ -388,7 +418,7 @@ margin-bottom: 10px;
 
   .subtitle {
     font-size: fluid-font(32px, 40px);
-    color: #10069F;
+    color: $primary-color;
     font-weight: 500;
     margin-bottom: 3rem;
     margin-top: 5rem;
@@ -417,7 +447,7 @@ margin-bottom: 10px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    text-align: justify;
+    //text-align: justify;
     @include media-breakpoint-down('md') {
       text-align: center;
     }
@@ -460,7 +490,11 @@ margin-bottom: 10px;
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: bottom;
-  padding: 10% 0;
+  padding: 10% 0 17%;
+  @include media-breakpoint-down('md') {
+    padding: 100px 0 0 0;
+
+  }
 .yellow-img{
   @include media-breakpoint-down('md'){
     width: 78%;
@@ -480,22 +514,19 @@ margin-bottom: 10px;
 
   .girl {
     position: absolute;
-    left: 2%;
-    top: -9%;
-
+    left: 10%;
+    top: -10%;
+    width: 18%;
   }
 
-  @include media-breakpoint-down('md') {
-    padding: 15dvh 0 0 0;
 
-  }
 
   p {
     color: #000;
     font-size: fluid-font(14px, 22px);
     font-style: normal;
     font-weight: 400;
-    text-align: justify;
+    //text-align: justify;
   }
 
 
@@ -543,7 +574,7 @@ margin-bottom: 10px;
   .header-icon {
     width: fluid-font(48px, 80px);
     height: fluid-font(48px, 80px);
-    z-index: 9;
+    z-index: 13;
 
     svg {
       width: fluid-font(32px, 45px);
@@ -750,19 +781,19 @@ margin-bottom: 10px;
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top;
-  padding: 10% 0;
+  padding: 10% 0 0;
   @include media-breakpoint-down('md') {
-    padding: 0;
+    padding: 100px 0 0 0;
   }
 
   .delis-btn {
 
     a {
       background-color: #fff;
-      border: 2px solid #10069F;
+      border: 2px solid $primary-color;
       font-size: fluid-font(14px, 24px);
       font-weight: 500;
-      box-shadow: 0 6px 0 0 #10069F;
+      box-shadow: 0 6px 0 0 $primary-color;
       border-radius: 20px;
       @include media-breakpoint-down('md') {
         width: 204px;
@@ -782,7 +813,7 @@ margin-bottom: 10px;
   p {
     font-size: fluid-font(14px, 24px);
     line-height: 180%;
-    text-align: justify;
+    //text-align: justify;
 
   }
 
@@ -795,7 +826,7 @@ margin-bottom: 10px;
     }
 
     p {
-      text-align: justify;
+      //text-align: justify;
       font-size: fluid-font(14px, 24px);
       font-style: normal;
       font-weight: 400;
@@ -877,7 +908,7 @@ margin-bottom: 10px;
     }
 
     &:hover {
-        box-shadow: -4px 6px 18px 0 rgba(0, 0, 0, 0.15);
+        //box-shadow: -4px 6px 18px 0 rgba(0, 0, 0, 0.15);
 
       .text-hover {
         display: block;
@@ -902,7 +933,7 @@ margin-bottom: 10px;
     }
 
     a {
-      color: #10069F;
+      color: $primary-color;
       text-align: center;
       font-feature-settings: 'ss03' on;
       font-size: fluid-font(18px, 24px);
@@ -914,7 +945,7 @@ margin-bottom: 10px;
   }
 
   .footer-bar {
-    border-top: 1px solid #10069F;
+    border-top: 1px solid $primary-color;
     background: rgba(255, 250, 230, 1);
     padding: 30px 0;
     position: relative;
@@ -922,7 +953,7 @@ margin-bottom: 10px;
     p {
       font-size: fluid-font(12px, 16px);
       color: #000;
-      text-align: justify;
+      //text-align: justify;
 
     }
 
@@ -941,7 +972,7 @@ margin-bottom: 10px;
     p {
       color: #000;
       font-size: fluid-font(14px, 17px);
-      text-align: justify;
+      //text-align: justify;
     }
   }
 
@@ -961,7 +992,7 @@ margin-bottom: 10px;
       font-size: fluid-font(14px, 18px);
       color: #000;
       font-weight: 800;
-      text-align: justify;
+      //text-align: justify;
     }
   }
 
@@ -1024,7 +1055,6 @@ margin-bottom: 10px;
     margin-bottom: 2rem;
 
     .category-item {
-      cursor: pointer;
       transition: transform 0.3s, box-shadow 0.3s;
       text-align: center;
       padding: 0.5rem;
@@ -1097,17 +1127,17 @@ margin-bottom: 10px;
 #campaign {
   background-image: url("images/landing-bg.svg");
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: cover;
   background-position: top center;
   height: 110dvh;
-  padding: 15dvh 0;
-  @include media-breakpoint-down('md'){
+  padding-bottom: 5%;
+  @include media-breakpoint-down('lg'){
     background: none;
     height: auto;
-    padding: 15dvh 0 0 0;
+    margin-top: 100px;
     }
   .paint-img{
-    @include media-breakpoint-down('md'){
+    @include media-breakpoint-down('lg'){
       margin-top: 6dvh;
       padding: 0;
     }
@@ -1128,6 +1158,10 @@ margin-bottom: 10px;
   background-size: 100%;
   background-position: bottom center;
   margin-bottom: -15px;
+  @include media-breakpoint-down('lg') {
+    margin-top: 100px;
+    background: none;
+  }
 
   .horizontal-scroll {
     @include media-breakpoint-down('lg') {
@@ -1180,7 +1214,7 @@ margin-bottom: 10px;
       display: block;
       margin-bottom: 10px;
       font-size: fluid-font(14px, 20px);
-      font-weight: bold;
+      font-weight: 900;
       color: $primary-color;
       position: relative;
       z-index: 1;
@@ -1318,9 +1352,8 @@ margin-bottom: 10px;
       justify-content: center;
       align-items: center;
 
-      & > a {
+      & > .product-link {
         transform: rotate(-15deg);
-
         & > img {
           height: 100%;
           max-height: fluid-font(226px, 400px);

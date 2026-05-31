@@ -2,16 +2,16 @@
      aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
         <div class="modal-content">
-            <a data-bs-dismiss="modal" aria-label="Close">
-                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="48" viewBox="0 0 23 48" fill="none">
-                    <path class="line" d="M22 24L1 46.5M1 24L22 46.5" stroke="#FFCD00" stroke-width="2"
-                          stroke-linecap="round"/>
-                    <path class="heart"
-                          d="M17.4051 1.04384C12.2381 0.508416 11.4519 5.03243 11.4519 6.17166C11.4519 5.03243 10.5323 1.04384 6.31856 1.04384C2.03173 1.04384 1.02335 5.83599 2.9077 8.30826C5.18783 11.2998 11.4519 16 11.4519 16C11.4519 16 18.0527 11.1722 19.9635 8.30826C22.2442 4.89001 20.4791 1.36237 17.4051 1.04384Z"
-                          stroke="#FFCD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-            </a>
-            <ul class="nav nav-pills mb-4 steps-nav d-flex align-items-center justify-content-between p-0">
+<!--            <a data-bs-dismiss="modal" aria-label="Close">-->
+<!--                <svg xmlns="http://www.w3.org/2000/svg" width="23" height="48" viewBox="0 0 23 48" fill="none">-->
+<!--                    <path class="line" d="M22 24L1 46.5M1 24L22 46.5" stroke="#FFCD00" stroke-width="2"-->
+<!--                          stroke-linecap="round"/>-->
+<!--                    <path class="heart"-->
+<!--                          d="M17.4051 1.04384C12.2381 0.508416 11.4519 5.03243 11.4519 6.17166C11.4519 5.03243 10.5323 1.04384 6.31856 1.04384C2.03173 1.04384 1.02335 5.83599 2.9077 8.30826C5.18783 11.2998 11.4519 16 11.4519 16C11.4519 16 18.0527 11.1722 19.9635 8.30826C22.2442 4.89001 20.4791 1.36237 17.4051 1.04384Z"-->
+<!--                          stroke="#FFCD00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>-->
+<!--                </svg>-->
+<!--            </a>-->
+            <ul class="nav nav-pills mb-4 steps-nav d-flex flex-row-reverse align-items-center justify-content-between p-0">
                 <li class="nav-item"><a class="nav-link active" href="#">1</a></li>
                 <li class="separator"></li>
                 <li class="nav-item"><a class="nav-link" href="#">2</a></li>
@@ -68,10 +68,10 @@
                                 </span>
                         </div>
                     </div>
-                    <div class="d-flex gap-3 step-buttons">
-                        <button type="button" class="delis-btn prevBtn">بستن</button>
-                        <button type="button" id="send-otp-btn-login" class="delis-btn secondary nextBtn">ارسال کد
-                            تایید
+                    <div class="d-flex flex-row-reverse gap-3 step-buttons">
+                        <button type="button" data-bs-dismiss="modal" class="delis-btn">بستن</button>
+                        <button type="button" id="send-otp-btn-login" class="delis-btn secondary nextBtn">
+                            ارسال کد تایید
                         </button>
                     </div>
                 </div>
@@ -111,7 +111,7 @@
                     <div class="my-3">
                         <span id="digits-error"></span>
                     </div>
-                    <div class="d-flex gap-3 step-buttons">
+                    <div class="d-flex flex-row-reverse gap-3 step-buttons">
                         <?php wp_nonce_field('verify_otp', 'phone_auth_nonce'); ?>
                         <button type="button" class="delis-btn prevBtn">قبلی</button>
                         <button type="button" id="register-complete" class="delis-btn secondary nextBtn">تکمیل ثبت نام
@@ -151,7 +151,7 @@
                         </div>
 
                     </div>
-                    <div class="d-flex gap-3 step-buttons">
+                    <div class="d-flex flex-row-reverse gap-3 step-buttons">
                         <button type="button" class="delis-btn prevBtn">لغو</button>
                         <button type="submit" class="delis-btn secondary">ارسال</button>
                     </div>

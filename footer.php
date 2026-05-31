@@ -69,6 +69,8 @@
         </div>
     </section>
 </footer>
+<div id="cursor" class="Cursor">
+</div>
 <?php
 wp_footer();
 ?>

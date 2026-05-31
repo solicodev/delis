@@ -4,11 +4,11 @@
 get_header();
 
 ?>
-<section id="hero-section">
+<section id="hero-section" class="mb-0">
     <div class="container position-relative">
     <div class="row justify-content-center text-center">
         <div class="col-md-12">
-            <div class="title-group">
+            <div class="title-group mb-0">
                 <h1>قصه دلیس</h1>
                 <img src="<?php echo get_template_directory_uri();?>/assets/images/story-delis.png" class="img-fluid">
             </div>

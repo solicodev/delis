@@ -73,7 +73,10 @@ body {
           }
         }
       }
-
+      .weight-wrap{
+        font-size: fluid-font(14px, 20px);
+        font-weight: 600;
+      }
       .product-name, .nutrition-facts-title {
         font-size: fluid-font(20px, 32px);
         font-weight: bold;
@@ -91,25 +94,30 @@ body {
 
     #product-info-modal {
 
-      .modal-content{
+      .modal-content {
         background-color: var(--delis-bg-color);
-        .modal-header{
+
+        .modal-header {
           border-bottom: none;
-          a{
+
+          a {
             width: 48px;
             height: 48px;
             background-color: $primary-color;
             border-radius: 50%;
-            svg{
+
+            svg {
               width: 100%;
               padding: 10px;
             }
           }
         }
-        hr{
+
+        hr {
           color: var(--delis-title-color);
         }
       }
+
       .nutrition-facts-title {
         font-size: 20px;
         font-weight: bold;
@@ -148,6 +156,10 @@ body {
     }
 
     &.fruit-yogurt {
+      &:before {
+        background-image: url("images/product-single/pouding.jpg");
+      }
+
       .big-text {
         font-size: fluid-font(64px, 200px);
       }
@@ -187,6 +199,12 @@ body {
     --delis-primary-gradient-color: rgba(136, 69, 50, 0);
     --delis-secondary-gradient-color: rgba(136, 69, 50, 1);
     --delis-title-color: rgba(113, 54, 38, 1);
+    p,strong,#product-info{
+      color: #FFF0b3!important;
+    }
+    .title,.nutrition-facts-title{
+      color: $secondary-color!important;
+    }
   }
 
   .cherry {
@@ -194,6 +212,12 @@ body {
     --delis-primary-gradient-color: rgba(163, 54, 55, 0);
     --delis-secondary-gradient-color: rgba(163, 54, 55, 1);
     --delis-title-color: rgba(163, 16, 17, 1);
+    p,strong,#product-info{
+      color: #FFF0b3!important;
+    }
+    .title,.nutrition-facts-title{
+      color: $secondary-color!important;
+    }
   }
 
   .apple {
@@ -237,20 +261,36 @@ body {
     --delis-secondary-gradient-color: rgba(253, 189, 131, 1);
     --delis-title-color: rgba(253, 189, 131, 1);
   }
-
+  .figplum {
+    --delis-bg-color: rgba(134, 118, 185, 1);
+    --delis-primary-gradient-color: rgba(134, 118, 185, 0);
+    --delis-secondary-gradient-color: rgba(134, 118, 185, 1);
+    --delis-title-color: rgba(156,143,201, 1);
+  }
   .bananastrawberry {
     --delis-bg-color: rgba(234, 115, 130, 1);
     --delis-primary-gradient-color: rgba(234, 115, 130, 0);
     --delis-secondary-gradient-color: rgba(234, 115, 130, 1);
     --delis-title-color: rgba(250, 132, 147, 1);
   }
-  .shape3{
+  .peanut{
+    --delis-bg-color: rgba(248, 188, 95, 1);
+    --delis-primary-gradient-color: rgba(248, 188, 95, 0);
+    --delis-secondary-gradient-color: rgba(248, 188, 95, 1);
+    --delis-title-color: rgba(227, 167, 74, 1);
+  }
+
+  .shape3 {
     position: absolute;
     left: 0;
     right: 0;
     margin: auto;
-    top: 15vh;
+    top: 15%;
+    @include media-breakpoint-down('lg'){
+      top: 22%;
+    }
   }
+
   #single-product-wrap {
     transition: all ease-in-out .3s;
 
@@ -289,6 +329,10 @@ body {
       left: 0;
       bottom: 24dvh;
       z-index: 1;
+      @include media-breakpoint-down('lg') {
+        bottom: 58%;
+        left: 5%;
+      }
     }
 
     .shape2 {
@@ -296,7 +340,13 @@ body {
       right: 0;
       bottom: 20dvh;
       z-index: 1;
+      @include media-breakpoint-down('lg'){
+        bottom: 36%;
+        right: 5%;
+      }
     }
+
+
 
     &:before {
       content: '';
@@ -329,13 +379,15 @@ body {
       right: 0;
       margin: auto;
       width: 100%;
-      top: 13dvh;
+      top: 13%;
       font-size: fluid-font(60px, 290px);
       text-align: center;
       text-transform: capitalize;
       font-weight: bold;
       color: var(--delis-title-color);
-
+      @include media-breakpoint-down('lg'){
+        top: 30%;
+      }
       svg {
         max-width: 100%;
 
@@ -356,6 +408,9 @@ body {
       right: 0;
       margin: auto;
       z-index: 1;
+      @include media-breakpoint-down('lg'){
+        bottom: 28%;
+      }
     }
 
     .product-frame {
@@ -456,6 +511,7 @@ body {
       left: 0;
       bottom: 5dvh;
       z-index: 1;
+
     }
 
     .shape2 {
@@ -463,8 +519,15 @@ body {
       right: 0;
       bottom: 5dvh;
       z-index: 1;
-    }
 
+    }
+    .shape-bilbilak {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 10%;
+      margin: auto;
+    }
     .slogan {
       font-size: fluid-font(32px, 48px);
       color: $primary-color;
@@ -535,14 +598,14 @@ body {
         }
       }
 
-      a {
+      a,span {
         text-align: center;
         display: block;
         margin-bottom: 10px;
-        font-size: fluid-font(14px,24px);
+        font-size: fluid-font(14px, 24px);
         font-weight: bold;
         color: $primary-color;
-        position: relative;
+        //position: absolute;
         z-index: 1;
       }
 

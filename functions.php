@@ -564,6 +564,7 @@ function delis_scripts_loader() {
     wp_localize_script('mainjs', 'delisAjax', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
     ));
+    //wp_enqueue_script( 'cursorjs', get_theme_file_uri( 'assets/js/cursor.js' ), array(), $theme_version, true );
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}

@@ -89,7 +89,7 @@
     background-blend-mode: soft-light;
     background-size: cover;
     background: rgba(255, 225, 102, 1) url("images/product-single/Milk.png") no-repeat center center/cover;
-    &.pouding{
+    &.pouding,&.fruit-yogurt {
       background: rgba(255, 225, 102, 1) url("images/product-single/pouding.jpg") no-repeat center center/cover;
     }
     &.jelly{
@@ -158,8 +158,8 @@
         height: 120px;
       }
       img{
-        width: 50%;
-        height: max-content;
+        max-width: 150px;
+        height: auto;
       }
     }
     .card-cat-name {
@@ -206,7 +206,7 @@
       }
 
       .bilbilak {
-        top: 30%;
+        top: 60%;
 
         path {
           fill: $secondary-color;
@@ -227,7 +227,7 @@
       .card-cat-name {
         -webkit-text-stroke: 1px rgba(255, 205, 0, 0.4);
         color: $primary-color;
-        top: 50%;
+        top: 85%;
         z-index: 1;
         transform: translateY(-100%);
       }
@@ -235,7 +235,7 @@
       .card-product-name {
         color: $secondary-color;
         z-index: 1;
-        bottom: 50%;
+        bottom: 15%;
         transform: translateY(30%);
       }
 
@@ -245,7 +245,7 @@
     }
   }
   #product-grid{
-    margin: fluid-font(70px,150px) 0;
+    margin: 80px 0;
   }
   #decorative {
     height: 70vh;

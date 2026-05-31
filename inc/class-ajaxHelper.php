@@ -7,6 +7,9 @@ class AjaxHelper
         add_action('wp_ajax_nopriv_get_product', array($this, 'delis_get_products'));
         add_action('wp_ajax_get_product', array($this, 'delis_get_products'));
 
+        add_action('wp_ajax_success_register', array($this, 'delis_success_register'));
+        add_action('wp_ajax_nopriv_success_register', array($this, 'delis_success_register'));
+
         add_action('wp_ajax_send_otp', array($this, 'delis_send_otp'));
         add_action('wp_ajax_nopriv_send_otp', array($this, 'delis_send_otp'));
 
@@ -44,7 +47,13 @@ class AjaxHelper
             3
         );
     }
-
+    function delis_success_register()
+    {
+        $phone = sanitize_text_field($_POST['mobile']);
+        if ($this->allowed_numbers($phone)['allowed']) {
+            $this->send_success_sms($this->allowed_numbers($phone)['phone'], $this->allowed_numbers($phone)['phone']);
+        }
+    }
     function delis_users_contents()
     {
         $allpaints = $this->delis_get_all_custom_users();
@@ -96,7 +105,7 @@ class AjaxHelper
                 <tr>
 
                     <th id="cb" class="manage-column column-cb check-column" scope="col"></th>
-                    <th id="name" class="manage-column column-name" scope="col">Image</th>
+                    <th id="image" class="manage-column column-name" scope="col">Image</th>
                     <th id="name" class="manage-column column-name" scope="col">Name</th>
                     <th id="date" class="manage-column column-child" scope="col">Date</th>
                     <th id="phone" class="manage-column column-phone" scope="col">Phone Number</th>
@@ -111,6 +120,7 @@ class AjaxHelper
                     <th class="manage-column column-image" scope="col"></th>
                     <th class="manage-column column-name" scope="col"></th>
                     <th class="manage-column column-date" scope="col"></th>
+                    <th class="manage-column column-date" scope="col"></th>
                     <th class="manage-column column-phone" scope="col"></th>
                     <th class="manage-column column-status" scope="col"></th>
                 </tr>
@@ -122,6 +132,7 @@ class AjaxHelper
                         <td class="column-image"><img src="<?php echo $paint['image_url']; ?>" style="max-height: 100px"/> </td>
                         <td class="column-name"><?php echo $paint['full_name']; ?></td>
                         <td class="column-child"><?php echo $paint['created_at']; ?></td>
+                        <td class="column-child"><?php echo $paint['birth_year']; ?></td>
                         <td class="column-phone"><?php echo $paint['mobile']; ?></td>
                         <td class="column-status"><input type="checkbox"
                                                          id="input-status" <?php echo $paint['status'] ? 'checked' : ''; ?>
@@ -138,15 +149,22 @@ class AjaxHelper
         $args = wp_parse_args($_POST, array(
             'parent' => 0
         ));
+        $status=get_post_status($args['parent']);
         //$selectedProduct = get_post($args['parent']);
         $html = '';
         if (have_rows('flavor_items', $args['parent'])):
             while (have_rows('flavor_items', $args['parent'])) : the_row();
                 if (get_row_layout() == 'product_flavor'):
                     //var_dump(get_sub_field('shape_1'));
-                    $html .= '<div class="swiper-slide"><a href="' . get_the_permalink($args['parent']) . '"><img src="' . get_sub_field('image')['url'] . '"
-                                         class="img-fluid mx-auto d-block product-float" alt="' . get_sub_field('name') . '"></a>
-                                         <div class="taste-shapes ' . get_sub_field('flavor')->slug . '">
+                    $html .= '<div class="swiper-slide">';
+                                        if($status!='draft'):
+                                            $html.='<a class="product-link" href="' . get_the_permalink($args['parent']) . '"><img src="' . get_sub_field('image')['url'] . '"
+                                         class="img-fluid mx-auto d-block product-float" alt="' . get_sub_field('name') . '"></a>';
+                                            else:
+                                                $html.='<div class="product-link"><img src="' . get_sub_field('image')['url'] . '"
+                                         class="img-fluid mx-auto d-block product-float" alt="' . get_sub_field('name') . '"></div>';
+                                         endif;
+                                         $html.='<div class="taste-shapes ' . get_sub_field('flavor')->slug . '">
                                          <div class="position-relative w-75 h-75">
                                          <img class="float-shape shape-float" src="' . get_sub_field('shape_1') . '" />
                                          <img class="float-shape shape-float" src="' . get_sub_field('shape_2') . '" />
@@ -341,7 +359,29 @@ class AjaxHelper
         curl_close($curl);
         //echo $response;
     }
+    function send_success_sms($phone, $otp)
+    {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => 'https://sms.soit.ir/api.php',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => json_encode(array('phonenumber' => $phone, 'message' => 'کاربر گرامی شما با شماره ' . $otp.' در قرعه کشی شرکت کرده اید.')),
+            CURLOPT_HTTPHEADER => array(
+                'Content-Type: text/plain',
+                'Authorization: Basic ' . base64_encode("solico:V`@wL2)Yt9?hv6{E")
+            ),
+        ));
+        $response = curl_exec($curl);
 
+        curl_close($curl);
+        //echo $response;
+    }
     function delis_get_custom_user_by_mobile($mobile)
     {
         global $wpdb;
@@ -470,7 +510,7 @@ class AjaxHelper
         $mobile = sanitize_text_field($data['mobile'] ?? '');
         $full_name = sanitize_text_field($data['full_name'] ?? '');
         $birth_year = intval($data['birth_year'] ?? null);
-        $image_url = esc_url_raw($data['image_url'] ?? '');
+        $image_url = esc_url($data['image_url'] ?? '');
 
         if (empty($mobile)) {
             return new WP_Error('no_mobile', 'شماره موبایل الزامی است');

@@ -2,7 +2,7 @@
 get_header();
 $product_info = get_field('product_info');
 $desc = get_field('short_description');
-
+$weight = get_field('weight');
 $all_flavors = array();
 if (have_rows('flavor_items')):
     while (have_rows('flavor_items')) : the_row();
@@ -10,14 +10,19 @@ if (have_rows('flavor_items')):
             $flavor = get_sub_field('flavor');
             $image = get_sub_field('image');
             $name = get_sub_field('name');
+
             $shape1 = get_sub_field('shape_1');
             $shape2 = get_sub_field('shape_2');
             $product_info = get_sub_field('product_info');
             if ($product_info):
                 $ingredients = $product_info['ingredients'];
                 $ingredientHtml = '';
+                $i=1;
                 foreach ($ingredients as $ingredient) {
-                    $ingredientHtml .= ' ' . $ingredient['name'] . '،';
+
+                    $ingredientHtml .= ' ' . $ingredient['name'] ;
+                    $ingredientHtml .= ($i<count($ingredients)) ? '،' : ' ';
+                    $i++;
                 }
                 $nutrition_facts = $product_info['nutrition_fact'];
                 $nutritionHtml = '';
@@ -43,10 +48,14 @@ endif;
         </div>
     </div>
     <section id="product-hero" class="<?php echo $post->post_name; ?>">
-        <svg class="shape shape3" xmlns="http://www.w3.org/2000/svg" width="93" height="60" viewBox="0 0 93 60" fill="none">
-            <path d="M32.6864 42.7545C53.5497 41.0856 51.6526 48.886 57.2557 56.2522C57.8771 57.0692 59.8183 56.2981 59.9072 55.2755C60.88 44.0816 64.4224 12.8361 32.6865 8.4169C-1.36052 3.67593 -7.29768 45.953 32.6864 42.7545Z" fill="#10069F"/>
-            <path d="M83.5045 38.8364C76.6935 43.0859 74.9541 47.9487 74.038 52.8169C73.8482 53.8256 71.6808 54.4319 71.018 53.6481C67.0445 48.949 60.4478 39.3155 69.4199 27.2342C79.8653 13.1689 100.849 28.0151 83.5045 38.8364Z" fill="#10069F"/>
-            <path d="M64.234 3.54581C54.5115 4.49692 54.8287 14.5112 62.3977 27.4611C62.7408 28.0481 63.5574 28.1149 63.9758 27.579C71.2881 18.2135 75.2517 2.46798 64.234 3.54581Z" fill="#10069F"/>
+        <svg class="shape shape3" xmlns="http://www.w3.org/2000/svg" width="93" height="60" viewBox="0 0 93 60"
+             fill="none">
+            <path d="M32.6864 42.7545C53.5497 41.0856 51.6526 48.886 57.2557 56.2522C57.8771 57.0692 59.8183 56.2981 59.9072 55.2755C60.88 44.0816 64.4224 12.8361 32.6865 8.4169C-1.36052 3.67593 -7.29768 45.953 32.6864 42.7545Z"
+                  fill="#10069F"/>
+            <path d="M83.5045 38.8364C76.6935 43.0859 74.9541 47.9487 74.038 52.8169C73.8482 53.8256 71.6808 54.4319 71.018 53.6481C67.0445 48.949 60.4478 39.3155 69.4199 27.2342C79.8653 13.1689 100.849 28.0151 83.5045 38.8364Z"
+                  fill="#10069F"/>
+            <path d="M64.234 3.54581C54.5115 4.49692 54.8287 14.5112 62.3977 27.4611C62.7408 28.0481 63.5574 28.1149 63.9758 27.579C71.2881 18.2135 75.2517 2.46798 64.234 3.54581Z"
+                  fill="#10069F"/>
         </svg>
         <div class="gradient"></div>
         <div class="h-100 position-relative container">
@@ -114,11 +123,19 @@ endif;
                     </div>
                 </div>
                 <div class="col-12 col-lg-3">
-                    <div class="product-desc d-none d-lg-flex justify-content-start">
-                        <h3 class="nutrition-facts-title">جدول ارزش غذایی:</h3>
-                        <div class="nutrition-facts">
-                            <?php echo $all_flavors[0]['nutrition']; ?>
+                    <div class="product-desc d-none d-lg-flex justify-content-between">
+                        <div>
+                            <h3 class="nutrition-facts-title">جدول ارزش غذایی:</h3>
+                            <div class="nutrition-facts">
+                                <?php echo $all_flavors[0]['nutrition']; ?>
+                            </div>
                         </div>
+                        <?php if($weight):?>
+                        <div class="d-flex align-items-center justify-content-between weight-wrap">
+                            <div class="name">وزن</div>
+                            <div class="value"><?php echo $weight; ?></div>
+                        </div>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>
@@ -153,11 +170,13 @@ endif;
                     </div>
                 </div>
             </div>
+            <img class="shape-float shape shape-bilbilak"
+                 src="<?php echo get_template_directory_uri(); ?>/assets/images/shape-main.png" alt="">
             <img class="shape-float shape shape1" src="<?php echo $all_flavors[0]['shape1']; ?>" alt="">
             <img class="shape-float shape shape2" src="<?php echo $all_flavors[0]['shape2']; ?>" alt="">
         </div>
     </section>
-    <section id="product-decorative" style="background-image: url(<?php echo get_field('decorative_image');?>)">
+    <section id="product-decorative" style="background-image: url(<?php echo get_field('decorative_image'); ?>)">
     </section>
     <section id="product-others">
         <div class="title-group">
@@ -171,20 +190,26 @@ endif;
                     $categories = get_posts(
                         array(
                             'post_type' => 'product',
+                            'post_status' => array('publish', 'draft'),
                             'posts_per_page' => -1,
                             'exclude' => array(get_the_ID())
                         )
                     );
                     foreach ($categories as $category) :
+                        $status = get_post_status($category->ID);
                         ?>
                         <div class="swiper-slide">
-                            <div class="select-category">
+                            <div class="select-category position-relative">
 
                                 <img class="mx-auto d-block img-fluid"
                                      src="<?php echo get_the_post_thumbnail_url($category); ?>"
-                                alt="<?php echo $category->post_title; ?>">
-
-                                <a class="stretched-link" href="<?php echo get_the_permalink($category); ?>"><?php echo $category->post_title; ?></a>
+                                     alt="<?php echo $category->post_title; ?>">
+                                <?php if ($status != 'draft'): ?>
+                                    <a class="stretched-link"
+                                       href="<?php echo get_the_permalink($category); ?>"><?php echo $category->post_title; ?></a>
+                                <?php else:?>
+                                    <span><?php echo $category->post_title; ?></span>
+                                <?php endif; ?>
                             </div>
                         </div>
                     <?php

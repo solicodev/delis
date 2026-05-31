@@ -8,7 +8,7 @@ get_header();
     <div class="container">
     <div class="row justify-content-center text-center">
         <div class="col-md-12">
-            <div class="title-group">
+            <div class="title-group mb-0">
                 <h1>سوال‌های شما</h1>
                 <img src="<?php echo get_template_directory_uri();?>/assets/images/hero-faqq.png" class="img-fluid">
             </div>

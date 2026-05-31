@@ -18,13 +18,5 @@
     <div class="card-product-name">
         <?php echo get_the_title(); ?>
     </div>
-    <span class="product-link slider-btn prev-product">
-            <span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="23" viewBox="0 0 17 23" fill="none">
-                <path d="M15.8426 10.2553L1.57668 0.185218C0.91427 -0.282368 0 0.191366 0 1.00219V21.1423C0 21.9532 0.914269 22.4269 1.57668 21.9593L15.8426 11.8892C16.4071 11.4908 16.4071 10.6537 15.8426 10.2553Z"
-                      fill="#10069F"/>
-            </svg>
-                </span>
-    </span>
     <a href="<?php echo get_the_permalink(); ?>" class="stretched-link z-3"></a>
 </div>

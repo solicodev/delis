@@ -38,6 +38,13 @@
           </excludedPaths>
         </serverdata>
       </paths>
+      <paths name="academy Live">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="ajil">
         <serverdata>
           <mappings>

@@ -71,6 +71,7 @@
 </footer>
 <div id="cursor" class="Cursor">
 </div>
+<?php //get_template_part( 'template/template', 'b2b-modal' ); ?>
 <?php
 wp_footer();
 ?>

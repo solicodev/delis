@@ -844,47 +844,47 @@ import imageCompression from 'browser-image-compression';
 
     init();
 
-    const b2bModalEl = document.getElementById('b2b-modal');
-    if (b2bModalEl) {
-        const b2bCookieName = 'delis_b2b_modal_dismissed';
-
-        function getB2bCookie(name) {
-            const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-            return match ? match[2] : null;
-        }
-
-        function setB2bCookie(name, value, days) {
-            const expires = new Date(Date.now() + days * 864e5).toUTCString();
-            document.cookie = name + '=' + value + '; expires=' + expires + '; path=/';
-        }
-
-        if (!getB2bCookie(b2bCookieName)) {
-            const b2bModal = new bootstrap.Modal(b2bModalEl);
-            const b2bSteps = b2bModalEl.querySelectorAll('.b2b-modal-step');
-
-            function showB2bStep(index) {
-                b2bSteps.forEach(function (step, i) {
-                    step.classList.toggle('active', i === index);
-                });
-            }
-
-            b2bModal.show();
-
-            const b2bNextBtn = b2bModalEl.querySelector('[data-b2b-next]');
-            if (b2bNextBtn) {
-                b2bNextBtn.addEventListener('click', function () {
-                    showB2bStep(1);
-                });
-            }
-
-            b2bModalEl.querySelectorAll('[data-b2b-modal-close]').forEach(function (closeBtn) {
-                closeBtn.addEventListener('click', function () {
-                    setB2bCookie(b2bCookieName, '1', 365);
-                    b2bModal.hide();
-                });
-            });
-        }
-    }
+    // const b2bModalEl = document.getElementById('b2b-modal');
+    // if (b2bModalEl) {
+    //     const b2bCookieName = 'delis_b2b_modal_dismissed';
+    //
+    //     function getB2bCookie(name) {
+    //         const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+    //         return match ? match[2] : null;
+    //     }
+    //
+    //     function setB2bCookie(name, value, days) {
+    //         const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    //         document.cookie = name + '=' + value + '; expires=' + expires + '; path=/';
+    //     }
+    //
+    //     if (!getB2bCookie(b2bCookieName)) {
+    //         const b2bModal = new bootstrap.Modal(b2bModalEl);
+    //         const b2bSteps = b2bModalEl.querySelectorAll('.b2b-modal-step');
+    //
+    //         function showB2bStep(index) {
+    //             b2bSteps.forEach(function (step, i) {
+    //                 step.classList.toggle('active', i === index);
+    //             });
+    //         }
+    //
+    //         b2bModal.show();
+    //
+    //         const b2bNextBtn = b2bModalEl.querySelector('[data-b2b-next]');
+    //         if (b2bNextBtn) {
+    //             b2bNextBtn.addEventListener('click', function () {
+    //                 showB2bStep(1);
+    //             });
+    //         }
+    //
+    //         b2bModalEl.querySelectorAll('[data-b2b-modal-close]').forEach(function (closeBtn) {
+    //             closeBtn.addEventListener('click', function () {
+    //                 setB2bCookie(b2bCookieName, '1', 365);
+    //                 b2bModal.hide();
+    //             });
+    //         });
+    //     }
+    // }
 
 })();
 

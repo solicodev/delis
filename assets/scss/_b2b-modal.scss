@@ -1,0 +1,66 @@
+#b2b-modal {
+  .modal-dialog {
+    margin: auto;
+    width: calc(100% - 2rem);
+    max-width: 500px;
+  }
+
+  .modal-content {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .b2b-modal-step {
+    display: none;
+    width: 100%;
+
+    &.active {
+      display: block;
+    }
+  }
+
+  .b2b-modal-media {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    border-radius: 24px;
+    overflow: hidden;
+
+    @include media-breakpoint-up(lg) {
+      aspect-ratio: 1 / 1;
+      max-width: 500px;
+    }
+  }
+
+  .b2b-modal-picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .b2b-modal-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .delis-btn {
+    position: absolute;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    z-index: 1;
+    margin: 0;
+    width: auto;
+    min-width: 120px;
+    max-width: calc(100% - 32px);
+    max-height: 40px;
+    padding: 8px 16px;
+    font-size: 14px;
+    line-height: 1.2;
+    box-shadow: 0 4px 0 0 $primary-color;
+  }
+}

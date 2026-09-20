@@ -425,6 +425,11 @@ class AjaxHelper
     public function sanitize($phone)
     {
         $new_phone = false;
+        $phone = str_replace(
+            array( '۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹', '٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩' ),
+            array( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ),
+            (string) $phone
+        );
         $justNums = preg_replace(["/^\+98/", "/^0098/", "/^98/", "/[^0-9]/"], [
             '',
             '',

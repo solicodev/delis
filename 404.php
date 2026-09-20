@@ -9,18 +9,44 @@ get_header();
 
 $search_enabled = get_theme_mod( 'search_enabled', '1' ); // Get custom meta-value.
 ?>
-<div id="post-0" class="content error404 not-found">
-	<h1 class="entry-title"><?php esc_html_e( 'Not found', 'delis' ); ?></h1>
-	<div class="entry-content">
-		<p><?php esc_html_e( 'It looks like nothing was found at this location.', 'delis' ); ?></p>
-		<div>
-			<?php
-				if ( '1' === $search_enabled ) :
-					get_search_form();
-				endif;
-			?>
-		</div>
-	</div><!-- /.entry-content -->
-</div><!-- /#post-0 -->
+    <section id="section-eror">
+        <div class="container">
+            <div class="row justify-content-between align-items-center h-100">
+                <img class=" bg-mobile d-block d-md-none img-fluid " src="<?php echo get_template_directory_uri() ?>/assets/images/ERROR12.svg"
+                     alt="">
+                <div class="col-12 col-lg-3 order-last order-lg-first">
+                    <div class="hero-text  text-end  align-items-center mt-4">
+                        <div class="logo-text position-relative ">
+                            <img class="bg-logo d-none d-md-block " src="<?php echo get_template_directory_uri() ?>/assets/images/ERROR12.svg"
+                                 alt="">
+
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/images/oops.png" alt="" class="img-fluid oops-bg">
+                        </div>
+                        <p class="subtitle">این صفحه<br> گم شده ....</p>
+                        <p>برگرد تا دسرهای خوشمزه رو از دست ندی.</p>
+                        <div class="mt-4 ">
+                            <a href="<?php echo home_url('products'); ?>" class="delis-btn ">دسرهای دلیس</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 position-relative">
+                    <img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/Group503.png" alt="" class="desert-bg img-fluid d-none d-md-block">
+                    <div class="tv-container position-relative">
+
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/Group187.png"
+                             class="img-fluid tv-frame" alt="TV">
+                        <div class="tv-screen position-absolute">
+                            <video id="resVideo" autoplay loop muted playsinline>
+                                <source src="<?php echo get_template_directory_uri(); ?>/assets/video/eror.mp4"
+                                        type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+<div class="col-lg-2"></div>
+            </div>
+        </div>
+    </section>
 <?php
 get_footer();

@@ -7,6 +7,59 @@ import {gsap} from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 import imageCompression from 'browser-image-compression';
 
+const landingTimer = document.querySelector('#landing-page .landing-timer');
+if (landingTimer) {
+    const countdownSection = document.getElementById('landing-countdown');
+    const deadline = new Date(landingTimer.dataset.deadline).getTime();
+    const daysEl = landingTimer.querySelector('[data-unit="days"]');
+    const hoursEl = landingTimer.querySelector('[data-unit="hours"]');
+    const minutesEl = landingTimer.querySelector('[data-unit="minutes"]');
+    const secondsEl = landingTimer.querySelector('[data-unit="seconds"]');
+    function pad(value) {
+        return String(Math.max(0, value)).padStart(2, '0');
+    }
+    function expireLandingTimer() {
+        if (countdownSection) {
+            countdownSection.classList.add('is-expired');
+            const title = countdownSection.querySelector('.landing-count-title');
+            const copy = countdownSection.querySelector('.landing-count-copy');
+            if (title) {
+                title.textContent = 'زمان قرعه‌کشی تمام شد';
+            }
+            if (copy) {
+                copy.hidden = true;
+            }
+        }
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
+    }
+    function tickLandingTimer() {
+        if (!Number.isFinite(deadline)) {
+            expireLandingTimer();
+            return false;
+        }
+        const distance = deadline - Date.now();
+        const days = Math.floor(distance / 86400000);
+        if (days <= 0) {
+            expireLandingTimer();
+            return false;
+        }
+        daysEl.textContent = pad(days);
+        hoursEl.textContent = pad(Math.floor((distance % 86400000) / 3600000));
+        minutesEl.textContent = pad(Math.floor((distance % 3600000) / 60000));
+        secondsEl.textContent = pad(Math.floor((distance % 60000) / 1000));
+        return true;
+    }
+    if (tickLandingTimer()) {
+        const timerId = setInterval(function () {
+            if (!tickLandingTimer()) {
+                clearInterval(timerId);
+            }
+        }, 1000);
+    }
+}
 (function () {
     'use strict';
 
@@ -24,14 +77,33 @@ import imageCompression from 'browser-image-compression';
     lenis.on('scroll', ScrollTrigger.update);
     var fullNav = document.querySelector('.fullscreen-menu');
     var menuButton = document.querySelector('.nav-button');
-    menuButton.addEventListener('click', function () {
-        fullNav.classList.toggle('open');
-        menuButton.classList.toggle('open')
-    })
+    if (fullNav && menuButton) {
+        menuButton.addEventListener('click', function () {
+            fullNav.classList.toggle('open');
+            menuButton.classList.toggle('open')
+        })
+    }
+    const landingNav = document.querySelector('.landing-header-nav');
+    const landingNavToggle = document.querySelector('.landing-header-toggle');
+    if (landingNav && landingNavToggle) {
+        const closeLandingNav = () => {
+            landingNav.classList.remove('open');
+            landingNavToggle.classList.remove('open');
+            landingNavToggle.setAttribute('aria-expanded', 'false');
+        };
+        landingNavToggle.addEventListener('click', function () {
+            const isOpen = landingNav.classList.toggle('open');
+            landingNavToggle.classList.toggle('open', isOpen);
+            landingNavToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        landingNav.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', closeLandingNav);
+        });
+    }
 
-    const paintingModal = document.getElementById('painting-modal');
-    const steps = document.querySelectorAll(".step");
-    const navLinks = document.querySelectorAll(".steps-nav .nav-link");
+    const paintingRoot = document.getElementById('painting-modal') || document.getElementById('landing-form');
+    const steps = paintingRoot ? paintingRoot.querySelectorAll(".step") : [];
+    const navLinks = paintingRoot ? paintingRoot.querySelectorAll(".steps-nav .nav-link") : [];
     const otpTimerDisplay = document.getElementById('otp-timer');
     const otpResend = document.getElementById('otp-resend')
 
@@ -41,18 +113,31 @@ import imageCompression from 'browser-image-compression';
     function showStep(index) {
         steps.forEach((step, i) => {
             step.classList.toggle("active", i === index);
-            navLinks[i].classList.toggle("active", i === index);
+            if (navLinks[i]) {
+                navLinks[i].classList.toggle("active", i === index);
+            }
         });
     }
+    navLinks.forEach((link) => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+        });
+    });
 
     const uploadInput = document.getElementById('upload-paint');
+    const uploadZone = paintingRoot ? paintingRoot.querySelector('.upload-zone') : null;
     if (uploadInput) {
         var [file] = [];
         uploadInput.addEventListener('change', function (eve) {
             [file] = eve.target.files
-            if (file) {
-                console.log(URL.createObjectURL(file))
-                document.querySelector('.upload-zone').style.backgroundImage = "url('" + URL.createObjectURL(file) + "')";
+            if (file && uploadZone) {
+                const hint = uploadZone.querySelector('.upload-hint');
+                if (hint) {
+                    hint.textContent = file.name;
+                }
+                if (!document.getElementById('landing-form')) {
+                    uploadZone.style.backgroundImage = "url('" + URL.createObjectURL(file) + "')";
+                }
             }
         })
     }
@@ -60,8 +145,32 @@ import imageCompression from 'browser-image-compression';
     const nameInput = document.getElementById('name-input');
     const birthdateInput = document.getElementById('birthdatae-input');
     const nonce = document.getElementById('phone_auth_nonce');
+    const toEnglishDigits = (value) => String(value || '')
+        .replace(/[۰-۹]/g, (digit) => String('۰۱۲۳۴۵۶۷۸۹'.indexOf(digit)))
+        .replace(/[٠-٩]/g, (digit) => String('٠١٢٣٤٥٦٧٨٩'.indexOf(digit)));
+    const resetStepButton = (btn, fallback) => {
+        btn.disabled = false;
+        btn.textContent = btn.dataset.label || fallback;
+    };
+    const showPhoneError = (message) => {
+        const phoneError = document.getElementById('phone-error');
+        if (phoneError) {
+            phoneError.innerHTML = message;
+        }
+        if (phoneInput) {
+            phoneInput.classList.add('is-invalid');
+        }
+    };
+    if (phoneInput) {
+        phoneInput.addEventListener('input', function () {
+            const converted = toEnglishDigits(phoneInput.value);
+            if (converted !== phoneInput.value) {
+                phoneInput.value = converted;
+            }
+        });
+    }
     document.querySelectorAll(".nextBtn").forEach((btn) => {
-        btn.addEventListener("click", function (e) {
+        btn.addEventListener("click", function () {
             // Validate current step
             const inputs = steps[currentStep].querySelectorAll("input[required]");
             for (let input of inputs) {
@@ -73,17 +182,18 @@ import imageCompression from 'browser-image-compression';
                     input.classList.remove("is-invalid");
                 }
             }
-            if (e.target.id === "register-complete") {
-                let digits1 = document.getElementById('digits-1').value;
-                let digits2 = document.getElementById('digits-2').value;
-                let digits3 = document.getElementById('digits-3').value;
-                let digits4 = document.getElementById('digits-4').value;
+            if (btn.id === "register-complete") {
+                let digits1 = toEnglishDigits(document.getElementById('digits-1').value);
+                let digits2 = toEnglishDigits(document.getElementById('digits-2').value);
+                let digits3 = toEnglishDigits(document.getElementById('digits-3').value);
+                let digits4 = toEnglishDigits(document.getElementById('digits-4').value);
                 let otp = digits1 + digits2 + digits3 + digits4;
+                btn.dataset.label = btn.dataset.label || btn.textContent;
                 btn.textContent='منتظر باشید...';
                 btn.disabled = true;
                 let formData = new URLSearchParams({
                     action: 'verify_otp',
-                    phone: phoneInput.value,
+                    phone: toEnglishDigits(phoneInput.value),
                     otp: otp,
                     name: nameInput.value,
                     phone_auth_nonce: nonce.value
@@ -98,25 +208,37 @@ import imageCompression from 'browser-image-compression';
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
+                            resetStepButton(btn, 'تکمیل ثبت نام');
+                            if (document.getElementById('landing-form')) {
+                                const landingForm = document.getElementById('multiForm');
+                                if (landingForm) {
+                                    landingForm.dispatchEvent(new Event('submit', {cancelable: true}));
+                                }
+                                return;
+                            }
                             currentStep++;
                             showStep(currentStep);
-                            btn.textContent='تکمیل ثبت نام';
-                            btn.disabled = false;
                         } else {
+                            resetStepButton(btn, 'تکمیل ثبت نام');
                             document.getElementById('digits-error').innerText = data.data.message;
                         }
                     })
                     .catch(error => {
+                        resetStepButton(btn, 'تکمیل ثبت نام');
                         document.getElementById('digits-error').innerText = 'احراز هویت با خطا مواجه شد. مجدد تلاش کنید.';
-
-                        //message_alert('error', 'احراز هویت با خطا مواجه شد. مجدد تلاش کنید.');
-                        // verifyOtpBtn.disabled = false;
-                        // verifyOtpBtn.textContent = phoneAuth.verifyText;
                         console.error('Error:', error);
                     });
             }
-            if (e.target.id === "send-otp-btn-login") {
+            if (btn.id === "send-otp-btn-login") {
+                if (document.getElementById('landing-form') && (!uploadInput || !uploadInput.files[0])) {
+                    alert('لطفاً فایل نقاشی را آپلود کنید');
+                    return;
+                }
+                if (phoneInput) {
+                    phoneInput.value = toEnglishDigits(phoneInput.value);
+                }
                 btn.disabled=true;
+                btn.dataset.label = btn.dataset.label || btn.textContent;
                 btn.textContent='منتظر باشید...'
                 let formData = new URLSearchParams({
                     action: 'send_otp',
@@ -147,17 +269,18 @@ import imageCompression from 'browser-image-compression';
                             showStep(currentStep);
                             document.getElementById('otp-mobile').innerHTML = data.data.phone
                             startOtpTimer();
-                            btn.disabled=false;
-                            btn.textContent='ارسال کد تایید'
+                            resetStepButton(btn, 'ارسال کد تایید')
 
                         } else {
-                            btn.disabled = false;
-                            document.getElementById('phone-error').innerHTML = data.data.message
+                            resetStepButton(btn, 'ارسال کد تایید');
+                            showPhoneError(data.data && data.data.message ? data.data.message : 'ارسال کد انجام نشد.');
                         }
 
                     })
                     .catch(error => {
-                        document.getElementById('phone-error').innerHTML = error
+                        resetStepButton(btn, 'ارسال کد تایید');
+                        showPhoneError('ارسال کد انجام نشد. لطفاً دوباره تلاش کنید.');
+                        console.error('Error:', error);
                     });
             }
 
@@ -535,6 +658,35 @@ import imageCompression from 'browser-image-compression';
             })
         })
         //})
+    }
+
+    const landingGallerySlider = document.querySelector('#landing-gallery-slider');
+    if (landingGallerySlider) {
+        const galleryMq = window.matchMedia('(min-width: 768px)');
+        let gallerySwiper;
+
+        const createLandingGallerySwiper = () => {
+            if (gallerySwiper) {
+                gallerySwiper.destroy(true, true);
+            }
+            const isDesktop = galleryMq.matches;
+            gallerySwiper = new Swiper(landingGallerySlider, {
+                modules: [Autoplay],
+                direction: isDesktop ? 'vertical' : 'horizontal',
+                slidesPerView: isDesktop ? 3 : 1.45,
+                spaceBetween: 12,
+                loop: true,
+                speed: 800,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+            });
+        };
+
+        createLandingGallerySwiper();
+        galleryMq.addEventListener('change', createLandingGallerySwiper);
     }
 
     const archiveSlider = new Swiper("#archive-slider", {

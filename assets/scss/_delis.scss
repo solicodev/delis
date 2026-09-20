@@ -189,6 +189,8 @@ p {
   display: block;
   text-align: center;
   transition: all .3s;
+  touch-action: manipulation;
+  cursor: pointer;
   @include media-breakpoint-down('md') {
     width: 100%;
     text-align: center;
@@ -485,6 +487,103 @@ margin-bottom: 10px;
     }
   }
 }
+
+
+#section-eror {
+  padding: 0 0 10% 0;
+
+    .bg-mobile{
+      position: absolute;
+      top: 26%;
+
+  }
+  .desert-bg{
+    position: absolute;
+    bottom: 0;
+    left: -252px;
+  }
+  .hero-text {
+    .heart {
+      position: absolute;
+      top: 12%;
+      left: 8%;
+    }
+  }
+  .subtitle {
+    font-size: fluid-font(32px, 40px);
+    color: #10069F;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+
+  .logo-text {
+.oops-bg{
+  @include media-breakpoint-down('lg'){
+    width: 133px;
+  }
+}
+    img {
+      position: relative;
+      z-index: 1;
+      &.bg-logo {
+        position: absolute;
+        right: 0;
+        top: -1rem;
+        z-index: -2;
+        @include media-breakpoint-down('lg'){
+          top: 31%;
+
+        }
+      }
+    }
+
+  }
+
+  p {
+    font-size: fluid-font(14px, 24px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: right;
+    @include media-breakpoint-down('md') {
+    }
+  }
+
+  .tv-container {
+    margin: 12px auto;  }
+
+  .tv-frame {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  .tv-screen {
+    position: absolute;
+    inset: 27% 17% 0 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 4 / 3;
+    z-index: 0;
+    width: 75%;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+  }
+}
+
+
+
 
 #about {
   background-image: url("images/about-bg.png");

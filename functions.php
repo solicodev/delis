@@ -571,3 +571,43 @@ function delis_scripts_loader() {
 }
 add_action( 'wp_enqueue_scripts', 'delis_scripts_loader' );
 
+/**
+ * Extra ACF fields for the landing template.
+ */
+function delis_register_landing_acf_fields() {
+	if ( ! function_exists( 'acf_add_local_field' ) ) {
+		return;
+	}
+
+	acf_add_local_field(
+		array(
+			'key'            => 'field_68f9d7b11a4ce',
+			'label'          => 'زمان قرعه‌کشی',
+			'name'           => 'countdown_deadline',
+			'type'           => 'date_time_picker',
+			'parent'         => 'group_68f9d5e21a4c8',
+			'instructions'   => 'تاریخ و ساعت برگزاری قرعه‌کشی را انتخاب کنید. وقتی تعداد روزهای مانده صفر شود، شمارنده روی صفر می‌ماند و پیام «زمان قرعه‌کشی تمام شد» نمایش داده می‌شود.',
+			'required'       => 0,
+			'display_format' => 'Y-m-d H:i:s',
+			'return_format'  => 'Y-m-d H:i:s',
+			'first_day'      => 6,
+		)
+	);
+
+	acf_add_local_field(
+		array(
+			'key'          => 'field_68f9d6b11a4cf',
+			'label'        => 'نام برنده',
+			'name'         => 'name',
+			'type'         => 'text',
+			'parent'       => 'field_68f9d6a11a4cc',
+			'instructions' => 'این نام کنار نقاشی با شیپ زرد نمایش داده می‌شود.',
+			'required'     => 0,
+			'wrapper'      => array(
+				'width' => '40',
+			),
+		)
+	);
+}
+add_action( 'acf/init', 'delis_register_landing_acf_fields' );
+
